@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6BD7520D1AEE948000CA380B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520C1AEE948000CA380B /* main.m */; };
+		6BD752101AEE948000CA380B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520F1AEE948000CA380B /* AppDelegate.m */; };
+		6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */; };
+		6BD752161AEE948000CA380B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752151AEE948000CA380B /* ViewController.m */; };
+		6BD752191AEE948000CA380B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BD752171AEE948000CA380B /* Main.storyboard */; };
+		6BD7521B1AEE948000CA380B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BD7521A1AEE948000CA380B /* Images.xcassets */; };
+		6BD7521E1AEE948000CA380B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD7521C1AEE948000CA380B /* LaunchScreen.xib */; };
+		6BD7522A1AEE948000CA380B /* Aprende_con_TonyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752291AEE948000CA380B /* Aprende_con_TonyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6BD752241AEE948000CA380B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BD751FF1AEE948000CA380B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BD752061AEE948000CA380B;
+			remoteInfo = "Aprende con Tony";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6BD752071AEE948000CA380B /* Aprende con Tony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aprende con Tony.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD7520B1AEE948000CA380B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BD7520C1AEE948000CA380B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6BD7520E1AEE948000CA380B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6BD7520F1AEE948000CA380B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6BD752121AEE948000CA380B /* Aprende_con_Tony.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Aprende_con_Tony.xcdatamodel; sourceTree = "<group>"; };
+		6BD752141AEE948000CA380B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6BD752151AEE948000CA380B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6BD752181AEE948000CA380B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6BD7521A1AEE948000CA380B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6BD7521D1AEE948000CA380B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6BD752231AEE948000CA380B /* Aprende con TonyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aprende con TonyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD752281AEE948000CA380B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BD752291AEE948000CA380B /* Aprende_con_TonyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Aprende_con_TonyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6BD752041AEE948000CA380B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BD752201AEE948000CA380B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6BD751FE1AEE948000CA380B = {
+			isa = PBXGroup;
+			children = (
+				6BD752091AEE948000CA380B /* Aprende con Tony */,
+				6BD752261AEE948000CA380B /* Aprende con TonyTests */,
+				6BD752081AEE948000CA380B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6BD752081AEE948000CA380B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BD752071AEE948000CA380B /* Aprende con Tony.app */,
+				6BD752231AEE948000CA380B /* Aprende con TonyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6BD752091AEE948000CA380B /* Aprende con Tony */ = {
+			isa = PBXGroup;
+			children = (
+				6BD7520E1AEE948000CA380B /* AppDelegate.h */,
+				6BD7520F1AEE948000CA380B /* AppDelegate.m */,
+				6BD752141AEE948000CA380B /* ViewController.h */,
+				6BD752151AEE948000CA380B /* ViewController.m */,
+				6BD752171AEE948000CA380B /* Main.storyboard */,
+				6BD7521A1AEE948000CA380B /* Images.xcassets */,
+				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
+				6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */,
+				6BD7520A1AEE948000CA380B /* Supporting Files */,
+			);
+			path = "Aprende con Tony";
+			sourceTree = "<group>";
+		};
+		6BD7520A1AEE948000CA380B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BD7520B1AEE948000CA380B /* Info.plist */,
+				6BD7520C1AEE948000CA380B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6BD752261AEE948000CA380B /* Aprende con TonyTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BD752291AEE948000CA380B /* Aprende_con_TonyTests.m */,
+				6BD752271AEE948000CA380B /* Supporting Files */,
+			);
+			path = "Aprende con TonyTests";
+			sourceTree = "<group>";
+		};
+		6BD752271AEE948000CA380B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6BD752281AEE948000CA380B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6BD752061AEE948000CA380B /* Aprende con Tony */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BD7522D1AEE948000CA380B /* Build configuration list for PBXNativeTarget "Aprende con Tony" */;
+			buildPhases = (
+				6BD752031AEE948000CA380B /* Sources */,
+				6BD752041AEE948000CA380B /* Frameworks */,
+				6BD752051AEE948000CA380B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Aprende con Tony";
+			productName = "Aprende con Tony";
+			productReference = 6BD752071AEE948000CA380B /* Aprende con Tony.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6BD752221AEE948000CA380B /* Aprende con TonyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BD752301AEE948000CA380B /* Build configuration list for PBXNativeTarget "Aprende con TonyTests" */;
+			buildPhases = (
+				6BD7521F1AEE948000CA380B /* Sources */,
+				6BD752201AEE948000CA380B /* Frameworks */,
+				6BD752211AEE948000CA380B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BD752251AEE948000CA380B /* PBXTargetDependency */,
+			);
+			name = "Aprende con TonyTests";
+			productName = "Aprende con TonyTests";
+			productReference = 6BD752231AEE948000CA380B /* Aprende con TonyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6BD751FF1AEE948000CA380B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Cristina Anton prieto";
+				TargetAttributes = {
+					6BD752061AEE948000CA380B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					6BD752221AEE948000CA380B = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 6BD752061AEE948000CA380B;
+					};
+				};
+			};
+			buildConfigurationList = 6BD752021AEE948000CA380B /* Build configuration list for PBXProject "Aprende con Tony" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6BD751FE1AEE948000CA380B;
+			productRefGroup = 6BD752081AEE948000CA380B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6BD752061AEE948000CA380B /* Aprende con Tony */,
+				6BD752221AEE948000CA380B /* Aprende con TonyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6BD752051AEE948000CA380B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD752191AEE948000CA380B /* Main.storyboard in Resources */,
+				6BD7521E1AEE948000CA380B /* LaunchScreen.xib in Resources */,
+				6BD7521B1AEE948000CA380B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BD752211AEE948000CA380B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6BD752031AEE948000CA380B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
+				6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */,
+				6BD752161AEE948000CA380B /* ViewController.m in Sources */,
+				6BD7520D1AEE948000CA380B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BD7521F1AEE948000CA380B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD7522A1AEE948000CA380B /* Aprende_con_TonyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6BD752251AEE948000CA380B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BD752061AEE948000CA380B /* Aprende con Tony */;
+			targetProxy = 6BD752241AEE948000CA380B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6BD752171AEE948000CA380B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BD752181AEE948000CA380B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6BD7521C1AEE948000CA380B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BD7521D1AEE948000CA380B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6BD7522B1AEE948000CA380B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		6BD7522C1AEE948000CA380B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6BD7522E1AEE948000CA380B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Aprende con Tony/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6BD7522F1AEE948000CA380B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Aprende con Tony/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6BD752311AEE948000CA380B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Aprende con TonyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aprende con Tony.app/Aprende con Tony";
+			};
+			name = Debug;
+		};
+		6BD752321AEE948000CA380B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Aprende con TonyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aprende con Tony.app/Aprende con Tony";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6BD752021AEE948000CA380B /* Build configuration list for PBXProject "Aprende con Tony" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BD7522B1AEE948000CA380B /* Debug */,
+				6BD7522C1AEE948000CA380B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BD7522D1AEE948000CA380B /* Build configuration list for PBXNativeTarget "Aprende con Tony" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BD7522E1AEE948000CA380B /* Debug */,
+				6BD7522F1AEE948000CA380B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6BD752301AEE948000CA380B /* Build configuration list for PBXNativeTarget "Aprende con TonyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BD752311AEE948000CA380B /* Debug */,
+				6BD752321AEE948000CA380B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6BD752121AEE948000CA380B /* Aprende_con_Tony.xcdatamodel */,
+			);
+			currentVersion = 6BD752121AEE948000CA380B /* Aprende_con_Tony.xcdatamodel */;
+			path = Aprende_con_Tony.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6BD751FF1AEE948000CA380B /* Project object */;
+}
