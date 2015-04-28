@@ -16,6 +16,7 @@
 		6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752341AEE963800CA380B /* SeleccionUsuariosViewController.m */; };
 		6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752371AEE9BD100CA380B /* InicioAppViewController.m */; };
 		6BD7523A1AEEA58700CA380B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BD752391AEEA58700CA380B /* Images.xcassets */; };
+		6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		6BD752361AEE9BD100CA380B /* InicioAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InicioAppViewController.h; sourceTree = "<group>"; };
 		6BD752371AEE9BD100CA380B /* InicioAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InicioAppViewController.m; sourceTree = "<group>"; };
 		6BD752391AEEA58700CA380B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6BF0C5381AEF8C930006E382 /* ConfiguracionUsuariosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionUsuariosViewController.h; sourceTree = "<group>"; };
+		6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionUsuariosViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				6BD752371AEE9BD100CA380B /* InicioAppViewController.m */,
 				6BD752331AEE963800CA380B /* SeleccionUsuariosViewController.h */,
 				6BD752341AEE963800CA380B /* SeleccionUsuariosViewController.m */,
+				6BF0C5381AEF8C930006E382 /* ConfiguracionUsuariosViewController.h */,
+				6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */,
 				6BD752171AEE948000CA380B /* Main.storyboard */,
 				6BD752391AEEA58700CA380B /* Images.xcassets */,
 				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
@@ -231,6 +236,7 @@
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
 				6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */,
+				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,
 				6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */,
 				6BD7520D1AEE948000CA380B /* main.m in Sources */,
 			);

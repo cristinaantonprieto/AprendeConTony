@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SeleccionUsuariosViewController.h"
+#import "ConfiguracionUsuariosViewController.h"
 
 @interface InicioAppViewController : UIViewController
 {

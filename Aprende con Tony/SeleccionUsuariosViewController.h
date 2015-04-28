@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConfiguracionUsuariosViewController.h"
 
 @interface SeleccionUsuariosViewController : UIViewController
+{
+    IBOutlet UIImageView *imagenFondo;
+}
+
+
+/** VARIABLES **/
+@property (strong,nonatomic) IBOutlet UIImageView *imagenFondo;
+/** METODOS **/
+-(IBAction)goToConfigurarUsuariosViewController:(id)sender;
 
 @end

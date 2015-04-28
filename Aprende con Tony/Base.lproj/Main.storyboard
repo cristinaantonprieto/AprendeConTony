@@ -22,6 +22,66 @@
             </objects>
             <point key="canvasLocation" x="-536" y="305"/>
         </scene>
+        <!--Configuracion Usuarios View Controller-->
+        <scene sceneID="W4g-rm-ceG">
+            <objects>
+                <viewController storyboardIdentifier="configuracionUsuariosViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qoz-oQ-gBr" customClass="ConfiguracionUsuariosViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wle-HR-R8V"/>
+                        <viewControllerLayoutGuide type="bottom" id="50t-2x-53G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Iq-zE-afl">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboardConfiguacion" translatesAutoresizingMaskIntoConstraints="NO" id="rp3-Kr-p2V">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="50t-2x-53G" firstAttribute="top" secondItem="rp3-Kr-p2V" secondAttribute="bottom" constant="-5" id="08A-Do-xrf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="rp3-Kr-p2V" secondAttribute="bottom" constant="-5" id="EJ1-Hs-aKZ"/>
+                            <constraint firstItem="rp3-Kr-p2V" firstAttribute="top" secondItem="wle-HR-R8V" secondAttribute="bottom" id="Gok-ms-oYi"/>
+                            <constraint firstItem="rp3-Kr-p2V" firstAttribute="leading" secondItem="7Iq-zE-afl" secondAttribute="leading" id="IsZ-o3-tvR">
+                                <variation key="widthClass=regular" constant="-2"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="rp3-Kr-p2V" secondAttribute="trailing" constant="-16" id="gnU-Ug-5g8">
+                                <variation key="widthClass=regular" constant="-19"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="rp3-Kr-p2V"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="EJ1-Hs-aKZ"/>
+                                <exclude reference="Gok-ms-oYi"/>
+                                <exclude reference="IsZ-o3-tvR"/>
+                                <exclude reference="gnU-Ug-5g8"/>
+                                <exclude reference="08A-Do-xrf"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="rp3-Kr-p2V"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="EJ1-Hs-aKZ"/>
+                                <include reference="Gok-ms-oYi"/>
+                                <include reference="IsZ-o3-tvR"/>
+                                <include reference="gnU-Ug-5g8"/>
+                                <include reference="08A-Do-xrf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imagenFondo" destination="rp3-Kr-p2V" id="emr-Zq-hg1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cue-oS-URu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.75" y="-482"/>
+        </scene>
         <!--Inicio App View Controller-->
         <scene sceneID="Mu9-ff-aoi">
             <objects>
@@ -185,11 +245,12 @@
                         <outlet property="buttonPlay" destination="Cbi-yz-MUm" id="ggz-Vy-QqX"/>
                         <outlet property="imagenFondo" destination="pLm-mX-nyC" id="xmo-VI-yDq"/>
                         <segue destination="vpQ-Uq-rIb" kind="show" identifier="seleccionUsuariosSegue" id="xXh-Xa-bRX"/>
+                        <segue destination="qoz-oQ-gBr" kind="show" identifier="configuracionUsuariosSegue" id="f76-Ai-2Dk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66B-WM-upm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.75" y="459"/>
+            <point key="canvasLocation" x="120.75" y="459"/>
         </scene>
         <!--Seleccion Usuarios View Controller-->
         <scene sceneID="ai5-P6-fEy">
@@ -202,15 +263,58 @@
                     <view key="view" contentMode="scaleToFill" id="FUp-hT-Uaq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corcho" translatesAutoresizingMaskIntoConstraints="NO" id="ZLh-wm-jPJ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ZLh-wm-jPJ" firstAttribute="top" secondItem="Z98-3V-Tu4" secondAttribute="bottom" id="INI-Yf-rC1"/>
+                            <constraint firstItem="ZLh-wm-jPJ" firstAttribute="leading" secondItem="FUp-hT-Uaq" secondAttribute="leadingMargin" constant="-16" id="Lac-rY-Vdz">
+                                <variation key="widthClass=regular" constant="-21"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZLh-wm-jPJ" secondAttribute="trailing" constant="-21" id="TUL-q0-doh"/>
+                            <constraint firstItem="ZLh-wm-jPJ" firstAttribute="bottom" secondItem="Ebq-lr-hgY" secondAttribute="top" id="nZC-lh-CT5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ZLh-wm-jPJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="INI-Yf-rC1"/>
+                                <exclude reference="Lac-rY-Vdz"/>
+                                <exclude reference="TUL-q0-doh"/>
+                                <exclude reference="nZC-lh-CT5"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="ZLh-wm-jPJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="INI-Yf-rC1"/>
+                                <include reference="Lac-rY-Vdz"/>
+                                <include reference="TUL-q0-doh"/>
+                                <include reference="nZC-lh-CT5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imagenFondo" destination="ZLh-wm-jPJ" id="ZnG-3U-LQq"/>
+                        <segue destination="qoz-oQ-gBr" kind="show" identifier="configuracionUsuariosSegue" id="7hi-g7-U5c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKM-mw-God" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="899.25" y="305"/>
+            <point key="canvasLocation" x="893.25" y="401"/>
         </scene>
     </scenes>
     <resources>
         <image name="PantallaIntro" width="2048" height="1536"/>
+        <image name="blackboardConfiguacion" width="2048" height="1536"/>
+        <image name="corcho" width="2048" height="1536"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7hi-g7-U5c"/>
+    </inferredMetricsTieBreakers>
 </document>

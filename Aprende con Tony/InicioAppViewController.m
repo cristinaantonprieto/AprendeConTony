@@ -46,6 +46,11 @@
         NSLog(@"Prepare for segue: seleccion Usuarios segue");
         //segundoViewController.delegate = self;
 
+    }else if([segue.identifier isEqualToString:@"configuracionUsuariosSegue"])
+    {
+        ConfiguracionUsuariosViewController *configuracionUsuariosViewController = segue.destinationViewController;
+        NSLog(@"Prepare for segue: configuracion usuarios segue");
+        
     }
     
 }
@@ -64,6 +69,12 @@
 -(void)goToConfiguracionViewController:(id)sender
 {
     NSLog(@"gotoconfiguracionviewcontroller....");
+    // Llamamos al storyBoard principal
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionUsuariosViewController *configuracionUsuariosViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configuracionUsuariosViewController animated:YES];
 }
 
 @end
