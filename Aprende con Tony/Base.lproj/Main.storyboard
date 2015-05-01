@@ -71,13 +71,13 @@
                                 <exclude reference="tEV-Fq-V3n"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="08A-Do-xrf"/>
+                                <exclude reference="961-k5-y8a"/>
+                                <exclude reference="aDw-IG-XK1"/>
                                 <exclude reference="EJ1-Hs-aKZ"/>
                                 <exclude reference="Gok-ms-oYi"/>
                                 <exclude reference="IsZ-o3-tvR"/>
                                 <exclude reference="gnU-Ug-5g8"/>
-                                <exclude reference="08A-Do-xrf"/>
-                                <exclude reference="961-k5-y8a"/>
-                                <exclude reference="aDw-IG-XK1"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -86,13 +86,13 @@
                                 <include reference="tEV-Fq-V3n"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="08A-Do-xrf"/>
+                                <include reference="961-k5-y8a"/>
+                                <include reference="aDw-IG-XK1"/>
                                 <include reference="EJ1-Hs-aKZ"/>
                                 <include reference="Gok-ms-oYi"/>
                                 <include reference="IsZ-o3-tvR"/>
                                 <include reference="gnU-Ug-5g8"/>
-                                <include reference="08A-Do-xrf"/>
-                                <include reference="961-k5-y8a"/>
-                                <include reference="aDw-IG-XK1"/>
                             </mask>
                         </variation>
                     </view>
@@ -242,6 +242,34 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corcho" translatesAutoresizingMaskIntoConstraints="NO" id="ZLh-wm-jPJ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="corcho" translatesAutoresizingMaskIntoConstraints="NO" id="l52-TE-N10">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KNp-Bo-rjq">
+                                <rect key="frame" x="41" y="111" width="515" height="447"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cKT-Z5-WMw">
+                                    <size key="itemSize" width="170" height="170"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="ktl-dg-SFK">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vpQ-Uq-rIb" id="u1Z-mL-xRO"/>
+                                    <outlet property="delegate" destination="vpQ-Uq-rIb" id="GX0-yq-wW9"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ZLh-wm-jPJ" firstAttribute="top" secondItem="Z98-3V-Tu4" secondAttribute="bottom" id="INI-Yf-rC1"/>
@@ -249,7 +277,11 @@
                                 <variation key="widthClass=regular" constant="-21"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="ZLh-wm-jPJ" secondAttribute="trailing" constant="-21" id="TUL-q0-doh"/>
+                            <constraint firstItem="Ebq-lr-hgY" firstAttribute="top" secondItem="KNp-Bo-rjq" secondAttribute="bottom" constant="42" id="YCC-nq-DLD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KNp-Bo-rjq" secondAttribute="trailing" constant="28" id="dlg-DN-3BD"/>
+                            <constraint firstItem="KNp-Bo-rjq" firstAttribute="leading" secondItem="FUp-hT-Uaq" secondAttribute="leadingMargin" constant="25" id="k8Q-Wp-RmE"/>
                             <constraint firstItem="ZLh-wm-jPJ" firstAttribute="bottom" secondItem="Ebq-lr-hgY" secondAttribute="top" id="nZC-lh-CT5"/>
+                            <constraint firstItem="KNp-Bo-rjq" firstAttribute="top" secondItem="Z98-3V-Tu4" secondAttribute="bottom" constant="47" id="rGb-3M-cV2"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -275,6 +307,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="KNp-Bo-rjq" id="j2k-jG-M7s"/>
                         <outlet property="imagenFondo" destination="ZLh-wm-jPJ" id="ZnG-3U-LQq"/>
                         <segue destination="qoz-oQ-gBr" kind="show" identifier="configuracionUsuariosSegue" id="7hi-g7-U5c"/>
                         <segue destination="vka-fZ-Ro9" kind="show" identifier="nuevoUsuarioViewControllerSegue" id="bnQ-iT-Jv0"/>
@@ -283,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKM-mw-God" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.25" y="401"/>
+            <point key="canvasLocation" x="893" y="401"/>
         </scene>
         <!--Dash Board View Controller-->
         <scene sceneID="a3l-8T-hvq">
@@ -294,6 +327,7 @@
                         <viewControllerLayoutGuide type="bottom" id="pG7-hl-9st"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LfJ-1c-Z0e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondoDash" translatesAutoresizingMaskIntoConstraints="NO" id="rJb-wV-o62">
@@ -332,6 +366,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dRQ-yk-Zko"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dRS-Ee-HoP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackboardConfiguacion" translatesAutoresizingMaskIntoConstraints="NO" id="Dsu-32-lBm">
@@ -362,12 +397,12 @@
                                 <exclude reference="VPe-wH-KF6"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HHJ-C0-sPr"/>
-                                <exclude reference="a22-AT-CBf"/>
-                                <exclude reference="afP-2f-JL5"/>
                                 <exclude reference="xlm-FA-Lka"/>
                                 <exclude reference="Blb-sh-1Ph"/>
                                 <exclude reference="HvX-lQ-laa"/>
+                                <exclude reference="HHJ-C0-sPr"/>
+                                <exclude reference="a22-AT-CBf"/>
+                                <exclude reference="afP-2f-JL5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -376,12 +411,12 @@
                                 <include reference="VPe-wH-KF6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HHJ-C0-sPr"/>
-                                <include reference="a22-AT-CBf"/>
-                                <include reference="afP-2f-JL5"/>
                                 <include reference="xlm-FA-Lka"/>
                                 <include reference="Blb-sh-1Ph"/>
                                 <include reference="HvX-lQ-laa"/>
+                                <include reference="HHJ-C0-sPr"/>
+                                <include reference="a22-AT-CBf"/>
+                                <include reference="afP-2f-JL5"/>
                             </mask>
                         </variation>
                     </view>
