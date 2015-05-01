@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConfiguracionUsuariosViewController.h"
+#import "NuevoUsuarioViewController.h"
 
-@interface SeleccionUsuariosViewController : UIViewController
+@interface SeleccionUsuariosViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 {
     IBOutlet UIImageView *imagenFondo;
 }
@@ -18,6 +18,6 @@
 /** VARIABLES **/
 @property (strong,nonatomic) IBOutlet UIImageView *imagenFondo;
 /** METODOS **/
--(IBAction)goToConfigurarUsuariosViewController:(id)sender;
+-(IBAction)goToNuevoUsuarioViewController:(id)sender;
 
 @end

@@ -11,7 +11,7 @@
 
 @implementation InicioAppViewController
 
-@synthesize imagenFondo, buttonConfiguracion, buttonPlay;
+@synthesize imagenFondo, buttonPlay;
 
 
 #pragma mark metodos inicio
@@ -21,16 +21,27 @@
     NSLog(@"InicioViewController: viewdidload...");
  
     
-   
-//    UIGraphicsBeginImageContext(self.view.frame.size);
-//    [[UIImage imageNamed:@"PantallaIntro.png"] drawInRect:self.view.bounds];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-
-    
     [super viewDidLoad];
+    
+    /** conseguimos la contraseña **/
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // obtenemos el nombre desde la base de datos
+    NSString *password = [defaults stringForKey:@"kPassword"];
+    if (password != nil)
+    {
+        NSLog(@"pass: %@", password);
+    }else
+    {
+        //guardarmos un valor para ella
+        [defaults setObject:@"123" forKey:@"kPassword"];
+        password =[defaults stringForKey:@"kPassword"];
+        
+    }
+     NSLog(@"pass: %@", password);
+    
+    [defaults synchronize];
+    
     
 }
 
@@ -46,13 +57,7 @@
         NSLog(@"Prepare for segue: seleccion Usuarios segue");
         //segundoViewController.delegate = self;
 
-    }else if([segue.identifier isEqualToString:@"configuracionUsuariosSegue"])
-    {
-        ConfiguracionUsuariosViewController *configuracionUsuariosViewController = segue.destinationViewController;
-        NSLog(@"Prepare for segue: configuracion usuarios segue");
-        
     }
-    
 }
 
 -(void)goToSeleccionUsuariosViewController:(id)sender
@@ -66,15 +71,6 @@
     [self.navigationController pushViewController:seleccionUsuariosViewController animated:YES];
 }
 
--(void)goToConfiguracionViewController:(id)sender
-{
-    NSLog(@"gotoconfiguracionviewcontroller....");
-    // Llamamos al storyBoard principal
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    // De este obtenemos el controlador con Identifier "Pantalla2"
-    ConfiguracionUsuariosViewController *configuracionUsuariosViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
-    // Ahora lanzamos el controlador en el navigation de forma animada:
-    [self.navigationController pushViewController:configuracionUsuariosViewController animated:YES];
-}
+
 
 @end

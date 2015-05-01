@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C1514" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Juegos" syncable="YES">
+        <attribute name="voz" optional="YES" attributeType="String" defaultValueString="yes" syncable="YES"/>
+        <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuarioJuegos" inverseEntity="Usuario" syncable="YES"/>
+    </entity>
+    <entity name="Usuario" syncable="YES">
+        <attribute name="dni" optional="YES" attributeType="String" minValueString="5" indexed="YES" syncable="YES"/>
+        <attribute name="edad" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="nombre" attributeType="String" minValueString="3" defaultValueString="nombre" syncable="YES"/>
+        <attribute name="tipo_autismo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Juegos" inverseName="usuarioJuegos" inverseEntity="Juegos" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Usuario" positionX="-2927" positionY="-1134" width="128" height="118"/>
+        <element name="Juegos" positionX="-2934" positionY="-972" width="128" height="73"/>
+    </elements>
 </model>

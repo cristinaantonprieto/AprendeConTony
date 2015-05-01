@@ -1,40 +1,27 @@
 //
-//  ConfiguracionUsuariosViewController.m
+//  NuevoUsuarioViewController.m
 //  Aprende con Tony
 //
-//  Created by Cristina Anton prieto on 28/4/15.
+//  Created by Cristina Anton prieto on 1/5/15.
 //  Copyright (c) 2015 Cristina Anton prieto. All rights reserved.
 //
 
-#import "ConfiguracionUsuariosViewController.h"
+#import "NuevoUsuarioViewController.h"
 
-
-@interface ConfiguracionUsuariosViewController ()
+@interface NuevoUsuarioViewController ()
 
 @end
 
-@implementation ConfiguracionUsuariosViewController
-
-@synthesize imagenFondo;
+@implementation NuevoUsuarioViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        // Navigation button was pressed. Do some stuff
-        [self.navigationController popViewControllerAnimated:NO];
-    }
-    [super viewWillDisappear:animated];
 }
 
 /*

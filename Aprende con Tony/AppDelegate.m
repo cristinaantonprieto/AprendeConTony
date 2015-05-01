@@ -17,6 +17,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults boolForKey:@"kPassword"])
+    {
+        NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       @"123", @"kPassword",
+                                       nil];
+        
+        [defaults registerDefaults:defaultValues];
+    }
+    
     return YES;
 }
 

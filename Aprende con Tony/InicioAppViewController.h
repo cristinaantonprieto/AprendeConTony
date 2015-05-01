@@ -14,7 +14,7 @@
 {
     IBOutlet UIImageView *imagenFondo;
     IBOutlet UIButton *buttonPlay;
-    IBOutlet UIButton *buttonConfiguracion;
+    
     
 }
 
@@ -22,11 +22,11 @@
 /** VARIABLES **/
 @property (strong,nonatomic) IBOutlet UIImageView *imagenFondo;
 @property (nonatomic, retain) IBOutlet UIButton *buttonPlay;
-@property (nonatomic, retain) IBOutlet UIButton *buttonConfiguracion;
+
 
 
 /** METODOS **/
 -(IBAction)goToSeleccionUsuariosViewController:(id)sender;
--(IBAction)goToConfiguracionViewController:(id)sender;
+
 
 @end
