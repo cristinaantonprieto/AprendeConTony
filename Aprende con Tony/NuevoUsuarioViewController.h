@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConfiguracionUsuariosViewController.h"
 
-@interface NuevoUsuarioViewController : UIViewController
+@interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate>
+{
+    IBOutlet UIButton *buttonConfigurarJuegos;
+}
+
+/** VARIABLES **/
+@property (nonatomic, retain) IBOutlet UIButton *buttonConfigurarJuegos;
+
+
+
+/** METODOS **/
+-(IBAction)goToConfigurarJuegosViewController:(id)sender;
+-(IBAction)goToGuardarUsuarioViewController:(id)sender;
+
 
 @end
+
+
+
+
+
+

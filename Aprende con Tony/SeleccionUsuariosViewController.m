@@ -28,9 +28,6 @@
     [super viewDidLoad];
     
     
- 
-    
-
     /** FIJAR BOTON NUEVO USUARIO **/
     UIButton *buttonAdd =  [UIButton buttonWithType:UIButtonTypeCustom];
     [buttonAdd setImage:[UIImage imageNamed:@"addUser.png"] forState:UIControlStateNormal];
@@ -99,7 +96,7 @@
     NSLog(@"gotonuevousuarioviewcontroller....");
     
     /** mostramos el alert que pide la contraseña **/
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Introudce la contraseña:"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Introduce la contraseña:"
                                                       message:nil
                                                      delegate:self
                                             cancelButtonTitle:@"Aceptar"
