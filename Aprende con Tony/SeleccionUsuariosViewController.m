@@ -10,7 +10,7 @@
 
 @implementation SeleccionUsuariosViewController
 
-@synthesize imagenFondo;
+@synthesize imagenFondo, collectionView, imagenUsuario, usuarioPhotosArray;
 
 #pragma mark metodos inicio
 
@@ -26,6 +26,14 @@
    
     
     [super viewDidLoad];
+   
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+   
+    /** cargar fotos de los usuarios y datos necesarios**/
+    // Initialize recipe image array
+    self.usuarioPhotosArray = [NSMutableArray arrayWithObjects:@"save.png",@"save.png", nil];
     
     
     /** FIJAR BOTON NUEVO USUARIO **/
@@ -36,7 +44,10 @@
     UIBarButtonItem *barButtonAdd = [[UIBarButtonItem alloc] initWithCustomView:buttonAdd];
     self.navigationItem.rightBarButtonItem = barButtonAdd;
     
+    [self.view addSubview:self.collectionView];
     
+#warning revisar esto aquí y la carga del array.
+    [self.collectionView reloadData];
 }
 
 
@@ -46,9 +57,50 @@
         // Navigation button was pressed. Do some stuff
         [self.navigationController popViewControllerAnimated:NO];
     }
+    
+    self.usuarioPhotosArray = nil;
+    
     [super viewWillDisappear:animated];
 }
 
+
+
+
+#pragma mark collection methods protocol
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.usuarioPhotosArray.count;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"Cell";
+    
+    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fondoFoto.png"]];
+      
+    [cell.contentView addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"save.png"]]];
+
+//    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
+//    recipeImageView.image = [UIImage imageNamed:[self.usuarioPhotosArray objectAtIndex:indexPath.row]];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 
 #pragma mark SEGUES
