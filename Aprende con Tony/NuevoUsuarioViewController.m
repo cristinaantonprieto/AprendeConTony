@@ -12,7 +12,10 @@
 
 @end
 
+
 @implementation NuevoUsuarioViewController
+
+@synthesize buttonConfigurarJuegos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

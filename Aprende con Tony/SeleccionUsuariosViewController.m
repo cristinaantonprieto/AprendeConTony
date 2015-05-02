@@ -7,10 +7,11 @@
 //
 
 #import "SeleccionUsuariosViewController.h"
+#import <CoreData/CoreData.h>
 
 @implementation SeleccionUsuariosViewController
 
-@synthesize imagenFondo, collectionView, imagenUsuario, usuarioPhotosArray;
+@synthesize imagenFondo, collectionView, imagenUsuario, usuarioPhotosArray, context;
 
 #pragma mark metodos inicio
 
@@ -26,6 +27,9 @@
    
     
     [super viewDidLoad];
+    
+    
+    [self loadUsuarios];
    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -52,6 +56,7 @@
 
 
 
+
 -(void) viewWillDisappear:(BOOL)animated {
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         // Navigation button was pressed. Do some stuff
@@ -64,7 +69,39 @@
 }
 
 
-
+#pragma mark core data
+-(void) loadUsuarios
+{
+    
+#warning metodos para guardar un nuevo personaje, y setter para los campos, tambien metodos de borrado y mirar como conseguir los datos del usuario a parte del nombre.....
+    Usuario *character = [NSEntityDescription
+                            insertNewObjectForEntityForName:@"Usuario"
+                            inManagedObjectContext:self.context];
+    
+    // Asignamos las propiedades
+//    [character setName:@"daf"];
+//    [character setLastName:self.lastName.text];
+//    [character setAlias:self.alias.text];
+    character.nombre = @"prueba2";
+    
+//    
+    // Lo metemos en nuestro ManagedObjectContext
+    [self.context insertObject:character];
+    
+////************fin nuevo personaje*******/////////
+    
+    
+    //Fetch
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    [fetch setEntity:[NSEntityDescription entityForName:@"Usuario" inManagedObjectContext:self.context]];
+    fetch.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"nombre" ascending:YES]];
+    NSFetchedResultsController *results = [[NSFetchedResultsController alloc] initWithFetchRequest:fetch managedObjectContext:self.context sectionNameKeyPath:nil cacheName:nil];
+  //  self.fetchedResultsController = results;
+    NSArray *array = [context executeFetchRequest:fetch error:nil];
+    if (array ==nil) {
+        NSLog(@"array vacio");
+    }
+}
 
 #pragma mark collection methods protocol
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

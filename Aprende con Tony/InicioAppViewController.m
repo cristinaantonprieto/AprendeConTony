@@ -11,7 +11,7 @@
 
 @implementation InicioAppViewController
 
-@synthesize imagenFondo, buttonPlay;
+@synthesize imagenFondo, buttonPlay, context;
 
 
 #pragma mark metodos inicio
@@ -43,6 +43,8 @@
     [defaults synchronize];
     
     
+    
+    
 }
 
 
@@ -67,6 +69,7 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     // De este obtenemos el controlador con Identifier "Pantalla2"
     SeleccionUsuariosViewController *seleccionUsuariosViewController = [storyBoard instantiateViewControllerWithIdentifier:@"seleccionUsuariosViewControllerID"];
+    seleccionUsuariosViewController.context = self.context;
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:seleccionUsuariosViewController animated:YES];
 }

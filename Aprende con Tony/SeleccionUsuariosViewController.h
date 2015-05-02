@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NuevoUsuarioViewController.h"
+#import "Usuario.h"
 
 @interface SeleccionUsuariosViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
@@ -16,6 +17,8 @@
     IBOutlet UIImageView *imagenUsuario;
     
      NSMutableArray *usuarioPhotosArray;
+    
+    NSManagedObjectContext *context;
 }
 
 
@@ -24,6 +27,8 @@
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) IBOutlet UIImageView *imagenUsuario;
 @property (nonatomic, strong) NSMutableArray *usuarioPhotosArray;
+
+@property (nonatomic, retain) NSManagedObjectContext *context;
 
 /** METODOS **/
 -(IBAction)goToNuevoUsuarioViewController:(id)sender;

@@ -15,6 +15,7 @@
     IBOutlet UIImageView *imagenFondo;
     IBOutlet UIButton *buttonPlay;
     
+    NSManagedObjectContext *context;
     
 }
 
@@ -23,7 +24,7 @@
 @property (strong,nonatomic) IBOutlet UIImageView *imagenFondo;
 @property (nonatomic, retain) IBOutlet UIButton *buttonPlay;
 
-
+@property (nonatomic, retain) NSManagedObjectContext *context;
 
 /** METODOS **/
 -(IBAction)goToSeleccionUsuariosViewController:(id)sender;
