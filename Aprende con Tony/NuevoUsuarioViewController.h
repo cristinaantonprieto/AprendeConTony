@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ConfiguracionUsuariosViewController.h"
+#import "Usuario.h"
 
 @interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
 {
@@ -22,10 +23,10 @@
 @property (nonatomic, retain) IBOutlet UILabel *dniLabel;
 @property (nonatomic, retain) IBOutlet UILabel *tipoautismoLabel;
 
-@property (nonatomic, retain) IBOutlet UITextField *nombreText;
-@property (nonatomic, retain) IBOutlet UITextField *edadText;
-@property (nonatomic, retain) IBOutlet UITextField *dniText;
-@property (nonatomic, retain) IBOutlet UITextField *tipoautismoText;
+@property (nonatomic, weak) IBOutlet UITextField *nombreText;
+@property (nonatomic, weak) IBOutlet UITextField *edadText;
+@property (nonatomic, weak) IBOutlet UITextField *dniText;
+@property (nonatomic, weak) IBOutlet UITextField *tipoautismoText;
 
 @property (nonatomic, retain) NSString *nombreUser;
 @property (nonatomic, retain) NSString *edadUser;

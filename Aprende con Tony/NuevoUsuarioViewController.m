@@ -100,8 +100,38 @@
 #warning guardar en core data el nuevo usuario
     NSLog(@"guardar nuevo usuario....");
     
+    self.nombreUser = self.nombreText.text;
+    self.dniUser = self.dniText.text;
+    self.edadUser = self.edadText.text;
+    self.tipoautismoUser = self.tipoautismoText.text;
     
     
+    //Creamos el objeto a persistir indicando la entidad y el contexto
+    Usuario* persona = (Usuario *)[NSEntityDescription
+                                   insertNewObjectForEntityForName:@"Usuario"
+                                   inManagedObjectContext:self.context];
+    
+    //Cumplimentamos los atributos del mismo
+    [persona setNombre:self.nombreUser];
+    [persona setDni:self.dniUser];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *myNumber = [f numberFromString:self.edadUser];
+    [persona setEdad:myNumber];
+    [persona setTipo_autismo:self.tipoautismoUser];
+    
+    //Persistimos el objeto
+    [self saveAction];
+    
+}
+
+
+- (void)saveAction {
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
 }
 
 -(IBAction)goToConfigurarJuegosViewController:(id)sender

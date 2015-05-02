@@ -69,6 +69,16 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+#warning ojo quitar esto de aquí solo por pruebas.
+    
+    [self loadUsuarios];
+    
+}
+
 #pragma mark core data
 -(void) loadUsuarios
 {
