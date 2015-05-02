@@ -170,6 +170,7 @@
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"
             NuevoUsuarioViewController *nuevoUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"nuevoUsuarioViewControllerID"];
+            nuevoUsuarioViewController.context = self.context;
             // Ahora lanzamos el controlador en el navigation de forma animada:
             [self.navigationController pushViewController:nuevoUsuarioViewController animated:YES];
     }
@@ -183,6 +184,7 @@
 -(void)goToNuevoUsuarioViewController:(id)sender
 {
     NSLog(@"gotonuevousuarioviewcontroller....");
+    
     
     /** mostramos el alert que pide la contraseña **/
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Introduce la contraseña:"

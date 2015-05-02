@@ -15,6 +15,9 @@
     
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *context;
+
+
 -(void)goToConfigurarUsuariosViewController:(id)sender;
 
 @end

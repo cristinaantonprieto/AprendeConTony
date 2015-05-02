@@ -24,6 +24,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *buttonSaveConfiguracion;
 
 @property (strong,nonatomic) IBOutlet UIImageView *imagenFondo;
+
+@property (nonatomic, retain) NSManagedObjectContext *context;
 /** METODOS **/
 -(IBAction)goToEliminarUsuariosViewController:(id)sender;
 -(IBAction)guardarConfiguracion:(id)sender;

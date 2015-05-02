@@ -15,7 +15,7 @@
 
 @implementation ConfiguracionUsuariosViewController
 
-@synthesize imagenFondo, buttonSaveConfiguracion, noguardar;
+@synthesize imagenFondo, buttonSaveConfiguracion, noguardar, context;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,6 +88,7 @@
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         // De este obtenemos el controlador con Identifier "Pantalla2"
         SeleccionUsuariosViewController *seleccionUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"seleccionUsuariosViewControllerID"];
+        seleccionUsuarioViewController.context = self.context;
         // Ahora lanzamos el controlador en el navigation de forma animada:
         [self.navigationController pushViewController:seleccionUsuarioViewController animated:YES];
     }
