@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */; };
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
+		6BB58C441AF4C9F20060C1EF /* Juegos.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C431AF4C9F20060C1EF /* Juegos.m */; };
+		6BB58C471AF4C9F20060C1EF /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C461AF4C9F20060C1EF /* Usuario.m */; };
 		6BD7520D1AEE948000CA380B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520C1AEE948000CA380B /* main.m */; };
 		6BD752101AEE948000CA380B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520F1AEE948000CA380B /* AppDelegate.m */; };
 		6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */; };
@@ -36,6 +38,10 @@
 		6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoUsuarioViewController.m; sourceTree = "<group>"; };
 		6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
 		6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardViewController.m; sourceTree = "<group>"; };
+		6BB58C421AF4C9F20060C1EF /* Juegos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Juegos.h; path = ../Juegos.h; sourceTree = "<group>"; };
+		6BB58C431AF4C9F20060C1EF /* Juegos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Juegos.m; path = ../Juegos.m; sourceTree = "<group>"; };
+		6BB58C451AF4C9F20060C1EF /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Usuario.h; path = ../Usuario.h; sourceTree = "<group>"; };
+		6BB58C461AF4C9F20060C1EF /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Usuario.m; path = ../Usuario.m; sourceTree = "<group>"; };
 		6BD752071AEE948000CA380B /* Aprende con Tony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aprende con Tony.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD7520B1AEE948000CA380B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BD7520C1AEE948000CA380B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +80,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BB58C3B1AF4C7C20060C1EF /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				6BB58C451AF4C9F20060C1EF /* Usuario.h */,
+				6BB58C461AF4C9F20060C1EF /* Usuario.m */,
+				6BB58C421AF4C9F20060C1EF /* Juegos.h */,
+				6BB58C431AF4C9F20060C1EF /* Juegos.m */,
+				6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */,
+			);
+			name = Modelo;
+			sourceTree = "<group>";
+		};
 		6BD751FE1AEE948000CA380B = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +128,7 @@
 				6BD752171AEE948000CA380B /* Main.storyboard */,
 				6BD752391AEEA58700CA380B /* Images.xcassets */,
 				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
-				6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */,
+				6BB58C3B1AF4C7C20060C1EF /* Modelo */,
 				6BD7520A1AEE948000CA380B /* Supporting Files */,
 			);
 			path = "Aprende con Tony";
@@ -243,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB58C471AF4C9F20060C1EF /* Usuario.m in Sources */,
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
+				6BB58C441AF4C9F20060C1EF /* Juegos.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
 				6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */,
 				6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */,
