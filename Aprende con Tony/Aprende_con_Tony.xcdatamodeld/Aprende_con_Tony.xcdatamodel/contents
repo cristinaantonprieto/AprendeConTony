@@ -5,7 +5,7 @@
         <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuarioJuegos" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
-        <attribute name="dni" optional="YES" attributeType="String" minValueString="5" indexed="YES" syncable="YES"/>
+        <attribute name="dni" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="edad" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="nombre" attributeType="String" minValueString="3" defaultValueString="nombre" syncable="YES"/>
         <attribute name="tipo_autismo" optional="YES" attributeType="String" syncable="YES"/>

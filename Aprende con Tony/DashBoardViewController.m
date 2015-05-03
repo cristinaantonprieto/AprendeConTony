@@ -26,7 +26,15 @@
     [button addTarget:self action:@selector(goToConfigurarUsuariosViewController:)forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 34, 34)];
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.leftBarButtonItem = barButton;
+    self.navigationItem.rightBarButtonItem = barButton;
+    
+    /** FIJAR BOTON HOME EN BARRA DE NAVEGACIÓN **/
+    UIButton *buttonHome =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [buttonHome setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
+    [buttonHome addTarget:self action:@selector(goToSeleccionarUsuariosViewController:)forControlEvents:UIControlEventTouchUpInside];
+    [buttonHome setFrame:CGRectMake(0, 0, 34, 34)];
+    UIBarButtonItem *barButtonH = [[UIBarButtonItem alloc] initWithCustomView:buttonHome];
+    self.navigationItem.leftBarButtonItem = barButtonH;
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -61,12 +69,21 @@
     // Llamamos al storyBoard principal
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     // De este obtenemos el controlador con Identifier "Pantalla2"
-    ConfiguracionUsuariosViewController *configurarUsuariosViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configurarUsuariosViewControllerID"];
+    ConfiguracionUsuariosViewController *configurarUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
+    configurarUsuarioViewController.context = self.context;
     // Ahora lanzamos el controlador en el navigation de forma animada:
-    [self.navigationController pushViewController:configurarUsuariosViewController animated:YES];
+    [self.navigationController pushViewController:configurarUsuarioViewController animated:YES];
 }
 
-
+-(void)goToSeleccionarUsuariosViewController:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    SeleccionUsuariosViewController *seleccionUsuariosViewController = [storyBoard instantiateViewControllerWithIdentifier:@"seleccionUsuariosViewControllerID"];
+    seleccionUsuariosViewController.context = self.context;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:seleccionUsuariosViewController animated:YES];
+}
 
 
 @end

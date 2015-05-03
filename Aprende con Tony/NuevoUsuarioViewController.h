@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ConfiguracionUsuariosViewController.h"
+#import "DashBoardViewController.h"
 #import "Usuario.h"
 
 @interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
@@ -17,6 +18,8 @@
 
 /** VARIABLES **/
 @property (nonatomic, retain) IBOutlet UIButton *buttonConfigurarJuegos;
+@property (nonatomic, retain) IBOutlet UIButton *buttonFoto;
+
 
 @property (nonatomic, retain) IBOutlet UILabel *nombreLabel;
 @property (nonatomic, retain) IBOutlet UILabel *edadLabel;
@@ -39,7 +42,7 @@
 /** METODOS **/
 -(IBAction)goToConfigurarJuegosViewController:(id)sender;
 -(IBAction)goToGuardarUsuarioViewController:(id)sender;
-
+-(IBAction)actionButtonFoto:(id)sender;
 
 @end
 

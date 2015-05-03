@@ -16,7 +16,7 @@
 @implementation NuevoUsuarioViewController
 
 @synthesize buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText;
-@synthesize nombreUser, dniUser, tipoautismoUser, edadUser, context;
+@synthesize nombreUser, dniUser, tipoautismoUser, edadUser, context, buttonFoto;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -123,6 +123,8 @@
     //Persistimos el objeto
     [self saveAction];
     
+    
+    
 }
 
 
@@ -131,6 +133,18 @@
     if (![self.context save:&error]) {
         NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
         exit(-1);
+    }else
+    {
+        /** vamos a dashboardviewcontroller **/
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // De este obtenemos el controlador con Identifier "Pantalla2"
+        DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+        dashboardViewController.context = self.context;
+        // Ahora lanzamos el controlador en el navigation de forma animada:
+        [self.navigationController pushViewController:dashboardViewController animated:YES];
+        
+        
     }
 }
 
@@ -144,6 +158,12 @@
     configurarUsuarioViewController.context = self.context;
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:configurarUsuarioViewController animated:YES];
+}
+
+-(IBAction)actionButtonFoto:(id)sender
+{
+   // Abrir popover seleccionar foto y guardarla como informacion del usuario;
+    NSLog(@"action button foto....");
 }
 
 @end

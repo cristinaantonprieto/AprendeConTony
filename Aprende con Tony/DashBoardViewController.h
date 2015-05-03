@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ConfiguracionUsuariosViewController.h"
+#import "SeleccionUsuariosViewController.h"
 
 
 @interface DashBoardViewController : UIViewController
@@ -19,5 +20,6 @@
 
 
 -(void)goToConfigurarUsuariosViewController:(id)sender;
+-(void)goToSeleccionarUsuariosViewController:(id)sender;
 
 @end
