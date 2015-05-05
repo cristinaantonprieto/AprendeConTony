@@ -14,11 +14,14 @@
 
 @implementation DashBoardViewController
 
-@synthesize context;
+@synthesize context, usuarioSeleccionado;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    NSLog(@"usuario seleccionado nombre = %@", self.usuarioSeleccionado.nombre);
     
     /** FIJAR BOTON CONFIGURACION EN BARRA DE NAVEGACIÓN **/
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
@@ -63,16 +66,22 @@
     }
 }
 
+
 -(void)goToConfigurarUsuariosViewController:(id)sender
 {
+        
     NSLog(@"go to configurar usuarios view controller...");
-    // Llamamos al storyBoard principal
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    // De este obtenemos el controlador con Identifier "Pantalla2"
-    ConfiguracionUsuariosViewController *configurarUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
-    configurarUsuarioViewController.context = self.context;
-    // Ahora lanzamos el controlador en el navigation de forma animada:
-    [self.navigationController pushViewController:configurarUsuarioViewController animated:YES];
+ 
+    /** mostramos el alert que pide la contraseña **/
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Introduce la contraseña:"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Aceptar"
+                                            otherButtonTitles:nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [message show];
 }
 
 -(void)goToSeleccionarUsuariosViewController:(id)sender
@@ -83,6 +92,35 @@
     seleccionUsuariosViewController.context = self.context;
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:seleccionUsuariosViewController animated:YES];
+}
+
+
+#pragma mark alertView delegate methods
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *inputText = [[alertView textFieldAtIndex:0] text];
+    
+    NSLog(@"password introducida: %@", inputText);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // obtenemos el nombre desde la base de datos
+    NSString *password = [defaults stringForKey:@"kPassword"];
+    
+    //si la clave coincide pasamos a la siguiente pantalla
+    if ([inputText isEqualToString:password]) {
+        // Llamamos al storyBoard principal
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // De este obtenemos el controlador con Identifier "Pantalla2"
+        NuevoUsuarioViewController *nuevoUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"nuevoUsuarioViewControllerID"];
+        nuevoUsuarioViewController.context = self.context;
+        nuevoUsuarioViewController.nuevoUsuario = NO;
+        nuevoUsuarioViewController.persona = self.usuarioSeleccionado;
+        
+        // Ahora lanzamos el controlador en el navigation de forma animada:
+        [self.navigationController pushViewController:nuevoUsuarioViewController animated:YES];
+    }
+    
+    
+    
 }
 
 

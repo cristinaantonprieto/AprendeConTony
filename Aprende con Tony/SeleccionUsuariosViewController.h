@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NuevoUsuarioViewController.h"
 #import "Usuario.h"
+#import "DashBoardViewController.h"
 
 @interface SeleccionUsuariosViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {

@@ -152,6 +152,19 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    Usuario *userSeleccionado = [self.arrayUsuarios objectAtIndex:indexPath.row];
+    
+    /** vamos a dashboardviewcontroller **/
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+    dashboardViewController.context = self.context;
+    dashboardViewController.usuarioSeleccionado = userSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:dashboardViewController animated:YES];
+    
+    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -196,6 +209,7 @@
             // De este obtenemos el controlador con Identifier "Pantalla2"
             NuevoUsuarioViewController *nuevoUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"nuevoUsuarioViewControllerID"];
             nuevoUsuarioViewController.context = self.context;
+            nuevoUsuarioViewController.nuevoUsuario = YES;
             // Ahora lanzamos el controlador en el navigation de forma animada:
             [self.navigationController pushViewController:nuevoUsuarioViewController animated:YES];
     }
@@ -204,7 +218,7 @@
     
 }
 
-
+#pragma mark segues
 
 -(void)goToNuevoUsuarioViewController:(id)sender
 {

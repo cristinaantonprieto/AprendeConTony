@@ -42,6 +42,8 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *imagenPerfil;
 
+@property (nonatomic, assign) BOOL nuevoUsuario;
+
 @property (nonatomic, retain) UIPopoverController *popoverController;
 
 @property (nonatomic, retain) NSManagedObjectContext *context;

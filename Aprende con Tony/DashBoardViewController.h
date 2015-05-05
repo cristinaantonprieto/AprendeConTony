@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "ConfiguracionUsuariosViewController.h"
 #import "SeleccionUsuariosViewController.h"
+#import "NuevoUsuarioViewController.h"
+#import "Usuario.h"
 
-
-@interface DashBoardViewController : UIViewController
+@interface DashBoardViewController : UIViewController<UIAlertViewDelegate>
 {
     
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
+@property (nonatomic, retain) Usuario *usuarioSeleccionado;
 
 
 -(void)goToConfigurarUsuariosViewController:(id)sender;
