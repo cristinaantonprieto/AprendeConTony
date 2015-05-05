@@ -17,6 +17,7 @@
     IBOutlet UIImageView *imagenUsuario;
     
      NSMutableArray *usuarioPhotosArray;
+     NSMutableArray *arrayUsuarios;
     
     NSManagedObjectContext *context;
 }
@@ -27,6 +28,7 @@
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) IBOutlet UIImageView *imagenUsuario;
 @property (nonatomic, strong) NSMutableArray *usuarioPhotosArray;
+@property (nonatomic, strong) NSMutableArray *arrayUsuarios;
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 

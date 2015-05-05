@@ -11,7 +11,7 @@
 
 @implementation SeleccionUsuariosViewController
 
-@synthesize imagenFondo, collectionView, imagenUsuario, usuarioPhotosArray, context;
+@synthesize imagenFondo, collectionView, imagenUsuario, usuarioPhotosArray, context, arrayUsuarios;
 
 #pragma mark metodos inicio
 
@@ -37,7 +37,8 @@
    
     /** cargar fotos de los usuarios y datos necesarios**/
     // Initialize recipe image array
-    self.usuarioPhotosArray = [NSMutableArray arrayWithObjects:@"save.png",@"save.png", nil];
+    self.usuarioPhotosArray = [[NSMutableArray alloc] init];
+    self.arrayUsuarios = [[NSMutableArray alloc] init];
     
     
     /** FIJAR BOTON NUEVO USUARIO **/
@@ -91,6 +92,18 @@
   //  self.fetchedResultsController = results;
     NSArray *array = [context executeFetchRequest:fetch error:nil];
     
+    self.arrayUsuarios = [array mutableCopy];
+    
+    for (int i=0; i<self.arrayUsuarios.count; i++) {
+        
+        Usuario *user = [self.arrayUsuarios objectAtIndex:i];
+        
+        NSLog(@"user.nombre = %@", user.nombre);
+        NSLog(@"user.imagenUsuario = %@", user.imagenUsuario);
+        [self.usuarioPhotosArray addObject:user.imagenUsuario];
+    }
+ 
+    
     
     if (array ==nil) {
         NSLog(@"array vacio");
@@ -99,7 +112,9 @@
 
 #pragma mark collection methods protocol
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.usuarioPhotosArray.count;
+    
+
+   return self.arrayUsuarios.count;
 }
 
 
@@ -108,12 +123,28 @@
     
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fondoFoto.png"]];
-      
-    [cell.contentView addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"save.png"]]];
-
-//    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-//    recipeImageView.image = [UIImage imageNamed:[self.usuarioPhotosArray objectAtIndex:indexPath.row]];
+    
+    //carga de la imagen
+    NSURL *referenceURL = [self.usuarioPhotosArray objectAtIndex:indexPath.row];
+    
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:referenceURL resultBlock:^(ALAsset *asset)
+     {
+         
+         
+         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+        
+         cell.backgroundView = [[UIImageView alloc] initWithImage:copyOfOriginalImage];
+         cell.backgroundView.contentMode = UIViewContentModeScaleAspectFit;
+         
+         
+     }
+            failureBlock:^(NSError *error)
+     {
+         // error handling
+         NSLog(@"Error asignando foto...");
+     }];
+    
     
     return cell;
 }

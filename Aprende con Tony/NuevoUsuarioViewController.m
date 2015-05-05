@@ -71,13 +71,8 @@
 {
     
     //habilitar boton juegos solo si hay usuario creado.
- 
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
 #warning cambiar esto de aqui, se habilita el boton de configurar juegos solo si se tienen datos para el usuario.
-
+    
     [self.buttonConfigurarJuegos setEnabled:YES];
     
     switch (textField.tag) {
@@ -100,13 +95,11 @@
         default:
             break;
     }
+ 
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
 
-    
-    return YES;
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -117,27 +110,9 @@
 
 -(IBAction)goToGuardarUsuarioViewController:(id)sender
 {
-#warning guardar en core data el nuevo usuario
+
     NSLog(@"guardar nuevo usuario....");
-    
-    if ([self.nombreUser isEqualToString:@""]|| self.nombreUser==nil) {
-        self.nombreUser = @" ";
-    }
-    if ([self.dniUser isEqualToString:@""]|| self.dniUser==nil) {
-        self.dniUser = @" ";
-    }
-    if ([self.edadUser isEqualToString:@""]|| self.edadUser==nil) {
-        self.edadUser = @" ";
-    }
-    if ([self.tipoautismoUser isEqualToString:@""]|| self.tipoautismoUser==nil) {
-        self.tipoautismoUser = @" ";
-    }
-    
-    if ([self.imagenUser isEqualToString:@""]|| self.imagenUser == nil) {
-         self.imagenUser = @" ";
-    }
    
-    
     
     //Creamos el objeto a persistir indicando la entidad y el contexto
     self.persona = (Usuario *)[NSEntityDescription
@@ -177,6 +152,14 @@
 
 
 - (void)saveAction {
+    
+    NSLog(@"nombre save: %@", self.persona.nombre);
+    NSLog(@"dni save: %@", self.persona.dni);
+    NSLog(@"edad save: %@", self.persona.edad);
+    NSLog(@"tipo save: %@", self.persona.tipo_autismo);
+    NSLog(@"imagen: %@", self.persona.imagenUsuario);
+    
+    
     NSError *error;
     if (![self.context save:&error]) {
         NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
@@ -252,7 +235,7 @@
     UIImage *selectedImage = [[UIImage alloc]init];
     
     selectedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-
+    
     if (selectedImage == nil)
         selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
@@ -265,45 +248,23 @@
      {
          
          
-    
-         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
-       
-        
-        
-         /**/
-         if (self.persona == nil) {
-             //Creamos el objeto a persistir indicando la entidad y el contexto
-             self.persona = (Usuario *)[NSEntityDescription
-                                        insertNewObjectForEntityForName:@"Usuario"
-                                        inManagedObjectContext:self.context];
-             
-             //Cumplimentamos los atributos del mismo
-             [self.persona setNombre:self.nombreUser];
-             [self.persona setDni:self.dniUser];
-             NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-             f.numberStyle = NSNumberFormatterDecimalStyle;
-             NSNumber *myNumber = [f numberFromString:self.edadUser];
-             [self.persona setEdad:myNumber];
-             [self.persona setTipo_autismo:self.tipoautismoUser];
-             [self.persona setImagenUsuario:referenceURL];
-         }
          
-         /**/
+         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+         
+         
          [self.imagenPerfil setImage:copyOfOriginalImage];
          self.imagenPerfil.contentMode = UIViewContentModeScaleAspectFit;
          
          self.persona.imagenUsuario = referenceURL;
-     
-   
-  
+         self.imagenUser = referenceURL;
+         
+         
      }
             failureBlock:^(NSError *error)
      {
          // error handling
          NSLog(@"Error asignando foto...");
      }];
-  
-    
     
     
     
@@ -345,51 +306,6 @@
 
 }
 
-
-
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo {
-    
-    
-    // crear un objeto de imagen para la nueva foto
- //   if (!usuarioCreadoAntes) {
-        
-   //     Imagen *image = [NSEntityDescription insertNewObjectForEntityForName:@"Imagen" inManagedObjectContext:usuario.managedObjectContext];
-        
-        self.persona.imagenUsuario = selectedImage;
-     //   [image setValue:selectedImage forKey:@"image"];
- //   }
-  
-    
-        CGSize size = selectedImage.size;
-        
-        CGFloat ratio = 0;
-        if (size.width > size.height) {
-            ratio = 200.0 / size.width;
-        } else {
-            ratio = 200.0 / size.height;
-        }
-        CGRect rect = CGRectMake(0.0, 0.0, ratio * size.width, ratio * size.height);
-        
-        UIGraphicsBeginImageContext(rect.size);
-        [selectedImage drawInRect:rect];
-        self.persona.imagenUsuario = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        //poner la nueva foto seleccionada en la pantalla
-        [self.buttonConfigurarJuegos setImage:self.persona.imagenUsuario forState:UIControlStateNormal];
-      //  [botonAux setImage:self.imagenUser.imagenUser forState:UIControlStateNormal];
-        
-    
-    
-        [self.buttonConfigurarJuegos setImage:self.persona.imagenUsuario forState:UIControlStateNormal];
-      [self dismissViewControllerAnimated:NO completion:nil];
-    
-   
-    
-    
-    
-}
 
 
 
