@@ -10,8 +10,10 @@
 #import "ConfiguracionUsuariosViewController.h"
 #import "DashBoardViewController.h"
 #import "Usuario.h"
+#import "Juegos.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate>
+@interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate, UIPopoverControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     IBOutlet UIButton *buttonConfigurarJuegos;
 }
@@ -20,6 +22,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *buttonConfigurarJuegos;
 @property (nonatomic, retain) IBOutlet UIButton *buttonFoto;
 
+@property (nonatomic, retain) Usuario* persona;
 
 @property (nonatomic, retain) IBOutlet UILabel *nombreLabel;
 @property (nonatomic, retain) IBOutlet UILabel *edadLabel;
@@ -35,6 +38,11 @@
 @property (nonatomic, retain) NSString *edadUser;
 @property (nonatomic, retain) NSString *dniUser;
 @property (nonatomic, retain) NSString *tipoautismoUser;
+@property (nonatomic, retain) NSString *imagenUser;
+
+@property (nonatomic, retain) IBOutlet UIImageView *imagenPerfil;
+
+@property (nonatomic, retain) UIPopoverController *popoverController;
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 

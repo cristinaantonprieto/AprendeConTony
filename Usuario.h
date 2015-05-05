@@ -2,7 +2,7 @@
 //  Usuario.h
 //  Aprende con Tony
 //
-//  Created by Cristina Anton prieto on 2/5/15.
+//  Created by Cristina Anton prieto on 4/5/15.
 //  Copyright (c) 2015 Cristina Anton prieto. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * edad;
 @property (nonatomic, retain) NSString * nombre;
 @property (nonatomic, retain) NSString * tipo_autismo;
+@property (nonatomic, retain) id imagenUsuario;
 @property (nonatomic, retain) Juegos *usuarioJuegos;
 
 @end

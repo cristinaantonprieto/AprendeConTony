@@ -7,12 +7,13 @@
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
         <attribute name="dni" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="edad" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
-        <attribute name="nombre" attributeType="String" minValueString="3" defaultValueString="nombre" syncable="YES"/>
+        <attribute name="imagenUsuario" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" syncable="YES"/>
+        <attribute name="nombre" attributeType="String" defaultValueString="nombre" syncable="YES"/>
         <attribute name="tipo_autismo" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Juegos" inverseName="usuarioJuegos" inverseEntity="Juegos" syncable="YES"/>
     </entity>
     <elements>
         <element name="Juegos" positionX="-2934" positionY="-972" width="128" height="73"/>
-        <element name="Usuario" positionX="-2927" positionY="-1134" width="128" height="118"/>
+        <element name="Usuario" positionX="-2927" positionY="-1134" width="128" height="133"/>
     </elements>
 </model>

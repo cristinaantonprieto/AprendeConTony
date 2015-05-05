@@ -83,24 +83,6 @@
 -(void) loadUsuarios
 {
     
-#warning metodos para guardar un nuevo personaje, y setter para los campos, tambien metodos de borrado y mirar como conseguir los datos del usuario a parte del nombre.....
-    Usuario *character = [NSEntityDescription
-                            insertNewObjectForEntityForName:@"Usuario"
-                            inManagedObjectContext:self.context];
-    
-    // Asignamos las propiedades
-//    [character setName:@"daf"];
-//    [character setLastName:self.lastName.text];
-//    [character setAlias:self.alias.text];
-    character.nombre = @"prueba2";
-    
-//    
-    // Lo metemos en nuestro ManagedObjectContext
-    [self.context insertObject:character];
-    
-////************fin nuevo personaje*******/////////
-    
-    
     //Fetch
     NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
     [fetch setEntity:[NSEntityDescription entityForName:@"Usuario" inManagedObjectContext:self.context]];
@@ -108,6 +90,8 @@
     NSFetchedResultsController *results = [[NSFetchedResultsController alloc] initWithFetchRequest:fetch managedObjectContext:self.context sectionNameKeyPath:nil cacheName:nil];
   //  self.fetchedResultsController = results;
     NSArray *array = [context executeFetchRequest:fetch error:nil];
+    
+    
     if (array ==nil) {
         NSLog(@"array vacio");
     }
