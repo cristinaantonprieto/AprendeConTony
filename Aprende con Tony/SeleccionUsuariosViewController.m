@@ -107,6 +107,21 @@
     
     if (array ==nil) {
         NSLog(@"array vacio");
+        self.sinUsuarios = YES;
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Pulsa el botón añadir para crear un nuevo usuario"
+                                                          message:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"Aceptar"
+                                                otherButtonTitles:nil];
+        
+        [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        
+        [message show];
+
+    }else
+    {
+        self.sinUsuarios = NO;
     }
 }
 
@@ -198,12 +213,15 @@
     
     NSLog(@"password introducida: %@", inputText);
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    // obtenemos el nombre desde la base de datos
-    NSString *password = [defaults stringForKey:@"kPassword"];
-    
-    //si la clave coincide pasamos a la siguiente pantalla
-    if ([inputText isEqualToString:password]) {
+    if (!self.sinUsuarios) {
+        
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        // obtenemos el nombre desde la base de datos
+        NSString *password = [defaults stringForKey:@"kPassword"];
+        
+        //si la clave coincide pasamos a la siguiente pantalla
+        if ([inputText isEqualToString:password]) {
             // Llamamos al storyBoard principal
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"
@@ -212,8 +230,8 @@
             nuevoUsuarioViewController.nuevoUsuario = YES;
             // Ahora lanzamos el controlador en el navigation de forma animada:
             [self.navigationController pushViewController:nuevoUsuarioViewController animated:YES];
+        }
     }
-    
     
     
 }

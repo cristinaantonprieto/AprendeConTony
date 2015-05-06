@@ -21,6 +21,7 @@
 /** VARIABLES **/
 @property (nonatomic, retain) IBOutlet UIButton *buttonConfigurarJuegos;
 @property (nonatomic, retain) IBOutlet UIButton *buttonFoto;
+@property (nonatomic, retain) IBOutlet UIButton *buttonDelete;
 
 @property (nonatomic, retain) Usuario* persona;
 
@@ -52,6 +53,7 @@
 /** METODOS **/
 -(IBAction)goToConfigurarJuegosViewController:(id)sender;
 -(IBAction)goToGuardarUsuarioViewController:(id)sender;
+-(IBAction)deleteUsuario:(id)sender;
 -(IBAction)actionButtonFoto:(id)sender;
 
 @end

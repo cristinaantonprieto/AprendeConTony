@@ -420,6 +420,31 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INY-xi-k2B">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="8j2-95-JMK"/>
+                                    <constraint firstAttribute="height" constant="34" id="MgN-dI-fII"/>
+                                </constraints>
+                                <state key="normal" image="delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8j2-95-JMK"/>
+                                        <exclude reference="MgN-dI-fII"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="8j2-95-JMK"/>
+                                        <include reference="MgN-dI-fII"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteUsuario:" destination="vka-fZ-Ro9" eventType="touchUpInside" id="LKM-Pa-rmY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -452,6 +477,7 @@
                             <constraint firstAttribute="centerY" secondItem="e6P-l0-Zgt" secondAttribute="centerY" id="Tjd-bK-c6y">
                                 <variation key="widthClass=regular" constant="156.5"/>
                             </constraint>
+                            <constraint firstItem="INY-xi-k2B" firstAttribute="leading" secondItem="hET-X0-5YB" secondAttribute="trailing" constant="-81" id="TyV-1J-eVN"/>
                             <constraint firstItem="hET-X0-5YB" firstAttribute="top" secondItem="bIa-ah-HTR" secondAttribute="bottom" constant="-174" id="VgE-DV-Mv6"/>
                             <constraint firstItem="GNG-Sw-xI6" firstAttribute="top" secondItem="tbi-iK-6PH" secondAttribute="bottom" constant="40" id="VrH-Az-B7i">
                                 <variation key="widthClass=regular" constant="39"/>
@@ -463,6 +489,7 @@
                             <constraint firstItem="J8J-yq-Q8E" firstAttribute="top" secondItem="Whm-fI-TKP" secondAttribute="bottom" constant="49" id="doQ-bm-y6B"/>
                             <constraint firstItem="hET-X0-5YB" firstAttribute="leading" secondItem="dRS-Ee-HoP" secondAttribute="leadingMargin" constant="-22" id="iYq-gN-2A4"/>
                             <constraint firstItem="GNG-Sw-xI6" firstAttribute="leading" secondItem="J8J-yq-Q8E" secondAttribute="trailing" constant="51" id="lap-5v-IvP"/>
+                            <constraint firstItem="hET-X0-5YB" firstAttribute="top" secondItem="INY-xi-k2B" secondAttribute="bottom" constant="-90" id="n0J-vy-QsS"/>
                             <constraint firstItem="hET-X0-5YB" firstAttribute="top" secondItem="e6P-l0-Zgt" secondAttribute="bottom" constant="-90" id="nHD-zZ-b1Z"/>
                             <constraint firstItem="hET-X0-5YB" firstAttribute="top" secondItem="t5r-h9-XaK" secondAttribute="bottom" id="nUI-rg-Lo6"/>
                             <constraint firstItem="hET-X0-5YB" firstAttribute="top" secondItem="0FE-EH-ppD" secondAttribute="bottom" constant="-179" id="njo-tx-bdd"/>
@@ -485,12 +512,14 @@
                                 <exclude reference="tbi-iK-6PH"/>
                                 <exclude reference="A2b-a4-xdw"/>
                                 <exclude reference="Ukf-bH-VYd"/>
+                                <exclude reference="INY-xi-k2B"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="AB0-2N-5IG"/>
                                 <exclude reference="LKr-a1-bIx"/>
                                 <exclude reference="LVo-Xc-uC8"/>
                                 <exclude reference="VgE-DV-Mv6"/>
+                                <exclude reference="n0J-vy-QsS"/>
                                 <exclude reference="nHD-zZ-b1Z"/>
                                 <exclude reference="nUI-rg-Lo6"/>
                                 <exclude reference="njo-tx-bdd"/>
@@ -515,6 +544,7 @@
                                 <exclude reference="7Cu-Iy-6nU"/>
                                 <exclude reference="MyC-U1-ab2"/>
                                 <exclude reference="wWo-fU-wmV"/>
+                                <exclude reference="TyV-1J-eVN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -530,12 +560,14 @@
                                 <include reference="tbi-iK-6PH"/>
                                 <include reference="A2b-a4-xdw"/>
                                 <include reference="Ukf-bH-VYd"/>
+                                <include reference="INY-xi-k2B"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="AB0-2N-5IG"/>
                                 <include reference="LKr-a1-bIx"/>
                                 <include reference="LVo-Xc-uC8"/>
                                 <exclude reference="VgE-DV-Mv6"/>
+                                <include reference="n0J-vy-QsS"/>
                                 <exclude reference="nHD-zZ-b1Z"/>
                                 <include reference="nUI-rg-Lo6"/>
                                 <exclude reference="njo-tx-bdd"/>
@@ -560,11 +592,13 @@
                                 <include reference="7Cu-Iy-6nU"/>
                                 <include reference="MyC-U1-ab2"/>
                                 <include reference="wWo-fU-wmV"/>
+                                <include reference="TyV-1J-eVN"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="buttonConfigurarJuegos" destination="eTs-U9-loM" id="pI4-cn-oTR"/>
+                        <outlet property="buttonDelete" destination="INY-xi-k2B" id="hXd-oN-X2S"/>
                         <outlet property="buttonFoto" destination="A2b-a4-xdw" id="eiK-vK-We3"/>
                         <outlet property="dniLabel" destination="Quc-oA-wqj" id="feC-86-5HP"/>
                         <outlet property="dniText" destination="cQK-Tr-4Gh" id="WJL-m8-aFu"/>
@@ -588,11 +622,12 @@
         <image name="blackboardConfiguacion" width="2048" height="1536"/>
         <image name="configuracionItem" width="34" height="34"/>
         <image name="corcho" width="2048" height="1536"/>
+        <image name="delete" width="34" height="34"/>
         <image name="fondoDash" width="2048" height="1536"/>
         <image name="fondoFoto" width="1118" height="1160"/>
         <image name="save" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JTu-EG-Wch"/>
+        <segue reference="aXn-6C-rLM"/>
     </inferredMetricsTieBreakers>
 </document>

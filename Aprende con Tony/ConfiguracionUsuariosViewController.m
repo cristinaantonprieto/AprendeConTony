@@ -22,13 +22,7 @@
     // Do any additional setup after loading the view.
     noguardar = YES;
     
-    /** FIJAR BOTON BORRAR USUARIO **/
-    UIButton *buttonDelete =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [buttonDelete setImage:[UIImage imageNamed:@"delete.png"] forState:UIControlStateNormal];
-    [buttonDelete addTarget:self action:@selector(goToEliminarUsuariosViewController:)forControlEvents:UIControlEventTouchUpInside];
-    [buttonDelete setFrame:CGRectMake(0, 0, 34, 34)];
-    UIBarButtonItem *barButtonDelete = [[UIBarButtonItem alloc] initWithCustomView:buttonDelete];
-    self.navigationItem.rightBarButtonItem = barButtonDelete;
+
     
    
 }
@@ -58,22 +52,10 @@
 }
 
 
--(IBAction)goToEliminarUsuariosViewController:(id)sender
-{
-#warning funcionalidad eliminar usuario
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"¿Desea borrar el usuario?"
-                                                      message:nil
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancelar"
-                                            otherButtonTitles:@"Borrar",nil];
-    
-    [message show];
-}
+
 
 -(IBAction)guardarConfiguracion:(id)sender
 {
-#warning funcionalidad guardar configuracion y mostrar alert de guardado
     noguardar = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -81,7 +63,6 @@
 #pragma mark alertView delegate methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
  
-#warning actualizar collection view de seleccion de usuarios ojoooooooooo
     if (buttonIndex == 1) {
         noguardar = NO;
         // Llamamos al storyBoard principal

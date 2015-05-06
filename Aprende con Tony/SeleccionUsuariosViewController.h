@@ -33,6 +33,8 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 
+@property (nonatomic, assign) BOOL sinUsuarios;
+
 /** METODOS **/
 -(IBAction)goToNuevoUsuarioViewController:(id)sender;
 

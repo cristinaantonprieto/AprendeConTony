@@ -17,7 +17,7 @@
 
 @implementation NuevoUsuarioViewController
 
-@synthesize persona,buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText, imagenPerfil;
+@synthesize persona,buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText, imagenPerfil, buttonDelete;
 @synthesize nombreUser, dniUser, tipoautismoUser, edadUser, context, buttonFoto, imagenUser, popoverController;
 
 - (void)viewDidLoad {
@@ -41,9 +41,15 @@
     self.edadText.delegate = self;
     self.edadText.tag = 14;
     
+    //no se puede borrar un usuario que no esta creado
+    [self.buttonDelete setEnabled:NO];
+    self.buttonDelete.hidden = YES;
+    
     
     if (!self.nuevoUsuario) {
         //el usuario no es nuevo. entramos para modificacion
+        [self.buttonDelete setEnabled:YES];
+        self.buttonDelete.hidden = NO;
         
         self.nombreText.text = self.persona.nombre;
         self.dniText.text = self.persona.dni;
@@ -289,6 +295,32 @@
 
 - (void) alertView:(UIAlertView *)alert clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (!self.nuevoUsuario) {
+        
+        //no es nuevo usuario borramos.
+        if (buttonIndex == 1) {
+            NSLog(@"da acceso a borrar...");
+            [self.context deleteObject:self.persona];
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            // Llamamos al storyBoard principal
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            // De este obtenemos el controlador con Identifier "Pantalla2"
+            SeleccionUsuariosViewController *seleccionUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"seleccionUsuariosViewControllerID"];
+            seleccionUsuarioViewController.context = self.context;
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:seleccionUsuarioViewController animated:YES];
+
+            
+        }
+        
+    }
+    
     // After saving iamge, dismiss camera
     [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -371,9 +403,6 @@
 }
 
 
-
-
-
 - (void)updatePhotoButton {
          
         [self.buttonConfigurarJuegos setImage:self.persona.imagenUsuario forState:UIControlStateNormal];
@@ -383,6 +412,18 @@
             [self.buttonConfigurarJuegos setImage:[UIImage imageNamed:@"home.png"] forState:UIControlStateNormal];
         }
     
+}
+
+-(void)deleteUsuario:(id)sender
+{
+    NSLog(@"delete usuario.....");
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"¿Desea borrar el usuario?"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancelar"
+                                            otherButtonTitles:@"Borrar",nil];
+    
+    [message show];
 }
 
 
