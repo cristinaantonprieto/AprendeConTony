@@ -20,8 +20,25 @@
 @property (nonatomic, retain) NSManagedObjectContext *context;
 @property (nonatomic, retain) Usuario *usuarioSeleccionado;
 
+@property (nonatomic, retain)IBOutlet UIButton *buttonEmociones;
+@property (nonatomic, retain)IBOutlet UIButton *buttonCasa;
+@property (nonatomic, retain)IBOutlet UIButton *buttonModales;
+@property (nonatomic, retain)IBOutlet UIButton *buttonCotidianas;
+
+@property (nonatomic, retain) IBOutlet UIImageView *imagentony;
+@property (nonatomic, retain) IBOutlet UIImageView *guionPictogramas;
+
 
 -(void)goToConfigurarUsuariosViewController:(id)sender;
 -(void)goToSeleccionarUsuariosViewController:(id)sender;
+
+
+-(IBAction)actionButtonEmociones:(id)sender;
+
+-(IBAction)actionButtonCasa:(id)sender;
+
+-(IBAction)actionButtonModales:(id)sender;
+
+-(IBAction)actionButtonCotidianas:(id)sender;
 
 @end

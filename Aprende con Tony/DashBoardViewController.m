@@ -14,7 +14,8 @@
 
 @implementation DashBoardViewController
 
-@synthesize context, usuarioSeleccionado;
+@synthesize context, usuarioSeleccionado, imagentony, guionPictogramas;
+@synthesize buttonCasa, buttonCotidianas, buttonEmociones, buttonModales;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -120,6 +121,28 @@
     }
     
     
+    
+}
+
+#pragma mark action buttons juegos
+
+-(IBAction)actionButtonEmociones:(id)sender
+{
+    
+}
+
+-(IBAction)actionButtonCasa:(id)sender
+{
+    
+}
+
+-(IBAction)actionButtonModales:(id)sender;
+{
+    
+}
+
+-(IBAction)actionButtonCotidianas:(id)sender
+{
     
 }
 

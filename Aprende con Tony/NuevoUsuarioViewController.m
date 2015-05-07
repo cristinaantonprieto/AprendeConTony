@@ -45,6 +45,11 @@
     [self.buttonDelete setEnabled:NO];
     self.buttonDelete.hidden = YES;
     
+    self.nombreUser = @" ";
+    self.dniUser = @" ";
+    self.edadUser = @"0";
+    self.imagenUser = @" ";
+    self.tipoautismoUser = @" ";
     
     if (!self.nuevoUsuario) {
         //el usuario no es nuevo. entramos para modificacion

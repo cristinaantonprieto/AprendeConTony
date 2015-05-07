@@ -5,11 +5,11 @@
         <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuarioJuegos" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
-        <attribute name="dni" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="dni" optional="YES" attributeType="String" defaultValueString="1234567" indexed="YES" syncable="YES"/>
         <attribute name="edad" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="imagenUsuario" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" syncable="YES"/>
         <attribute name="nombre" attributeType="String" defaultValueString="nombre" syncable="YES"/>
-        <attribute name="tipo_autismo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo_autismo" optional="YES" attributeType="String" defaultValueString="autismo" syncable="YES"/>
         <relationship name="usuarioJuegos" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Juegos" inverseName="usuarioJuegos" inverseEntity="Juegos" syncable="YES"/>
     </entity>
     <elements>
