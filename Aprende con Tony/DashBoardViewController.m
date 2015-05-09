@@ -126,24 +126,70 @@
 
 #pragma mark action buttons juegos
 
--(IBAction)actionButtonEmociones:(id)sender
+
+
+-(IBAction)actionButtonCasa:(id)sender //juego uno
 {
+
+  
     
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    intermediaViewController.context = self.context;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    intermediaViewController.numJuego = 1;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
 }
 
--(IBAction)actionButtonCasa:(id)sender
+
+-(IBAction)actionButtonCotidianas:(id)sender //juego dos
 {
     
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    intermediaViewController.context = self.context;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+     intermediaViewController.numJuego = 2;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
 }
 
--(IBAction)actionButtonModales:(id)sender;
+-(IBAction)actionButtonModales:(id)sender; //juego tres
 {
     
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    intermediaViewController.context = self.context;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+     intermediaViewController.numJuego = 3;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
 }
 
--(IBAction)actionButtonCotidianas:(id)sender
+-(IBAction)actionButtonEmociones:(id)sender //juego cuatro
 {
     
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    intermediaViewController.context = self.context;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    intermediaViewController.numJuego = 4;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
 }
 
 

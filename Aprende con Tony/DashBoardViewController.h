@@ -10,6 +10,9 @@
 #import "ConfiguracionUsuariosViewController.h"
 #import "SeleccionUsuariosViewController.h"
 #import "NuevoUsuarioViewController.h"
+
+#import "IntermediaJuegoViewController.h"
+
 #import "Usuario.h"
 
 @interface DashBoardViewController : UIViewController<UIAlertViewDelegate>

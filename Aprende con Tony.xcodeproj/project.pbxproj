@@ -11,6 +11,10 @@
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
 		6BB58C441AF4C9F20060C1EF /* Juegos.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C431AF4C9F20060C1EF /* Juegos.m */; };
 		6BB58C4D1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */; };
+		6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */; };
+		6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */; };
+		6BB58E9A1AFE16A300614EC2 /* SeleccionarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */; };
+		6BB58E9C1AFE483A00614EC2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */; };
 		6BD7520D1AEE948000CA380B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520C1AEE948000CA380B /* main.m */; };
 		6BD752101AEE948000CA380B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520F1AEE948000CA380B /* AppDelegate.m */; };
 		6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */; };
@@ -23,6 +27,7 @@
 		6BEB7AD41AF75BBD003FED49 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BEB7AD31AF75BBD003FED49 /* Usuario.m */; };
 		6BEB7AD61AF7773C003FED49 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */; };
 		6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */; };
+		6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,13 @@
 		6BB58C431AF4C9F20060C1EF /* Juegos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Juegos.m; path = ../Juegos.m; sourceTree = "<group>"; };
 		6BB58C4B1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Usuario+UsuarioCategoria.h"; sourceTree = "<group>"; };
 		6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Usuario+UsuarioCategoria.m"; sourceTree = "<group>"; };
+		6BB58E921AFDFF9200614EC2 /* JuegoCasaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoCasaViewController.h; sourceTree = "<group>"; };
+		6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoCasaViewController.m; sourceTree = "<group>"; };
+		6BB58E951AFDFFAD00614EC2 /* JuegoSeleccionarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoSeleccionarViewController.h; sourceTree = "<group>"; };
+		6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoSeleccionarViewController.m; sourceTree = "<group>"; };
+		6BB58E981AFE16A300614EC2 /* SeleccionarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeleccionarObject.h; sourceTree = "<group>"; };
+		6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeleccionarObject.m; sourceTree = "<group>"; };
+		6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6BD752071AEE948000CA380B /* Aprende con Tony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aprende con Tony.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD7520B1AEE948000CA380B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BD7520C1AEE948000CA380B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +77,8 @@
 		6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		6BF0C5381AEF8C930006E382 /* ConfiguracionUsuariosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionUsuariosViewController.h; sourceTree = "<group>"; };
 		6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionUsuariosViewController.m; sourceTree = "<group>"; };
+		6BFD7B641AFB5AEE0037A5AD /* IntermediaJuegoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntermediaJuegoViewController.h; sourceTree = "<group>"; };
+		6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntermediaJuegoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB58E9C1AFE483A00614EC2 /* QuartzCore.framework in Frameworks */,
 				6BEB7AD61AF7773C003FED49 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +118,7 @@
 		6BD751FE1AEE948000CA380B = {
 			isa = PBXGroup;
 			children = (
+				6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */,
 				6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */,
 				6BD752091AEE948000CA380B /* Aprende con Tony */,
 				6BD752261AEE948000CA380B /* Aprende con TonyTests */,
@@ -134,6 +150,14 @@
 				6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */,
 				6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */,
 				6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */,
+				6BFD7B641AFB5AEE0037A5AD /* IntermediaJuegoViewController.h */,
+				6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */,
+				6BB58E921AFDFF9200614EC2 /* JuegoCasaViewController.h */,
+				6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */,
+				6BB58E951AFDFFAD00614EC2 /* JuegoSeleccionarViewController.h */,
+				6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */,
+				6BB58E981AFE16A300614EC2 /* SeleccionarObject.h */,
+				6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */,
 				6BD752171AEE948000CA380B /* Main.storyboard */,
 				6BD752391AEEA58700CA380B /* Images.xcassets */,
 				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
@@ -270,7 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */,
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
+				6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */,
+				6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */,
 				6BB58C441AF4C9F20060C1EF /* Juegos.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
 				6BEB7AD41AF75BBD003FED49 /* Usuario.m in Sources */,
@@ -280,6 +307,7 @@
 				6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */,
 				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,
 				6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */,
+				6BB58E9A1AFE16A300614EC2 /* SeleccionarObject.m in Sources */,
 				6BD7520D1AEE948000CA380B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
