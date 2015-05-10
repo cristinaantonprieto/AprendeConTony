@@ -26,7 +26,7 @@
           //array de las correctas
             self.arrayCorrectas = [[NSArray alloc]initWithObjects:@"lavadora.png", @"detergente.png", @"suavizante.png", nil];
           //array de las posibilidades
-            self.arrayPosibilidades = [[NSArray alloc]initWithObjects:@"lavadora.png", @"detergente.png", @"suavizante.png",@"recogedor.png", @"cuchillo.png", @"cepilloBarrer.png", nil];
+            self.arrayPosibilidades = [[NSArray alloc]initWithObjects:@"lavadora.png", @"detergente.png", @"suavizante.png",@"recogedor.png", @"cuchillo.png", nil];
         }
             break;
         case NombreNivelBarrer:

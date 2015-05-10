@@ -12,6 +12,7 @@
 
 @synthesize usuarioSeleccionado, nombreJuego, context, numDificultad, nombreNivel;
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
+@synthesize imagenCentral, imagenCinco, imagenCuatro, imagenDos, imagenTres, imagenUno;
 
 
 -(void)viewDidLoad
@@ -48,6 +49,8 @@
 #warning cargar datos segun nivel, ropa barrer o mesa, primero probamos para una cosa que sera el de ropa
         self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelRopa];
 
+       //////// self.imagenCentral.image = [UIImage imageNamed:self.seleccionarObject.nombreImagenCentral];
+
         
     }else if([nombreJuego isEqualToString:@"cotidianas"])
     {
@@ -58,6 +61,13 @@
     }else if([nombreJuego isEqualToString:@"emociones"])
     
     [super viewDidLoad];
+}
+
+
+-(void)loadView{
+    [super loadView];
+    
+    
 }
 
 #pragma mark metodos botones navigation bar

@@ -34,6 +34,13 @@
 @property(nonatomic, retain)IBOutlet UIImageView *guionPictograma;
 @property(nonatomic, retain)IBOutlet UIView *areaJuego;
 
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCentral;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenUno;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenDos;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenTres;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCuatro;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCinco;
+
 
 -(void)goToConfigurarUsuariosViewController:(id)sender;
 -(void)goToSeleccionarUsuariosViewController:(id)sender;
