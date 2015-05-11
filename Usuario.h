@@ -2,22 +2,25 @@
 //  Usuario.h
 //  Aprende con Tony
 //
-//  Created by Cristina Anton prieto on 4/5/15.
+//  Created by Cristina Anton prieto on 11/5/15.
 //  Copyright (c) 2015 Cristina Anton prieto. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Juegos;
+@class JuegoCasa, JuegoCotidianas, JuegoEmociones, JuegoModales;
 
 @interface Usuario : NSManagedObject
 
 @property (nonatomic, retain) NSString * dni;
 @property (nonatomic, retain) NSNumber * edad;
+@property (nonatomic, retain) id imagenUsuario;
 @property (nonatomic, retain) NSString * nombre;
 @property (nonatomic, retain) NSString * tipo_autismo;
-@property (nonatomic, retain) id imagenUsuario;
-@property (nonatomic, retain) Juegos *usuarioJuegos;
+@property (nonatomic, retain) JuegoCasa *usuario_juegoCasa;
+@property (nonatomic, retain) JuegoCotidianas *usuario_juegoCotidianas;
+@property (nonatomic, retain) JuegoModales *usuario_juegoModales;
+@property (nonatomic, retain) JuegoEmociones *usuario_juegoEmociones;
 
 @end

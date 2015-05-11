@@ -27,6 +27,10 @@
 @property (nonatomic, retain) Usuario *usuarioSeleccionado;
 @property(nonatomic, assign)int numDificultad;
 
+@property(nonatomic, assign)int numFallos;
+@property(nonatomic, assign)int numAciertos;
+@property(nonatomic, assign)int numImagenTocada;
+
 @property(nonatomic, retain)SeleccionarObject *seleccionarObject;
 
 @property(nonatomic, retain)IBOutlet UIImageView *imagenTony;
@@ -42,7 +46,18 @@
 @property(nonatomic, retain)IBOutlet UIImageView *imagenCinco;
 
 
+@property(nonatomic, retain) NSTimer *temporizadorBordeRojo;
+@property(nonatomic, retain) NSTimer *temporizadorTony;
+@property(nonatomic, retain) NSTimer *temporizadorEntreToques;
+
+
+
 -(void)goToConfigurarUsuariosViewController:(id)sender;
 -(void)goToSeleccionarUsuariosViewController:(id)sender;
+-(void)cargarImagenesJuego;
+-(void)cargarBotonesNavigation;
+-(void)comprobarAccion:(NSString *)imagenTocada;
+
+
 
 @end

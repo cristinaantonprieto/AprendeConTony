@@ -24,10 +24,11 @@ typedef enum {
 @property (nonatomic, readonly) NombreNivel nombreNivel;
 @property (nonatomic, retain) NSString *nombreImagenCentral;
 @property (nonatomic, retain) NSArray *arrayPosibilidades;
+@property (nonatomic, retain) NSArray *arrayPosibilidadesIndices;
 @property (nonatomic, retain) NSArray *arrayCorrectas;
 @property (nonatomic, retain) NSString *nombreImagenGuion;
 
 
--(SeleccionarObject *) initWithInstruccion: (NombreNivel) nombre_nivel;
+-(SeleccionarObject *) initWithInstruccion: (NombreNivel) nombre_nivel numero_dificultad:(int)num_dificultad;
 
 @end

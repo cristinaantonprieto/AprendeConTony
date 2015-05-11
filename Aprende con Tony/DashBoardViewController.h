@@ -14,6 +14,10 @@
 #import "IntermediaJuegoViewController.h"
 
 #import "Usuario.h"
+#import "JuegoModales.h"
+#import "JuegoEmociones.h"
+#import "JuegoCotidianas.h"
+#import "JuegoCasa.h"
 
 @interface DashBoardViewController : UIViewController<UIAlertViewDelegate>
 {
@@ -22,6 +26,11 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 @property (nonatomic, retain) Usuario *usuarioSeleccionado;
+@property (nonatomic, retain) JuegoCasa *juegoCasa;
+@property (nonatomic, retain) JuegoCotidianas *juegoCotidianas;
+@property (nonatomic, retain) JuegoModales *juegoModales;
+@property (nonatomic, retain) JuegoEmociones *juegoEmociones;
+
 
 @property (nonatomic, retain)IBOutlet UIButton *buttonEmociones;
 @property (nonatomic, retain)IBOutlet UIButton *buttonCasa;

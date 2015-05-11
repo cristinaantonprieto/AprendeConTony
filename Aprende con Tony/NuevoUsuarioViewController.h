@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
 #import "ConfiguracionUsuariosViewController.h"
 #import "DashBoardViewController.h"
+
 #import "Usuario.h"
-#import "Juegos.h"
-#import <AssetsLibrary/AssetsLibrary.h>
+#import "JuegoCasa.h"
+#import "JuegoCotidianas.h"
+#import "JuegoModales.h"
+#import "JuegoEmociones.h"
+
 
 @interface NuevoUsuarioViewController : UIViewController <UIAlertViewDelegate, UITextFieldDelegate, UIPopoverControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
@@ -24,6 +30,10 @@
 @property (nonatomic, retain) IBOutlet UIButton *buttonDelete;
 
 @property (nonatomic, retain) Usuario* persona;
+@property (nonatomic, retain) JuegoCasa *juegoCasa;
+@property (nonatomic, retain) JuegoCotidianas *juegoCotidianas;
+@property (nonatomic, retain) JuegoModales *juegoModales;
+@property (nonatomic, retain) JuegoEmociones *juegoEmociones;
 
 @property (nonatomic, retain) IBOutlet UILabel *nombreLabel;
 @property (nonatomic, retain) IBOutlet UILabel *edadLabel;

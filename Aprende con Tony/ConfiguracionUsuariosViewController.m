@@ -15,16 +15,65 @@
 
 @implementation ConfiguracionUsuariosViewController
 
-@synthesize imagenFondo, buttonSaveConfiguracion, noguardar, context;
+@synthesize imagenFondo, buttonSaveConfiguracion, noguardar, context, nuevoUsuario, usuarioSeleccionado;
+@synthesize juegoModales, juegoEmociones, juegoCotidianas, juegoCasa;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     noguardar = YES;
     
+    if (!nuevoUsuario) { //si no es nuevo usuario se tienen que cargar los datos para el usuario. y mostrarlos en los textfield
+        
+        self.juegoCasa = self.usuarioSeleccionado.usuario_juegoCasa;
+       
+        self.juegoEmociones = self.usuarioSeleccionado.usuario_juegoEmociones;
+        
+        self.juegoModales = self.usuarioSeleccionado.usuario_juegoModales;
+        
+        self.juegoCotidianas = self.usuarioSeleccionado.usuario_juegoCotidianas;
+      
+        NSLog(@"configurar usuarios view controlle........ no nuevo usuario.......");
+         NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
+        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
+        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
+          NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
+        NSLog(@"......................configurar usuarios view controlle........ no nuevo usuario");
+
+        
+        
+    }
 
     
    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    if (!nuevoUsuario) { //si no es nuevo usuario se tienen que cargar los datos para el usuario. y mostrarlos en los textfield
+        
+        self.juegoCasa = self.usuarioSeleccionado.usuario_juegoCasa;
+        
+        self.juegoEmociones = self.usuarioSeleccionado.usuario_juegoEmociones;
+        
+        self.juegoModales = self.usuarioSeleccionado.usuario_juegoModales;
+        
+        self.juegoCotidianas = self.usuarioSeleccionado.usuario_juegoCotidianas;
+        
+        NSLog(@"configurar usuarios view controlle........ no nuevo usuario.......");
+        NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
+        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
+        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
+        NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
+        NSLog(@"......................configurar usuarios view controlle........ no nuevo usuario");
+        
+        
+        
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,49 +82,65 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        
-        if (noguardar) {
-            
-            
-            /** mostramos el alert que pide la contraseña **/
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Configuración no guardada"
-                                                              message:nil
-                                                             delegate:self
-                                                    cancelButtonTitle:@"Aceptar"
-                                                    otherButtonTitles:nil];
-            
-            [message show];
-        }
-    }
+
     [super viewWillDisappear:animated];
 }
 
+#pragma mark metodos botones
 
-
-
--(IBAction)guardarConfiguracion:(id)sender
-{
-    noguardar = NO;
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark alertView delegate methods
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
- 
-    if (buttonIndex == 1) {
-        noguardar = NO;
-        // Llamamos al storyBoard principal
-        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        // De este obtenemos el controlador con Identifier "Pantalla2"
-        SeleccionUsuariosViewController *seleccionUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"seleccionUsuariosViewControllerID"];
-        seleccionUsuarioViewController.context = self.context;
-        // Ahora lanzamos el controlador en el navigation de forma animada:
-        [self.navigationController pushViewController:seleccionUsuarioViewController animated:YES];
-    }
-
+-(IBAction)goToConfigurarCasaViewController:(id)sender{
     
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionCaracteristicasJuegosViewController *configuracionCaracteristicasViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionesCaracteristicasJuegosID"];
+    configuracionCaracteristicasViewController.nombreJuego = @"En casa";
+    configuracionCaracteristicasViewController.nuevoUsuario = self.nuevoUsuario;
+    configuracionCaracteristicasViewController.context = self.context;
+    configuracionCaracteristicasViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configuracionCaracteristicasViewController animated:YES];
 }
+-(IBAction)goToConfigurarCotidianasViewController:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionCaracteristicasJuegosViewController *configuracionCaracteristicasViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionesCaracteristicasJuegosID"];
+    configuracionCaracteristicasViewController.nombreJuego = @"Situaciones cotidianas";
+    configuracionCaracteristicasViewController.nuevoUsuario = self.nuevoUsuario;
+    configuracionCaracteristicasViewController.context = self.context;
+    configuracionCaracteristicasViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configuracionCaracteristicasViewController animated:YES];
+}
+-(IBAction)goToConfigurarModalesViewController:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionCaracteristicasJuegosViewController *configuracionCaracteristicasViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionesCaracteristicasJuegosID"];
+    configuracionCaracteristicasViewController.nombreJuego = @"Buenos modales";
+    configuracionCaracteristicasViewController.nuevoUsuario = self.nuevoUsuario;
+    configuracionCaracteristicasViewController.context = self.context;
+    configuracionCaracteristicasViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configuracionCaracteristicasViewController animated:YES];
+}
+-(IBAction)goToConfigurarEmocionesViewController:(id)sender
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionCaracteristicasJuegosViewController *configuracionCaracteristicasViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionesCaracteristicasJuegosID"];
+    configuracionCaracteristicasViewController.nombreJuego = @"Emociones";
+    configuracionCaracteristicasViewController.nuevoUsuario = self.nuevoUsuario;
+    configuracionCaracteristicasViewController.context = self.context;
+    configuracionCaracteristicasViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configuracionCaracteristicasViewController animated:YES];
+}
+
+
+
+
+
 
 
 

@@ -16,6 +16,7 @@
 
 @synthesize context, usuarioSeleccionado, imagentony, guionPictogramas;
 @synthesize buttonCasa, buttonCotidianas, buttonEmociones, buttonModales;
+@synthesize juegoEmociones, juegoModales, juegoCotidianas, juegoCasa;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

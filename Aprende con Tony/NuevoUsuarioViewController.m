@@ -19,6 +19,7 @@
 
 @synthesize persona,buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText, imagenPerfil, buttonDelete;
 @synthesize nombreUser, dniUser, tipoautismoUser, edadUser, context, buttonFoto, imagenUser, popoverController;
+@synthesize juegoCasa, juegoCotidianas, juegoEmociones, juegoModales;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -174,17 +175,24 @@
         [self.persona setImagenUsuario:self.imagenUser];
         
         
-#warning esto será con las configuraciones de los juegos por defecto ojoooo cambiarlo!!!!!!!
         
-        /*****/
-        Juegos *partida = [NSEntityDescription insertNewObjectForEntityForName:@"Juegos" inManagedObjectContext:[self.persona managedObjectContext]];
+    
+            /** Creamos datos por defectos para entidades de juegos **/
+        self.juegoCasa =[NSEntityDescription insertNewObjectForEntityForName:@"JuegoCasa" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoCasa setNombreJuego:@"En casa"];
+        [self.persona setUsuario_juegoCasa:self.juegoCasa];
         
-        // Presumably the tag was added for the current event, so relate it to the event.
-        [self.persona setUsuarioJuegos:partida];
+        self.juegoCotidianas = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoCotidianas" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoCotidianas setNombreJuego:@"Situaciones cotidianas"];
+        [self.persona setUsuario_juegoCotidianas:self.juegoCotidianas];
         
-        // Add the new tag to the tags array and to the table view.
-        partida.voz = @"YES";
-        /***/
+        self.juegoModales = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoModales" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoModales setNombreJuego:@"Buenos modales"];
+        [self.persona setUsuario_juegoModales:self.juegoModales];
+        
+        self.juegoEmociones = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoEmociones" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoEmociones setNombreJuego:@"Emociones"];
+        [self.persona setUsuario_juegoEmociones:self.juegoEmociones];
         
         
         //Persistimos el objeto
@@ -202,6 +210,30 @@
         [self.persona setEdad:myNumber];
         [self.persona setTipo_autismo:self.tipoautismoUser];
         [self.persona setImagenUsuario:self.imagenUser];
+        
+        NSLog(@"nuevo usuario modificado..................");
+        self.juegoCasa = self.persona.usuario_juegoCasa;
+        self.juegoEmociones = self.persona.usuario_juegoEmociones;
+        self.juegoModales = self.persona.usuario_juegoModales;
+        self.juegoCotidianas = self.persona.usuario_juegoCotidianas;
+       
+        
+        
+        [self.juegoCasa setNombreJuego:@"En casa"];
+        [self.juegoCotidianas setNombreJuego:@"Situaciones cotidianas"];
+        [self.juegoModales setNombreJuego:@"Buenos modales"];
+        [self.juegoEmociones setNombreJuego:@"Emociones"];
+        
+        
+        NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
+        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
+        
+        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
+        
+        NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
+        
+        
+        NSLog(@"..................nuevo usuario modificado");
     
         NSError *error = nil;
         if (![self.persona.managedObjectContext save:&error]) {
@@ -216,6 +248,10 @@
             DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
             dashboardViewController.context = self.context;
             dashboardViewController.usuarioSeleccionado = self.persona;
+            dashboardViewController.juegoCasa = self.juegoCasa;
+            dashboardViewController.juegoCotidianas = self.juegoCotidianas;
+            dashboardViewController.juegoEmociones = self.juegoEmociones;
+            dashboardViewController.juegoModales = self.juegoModales;
             // Ahora lanzamos el controlador en el navigation de forma animada:
             [self.navigationController pushViewController:dashboardViewController animated:YES];
 
@@ -247,6 +283,11 @@
         DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
         dashboardViewController.context = self.context;
         dashboardViewController.usuarioSeleccionado = self.persona;
+        dashboardViewController.juegoCasa = self.juegoCasa;
+        dashboardViewController.juegoCotidianas = self.juegoCotidianas;
+        dashboardViewController.juegoEmociones = self.juegoEmociones;
+        dashboardViewController.juegoModales = self.juegoModales;
+
         // Ahora lanzamos el controlador en el navigation de forma animada:
         [self.navigationController pushViewController:dashboardViewController animated:YES];
         
@@ -256,12 +297,59 @@
 
 -(IBAction)goToConfigurarJuegosViewController:(id)sender
 {
-#warning plantearse si son necesarios los datos de perfil de usuario para pasarlos
+    
+    if (self.nuevoUsuario) {
+        //Creamos el objeto a persistir indicando la entidad y el contexto
+        self.persona = (Usuario *)[NSEntityDescription
+                                   insertNewObjectForEntityForName:@"Usuario"
+                                   inManagedObjectContext:self.context];
+        
+        //Cumplimentamos los atributos del mismo
+        [self.persona setNombre:self.nombreUser];
+        [self.persona setDni:self.dniUser];
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *myNumber = [f numberFromString:self.edadUser];
+        [self.persona setEdad:myNumber];
+        [self.persona setTipo_autismo:self.tipoautismoUser];
+        [self.persona setImagenUsuario:self.imagenUser];
+        
+        
+        
+        
+        /** Creamos datos por defectos para entidades de juegos **/
+        self.juegoCasa =[NSEntityDescription insertNewObjectForEntityForName:@"JuegoCasa" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoCasa setNombreJuego:@"En casa"];
+        [self.persona setUsuario_juegoCasa:self.juegoCasa];
+        
+        self.juegoCotidianas = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoCotidianas" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoCotidianas setNombreJuego:@"Situaciones cotidianas"];
+        [self.persona setUsuario_juegoCotidianas:self.juegoCotidianas];
+        
+        self.juegoModales = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoModales" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoModales setNombreJuego:@"Buenos modales"];
+        [self.persona setUsuario_juegoModales:self.juegoModales];
+        
+        self.juegoEmociones = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoEmociones" inManagedObjectContext:[self.persona managedObjectContext]];
+        [self.juegoEmociones setNombreJuego:@"Emociones"];
+        [self.persona setUsuario_juegoEmociones:self.juegoEmociones];
+        
+        
+        //Persistimos el objeto
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+            exit(-1);
+        }
+    }
+    
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     // De este obtenemos el controlador con Identifier "Pantalla2"
     ConfiguracionUsuariosViewController *configurarUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
     configurarUsuarioViewController.context = self.context;
+    configurarUsuarioViewController.nuevoUsuario = self.nuevoUsuario;
+    configurarUsuarioViewController.usuarioSeleccionado = self.persona;
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:configurarUsuarioViewController animated:YES];
 }
