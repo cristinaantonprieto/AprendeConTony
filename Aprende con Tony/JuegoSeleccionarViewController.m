@@ -10,11 +10,11 @@
 
 @implementation JuegoSeleccionarViewController
 
-@synthesize usuarioSeleccionado, nombreJuego, context, numDificultad, nombreNivel;
+@synthesize usuarioSeleccionado, nombreJuego, context, numDificultad, nombreNivel, juegoCasa;
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
 @synthesize imagenCentral, imagenCinco, imagenCuatro, imagenDos, imagenTres, imagenUno;
 @synthesize numAciertos,numFallos,numImagenTocada;
-@synthesize temporizadorBordeRojo, temporizadorTony, temporizadorEntreToques;
+@synthesize temporizadorBordeRojo, temporizadorTony, temporizadorEntreToques,tiempoImagenFinNivel;
 
 -(void)viewDidLoad
 {
@@ -32,21 +32,55 @@
     self.areaJuego.layer.masksToBounds = YES;
     
     
-    self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
-                                                                  target:self
-                                                                selector:@selector(tiempoExcedidoEntreToques)
-                                                                userInfo:nil
-                                                                 repeats:NO];
+   
+    
+    [self cargarVistaDelJuego];
+    
+        
+        [super viewDidLoad];
+}
 
+-(void)cargarVistaDelJuego
+{
+    self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                                    target:self
+                                                                  selector:@selector(tiempoExcedidoEntreToques)
+                                                                  userInfo:nil
+                                                                   repeats:NO];
+    
     
     
     /** cargar datos segun el juego **/
     if ([nombreJuego isEqualToString:@"casa"]) {
         
+        if (self.usuarioSeleccionado.usuario_juegoCasa.voz.intValue == 0) {
+            // QUITAR SONIDO
+        }
+        if (self.usuarioSeleccionado.usuario_juegoCasa.guionPictos.intValue == 0) {
+            // QUITAR GUION PICTOGRAMAS
+            self.guionPictograma.hidden = YES;
+        }
+        
+        
         //cargar datos para juego de seleccionar cosas de casas segun nivel
-#warning cargar datos segun nivel, ropa barrer o mesa, primero probamos para una cosa que sera el de ropa y dificultad 3 para pruebas
-        self.numDificultad = 3; ///CAMBIARLOOOOOOOOOOO A LO QUE SEA REALMENTE
-        self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelRopa numero_dificultad:self.numDificultad];
+        self.numDificultad = self.juegoCasa.num_dificultad.intValue;
+        
+        
+        switch (self.juegoCasa.num_nivel.intValue) {
+            case 1:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelRopa numero_dificultad:self.numDificultad];
+                break;
+            case 2:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelBarrer numero_dificultad:self.numDificultad];
+                break;
+            case 3:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelMesa numero_dificultad:self.numDificultad];
+                break;
+                
+            default:
+                break;
+        }
+        
         
         [self cargarImagenesJuego];
         
@@ -64,9 +98,6 @@
     
     
     
-    
-        
-        [super viewDidLoad];
 }
 
 
@@ -185,13 +216,58 @@
         }
        
         self.numAciertos++;
+        switch (self.numAciertos) {
+            case 1:
+            {
+                //imagen rating
+                UIImage *imagRating = [UIImage imageNamed:@"ratinguno.png"];
+                [self.imagenRating setImage:imagRating];
+            }
+                break;
+            case 2:
+            {
+                //imagen rating
+                UIImage *imagRating = [UIImage imageNamed:@"ratingdos.png"];
+                [self.imagenRating setImage:imagRating];
+            }
+                break;
+            case 3:
+            {
+                //imagen rating
+                UIImage *imagRating = [UIImage imageNamed:@"ratingtres.png"];
+                [self.imagenRating setImage:imagRating];
+            }
+                break;
+            default:
+                break;
+        }
+        
+        
         if (self.numAciertos == 3) {
-            //ha finalizado el nivel REALIZAR UNA DETERMINADA ACCION
+            //ha finalizado el nivel REALIZAR UNA DETERMINADA ACCION: cambio de nivel o juego
             
-            //imagen rating
-            UIImage *imagRating = [UIImage imageNamed:@"ratinguno.png"];
-            [self.imagenRating setImage:imagRating];
+            int numnivel = self.juegoCasa.num_nivel.intValue;
+            numnivel++;
+            [self.juegoCasa setNum_nivel:[NSNumber numberWithInt:numnivel]];
             
+            //guardamos datos
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+          
+
+            /**  cambio de nivel el usuario lo ha superado correctamente**/
+            self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
+                                                                         target:self
+                                                                       selector:@selector(cambioDeNivelAccion)
+                                                                       userInfo:nil
+                                                                        repeats:NO];
+
+           // [self cambioDeNivelAccion];
+            
+           
         }
     }else
     {
@@ -245,15 +321,105 @@
                 break;
         }
 
-    
+        if (numFallos == 5) { //Se permiten 5 fallos antes de cambiar de dificultad automaticamente
+            
+            if (self.numDificultad>1) {
+                self.numDificultad--;
+               
+            }
+            
+            
+            
+            [self.temporizadorEntreToques invalidate];
+            self.temporizadorEntreToques=nil;
+            
+            int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
+            [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            
+            
+             self.numFallos =0;
+            [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+            
+            
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+          //  if (self.numDificultad>1) {
+                [self cargarVistaDelJuego];
+           // }
+            
+        
+        }
         
         //REALIZAR ACCION CORRESPONDIENTE
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+            exit(-1);
+        }
         
         
         
     }
+    
+    
 }
 
+
+#pragma mark cambio de nivel metodos
+
+-(void)cambioDeNivelAccion
+{
+    
+    [self.tiempoImagenFinNivel invalidate];
+    self.tiempoImagenFinNivel=nil;
+    
+        UIImageView *brickAnim = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finNivelBien.png"]];
+        brickAnim.frame = self.view.frame;
+        [self.view addSubview:brickAnim];
+        
+    
+    
+       self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
+                                                                        target:self
+                                                                       selector:@selector(fincambioDeNivelAccion)
+                                                                      userInfo:nil
+                                                                       repeats:NO];
+
+    
+}
+
+-(void)fincambioDeNivelAccion
+{
+    
+    [self.tiempoImagenFinNivel invalidate];
+    self.tiempoImagenFinNivel = nil;
+    
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    //cambio de controlador para pasar al nivel de emparejar (nivel 2), antes se debe mostrar la animacion intermedia
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    intermediaViewController.context = self.context;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    
+    intermediaViewController.numJuego = 1;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
+
+}
 
 #pragma mark metodos shake imagenes
 -(void)shakeView:(UIImageView *)imagen {
@@ -276,8 +442,12 @@
     [self.temporizadorBordeRojo invalidate];
     self.temporizadorBordeRojo =nil;
     
+    
     self.numFallos++;
-    if (self.numFallos<3) {
+    
+
+    
+    if (self.numFallos<5) {
   
         NSLog(@"tiempo entre toques excedido...");
     self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
@@ -309,12 +479,49 @@
         }
 
         
-    }else if(self.numFallos==3)
+    }else if(self.numFallos==5)
     {
         [self.temporizadorBordeRojo invalidate];
         self.temporizadorBordeRojo =nil;
         NSLog(@"tiempo entre toques excedido y maximo numero de fallos cumplido");
- #warning reducir dificultad y poner contador de numfallos a cero.
+       
+        if (numFallos == 5) { //Se permiten 5 fallos antes de cambiar de dificultad automaticamente
+            
+            if (self.numDificultad>1) {
+                self.numDificultad--;
+                
+            }
+            
+            [self.temporizadorEntreToques invalidate];
+            self.temporizadorEntreToques=nil;
+           
+            [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+            
+            
+              int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
+               [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            
+             self.numFallos =0;
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            if (self.numDificultad>1) {
+                [self cargarVistaDelJuego];
+            }
+           
+            
+        }
+        
+        //REALIZAR ACCION CORRESPONDIENTE
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+            exit(-1);
+        }
+        
     }
     
 }
@@ -377,10 +584,10 @@
 
 -(void)cargarBotonesNavigation
 {
-    /** FIJAR BOTON CONFIGURACION EN BARRA DE NAVEGACIÓN **/
+    /** FIJAR BOTON GAMES EN BARRA DE NAVEGACIÓN **/
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"configuracionItem.png"] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(goToConfigurarUsuariosViewController:)forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"games.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(goToDashViewController:)forControlEvents:UIControlEventTouchUpInside];
     [button setFrame:CGRectMake(0, 0, 34, 34)];
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = barButton;
@@ -434,12 +641,21 @@
   
     if(self.numDificultad == 2)
     {
-        self.imagenCinco.hidden = YES;
+        if (!self.imagenCinco.hidden) {
+            self.imagenCinco.hidden = YES;
+        }
+        
         
     }else if (self.numDificultad ==1) //dificultad menor
     {
-        self.imagenCuatro.hidden = YES;
-        self.imagenCinco.hidden = YES;
+        if (!self.imagenCinco.hidden) {
+            self.imagenCinco.hidden = YES;
+        }
+        if (!self.imagenCuatro.hidden) {
+            self.imagenCuatro.hidden = YES;
+        }
+        
+        
     }
     
 
@@ -447,7 +663,7 @@
 
 #pragma mark metodos botones navigation bar
 
--(void)goToConfigurarUsuariosViewController:(id)sender
+-(void)goToDashViewController:(id)sender
 {
     
     NSLog(@"go to configurar usuarios view controller...");
@@ -490,13 +706,12 @@
         // Llamamos al storyBoard principal
         UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         // De este obtenemos el controlador con Identifier "Pantalla2"
-        NuevoUsuarioViewController *nuevoUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"nuevoUsuarioViewControllerID"];
-        nuevoUsuarioViewController.context = self.context;
-        nuevoUsuarioViewController.nuevoUsuario = NO;
-        nuevoUsuarioViewController.persona = self.usuarioSeleccionado;
-        
+        DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+        dashboardViewController.context = self.context;
+        dashboardViewController.usuarioSeleccionado = self.usuarioSeleccionado;
         // Ahora lanzamos el controlador en el navigation de forma animada:
-        [self.navigationController pushViewController:nuevoUsuarioViewController animated:YES];
+        [self.navigationController pushViewController:dashboardViewController animated:YES];
+        
     }
     
     

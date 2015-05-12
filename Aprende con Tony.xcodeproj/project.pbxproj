@@ -20,6 +20,8 @@
 		6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */; };
 		6BB58E9A1AFE16A300614EC2 /* SeleccionarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */; };
 		6BB58E9C1AFE483A00614EC2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */; };
+		6BD3E51A1B02011B00B9198B /* JuegoEmparejarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3E5191B02011B00B9198B /* JuegoEmparejarViewController.m */; };
+		6BD3E51D1B02013300B9198B /* JuegoOrdenarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3E51C1B02013300B9198B /* JuegoOrdenarViewController.m */; };
 		6BD7520D1AEE948000CA380B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520C1AEE948000CA380B /* main.m */; };
 		6BD752101AEE948000CA380B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD7520F1AEE948000CA380B /* AppDelegate.m */; };
 		6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */; };
@@ -70,6 +72,10 @@
 		6BB58E981AFE16A300614EC2 /* SeleccionarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeleccionarObject.h; sourceTree = "<group>"; };
 		6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeleccionarObject.m; sourceTree = "<group>"; };
 		6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6BD3E5181B02011B00B9198B /* JuegoEmparejarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoEmparejarViewController.h; sourceTree = "<group>"; };
+		6BD3E5191B02011B00B9198B /* JuegoEmparejarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoEmparejarViewController.m; sourceTree = "<group>"; };
+		6BD3E51B1B02013300B9198B /* JuegoOrdenarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoOrdenarViewController.h; sourceTree = "<group>"; };
+		6BD3E51C1B02013300B9198B /* JuegoOrdenarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoOrdenarViewController.m; sourceTree = "<group>"; };
 		6BD752071AEE948000CA380B /* Aprende con Tony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aprende con Tony.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD7520B1AEE948000CA380B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BD7520C1AEE948000CA380B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -178,6 +184,10 @@
 				6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */,
 				6BB58E981AFE16A300614EC2 /* SeleccionarObject.h */,
 				6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */,
+				6BD3E5181B02011B00B9198B /* JuegoEmparejarViewController.h */,
+				6BD3E5191B02011B00B9198B /* JuegoEmparejarViewController.m */,
+				6BD3E51B1B02013300B9198B /* JuegoOrdenarViewController.h */,
+				6BD3E51C1B02013300B9198B /* JuegoOrdenarViewController.m */,
 				6BD752171AEE948000CA380B /* Main.storyboard */,
 				6BD752391AEEA58700CA380B /* Images.xcassets */,
 				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
@@ -318,6 +328,7 @@
 				6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */,
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
 				6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */,
+				6BD3E51D1B02013300B9198B /* JuegoOrdenarViewController.m in Sources */,
 				6BAE85F61B00A10F001DF837 /* Usuario.m in Sources */,
 				6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
@@ -327,6 +338,7 @@
 				6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */,
 				6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */,
 				6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */,
+				6BD3E51A1B02011B00B9198B /* JuegoEmparejarViewController.m in Sources */,
 				6BAE85F31B009A77001DF837 /* JuegoEmociones.m in Sources */,
 				6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */,
 				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,

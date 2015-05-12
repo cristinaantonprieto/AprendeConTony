@@ -10,10 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "Usuario.h"
+#import "JuegoCasa.h"
 #import "SeleccionarObject.h"
 
 #import "SeleccionUsuariosViewController.h"
 #import "NuevoUsuarioViewController.h"
+#import "DashBoardViewController.h"
+#import "IntermediaJuegoViewController.h"
 
 @interface JuegoSeleccionarViewController : UIViewController<UIAlertViewDelegate>
 {
@@ -49,6 +52,9 @@
 @property(nonatomic, retain) NSTimer *temporizadorBordeRojo;
 @property(nonatomic, retain) NSTimer *temporizadorTony;
 @property(nonatomic, retain) NSTimer *temporizadorEntreToques;
+@property(nonatomic, retain)NSTimer *tiempoImagenFinNivel;
+
+@property(nonatomic, retain) JuegoCasa *juegoCasa;
 
 
 

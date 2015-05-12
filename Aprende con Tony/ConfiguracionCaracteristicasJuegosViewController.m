@@ -29,6 +29,7 @@
     UIBarButtonItem *barButtonSave = [[UIBarButtonItem alloc] initWithCustomView:buttonSave];
     self.navigationItem.rightBarButtonItem = barButtonSave;
     
+    [self.navigationItem.backBarButtonItem setAction:@selector(backActionButton)];
     
     //cargar label
     self.labelnombrejuego.text = self.nombreJuego;
@@ -39,14 +40,14 @@
         
         JuegoCasa *juegocasa = self.usuarioSeleccionado.usuario_juegoCasa;
         
-        if (juegocasa.voz == 0) {
+        if (juegocasa.voz.intValue == 0) {
             self.voztextfield.text = @"NO";
         }else
         {
             self.voztextfield.text = @"SI";
         }
      
-        if (juegocasa.guionPictos ==0) {
+        if (juegocasa.guionPictos.intValue ==0) {
             self.pictostextfield.text = @"NO";
         }else
         {
@@ -73,14 +74,14 @@
     else if ([self.nombreJuego isEqualToString:@"Situaciones cotidianas"]) {
         JuegoCotidianas *juegocotidianas = self.usuarioSeleccionado.usuario_juegoCotidianas;
         
-        if (juegocotidianas.voz == 0) {
+        if (juegocotidianas.voz.intValue == 0) {
             self.voztextfield.text = @"NO";
         }else
         {
             self.voztextfield.text = @"SI";
         }
         
-        if (juegocotidianas.guionPictos ==0) {
+        if (juegocotidianas.guionPictos.intValue ==0) {
             self.pictostextfield.text = @"NO";
         }else
         {
@@ -107,14 +108,14 @@
         
         JuegoModales *juegomodales = self.usuarioSeleccionado.usuario_juegoModales;
         
-        if (juegomodales.voz == 0) {
+        if (juegomodales.voz.intValue == 0) {
             self.voztextfield.text = @"NO";
         }else
         {
             self.voztextfield.text = @"SI";
         }
         
-        if (juegomodales.guionPictos ==0) {
+        if (juegomodales.guionPictos.intValue ==0) {
             self.pictostextfield.text = @"NO";
         }else
         {
@@ -141,14 +142,14 @@
         
         JuegoEmociones *juegoemociones = self.usuarioSeleccionado.usuario_juegoEmociones;
         
-        if (juegoemociones.voz == 0) {
+        if (juegoemociones.voz.intValue == 0) {
             self.voztextfield.text = @"NO";
         }else
         {
             self.voztextfield.text = @"SI";
         }
         
-        if (juegoemociones.guionPictos ==0) {
+        if (juegoemociones.guionPictos.intValue ==0) {
             self.pictostextfield.text = @"NO";
         }else
         {
@@ -172,6 +173,25 @@
     }
     
     
+}
+
+-(void)backActionButton
+{
+    
+    //Persistimos el objeto
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    ConfiguracionUsuariosViewController *configurarUsuarioViewController = [storyBoard instantiateViewControllerWithIdentifier:@"configuracionUsuariosViewControllerID"];
+    configurarUsuarioViewController.context = self.context;
+    configurarUsuarioViewController.nuevoUsuario = self.nuevoUsuario;
+    configurarUsuarioViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:configurarUsuarioViewController animated:YES];
 }
 
 -(IBAction)goToGuardarUsuarioViewController:(id)sender
@@ -217,6 +237,7 @@
         NSNumber *myfalloso = [ffalloso numberFromString:self.numfallos_ordenar.text];
         [juegoCasa setNum_fallos_ordenar:myfalloso];
         
+        NSLog(@"self.numdif.text = %@", self.num_dificultadtextfield.text);
         if ([self.num_dificultadtextfield.text isEqualToString:@"mayor"]||[self.num_dificultadtextfield.text isEqualToString:@"MAYOR"]) {
             
             [juegoCasa setNum_dificultad:[NSNumber numberWithInt:3]];

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Usuario.h"
 #import "JuegoSeleccionarViewController.h"
+#import "JuegoEmparejarViewController.h"
+#import "JuegoOrdenarViewController.h"
+#import "JuegoCasa.h"
 
 @interface JuegoCasaViewController : UIViewController
 {
@@ -19,6 +22,7 @@
 @property (nonatomic, retain) NSManagedObjectContext *context;
 @property (nonatomic, retain) Usuario *usuarioSeleccionado;
 @property(nonatomic, retain) NSTimer *temporizador;
+@property(nonatomic, retain) JuegoCasa *juegoCasa;
 
 ////OJOOOOOO LA INSTANCIA DE JUEGO ES NECESARIA PASARLA AL SIGUIENTE CONTROLADOR
 

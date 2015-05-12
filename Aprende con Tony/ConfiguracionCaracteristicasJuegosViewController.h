@@ -14,6 +14,7 @@
 #import "JuegoModales.h"
 #import "ConfiguracionUsuariosViewController.h"
 
+
 @interface ConfiguracionCaracteristicasJuegosViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 {
     
