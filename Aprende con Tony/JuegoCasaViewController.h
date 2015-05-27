@@ -19,10 +19,12 @@
 }
 
 @property (nonatomic, retain)NSString *nombreJuego;
+@property (nonatomic, retain)NSString *nombreNivel;
 @property (nonatomic, retain) NSManagedObjectContext *context;
 @property (nonatomic, retain) Usuario *usuarioSeleccionado;
 @property(nonatomic, retain) NSTimer *temporizador;
 @property(nonatomic, retain) JuegoCasa *juegoCasa;
+
 
 ////OJOOOOOO LA INSTANCIA DE JUEGO ES NECESARIA PASARLA AL SIGUIENTE CONTROLADOR
 

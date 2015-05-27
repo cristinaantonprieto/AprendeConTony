@@ -10,7 +10,7 @@
 
 @implementation JuegoCasaViewController
 
-@synthesize usuarioSeleccionado, context, nombreJuego, temporizador, juegoCasa;
+@synthesize usuarioSeleccionado, context, nombreJuego, temporizador, juegoCasa, nombreNivel;
 
 -(void)viewDidLoad
 {
@@ -36,59 +36,49 @@
     [self.temporizador invalidate];
     self.temporizador = nil;
     
-    #warning habría que comprobar el numero de juego para cargar seleccionar/emparejar o ordenar view controller, de momento se carga siempre seleccionar como primera alternativa. Y PASAR LA INSTANCIA DE JUEGO
+
     
-    switch (self.juegoCasa.num_nivel.intValue) {
-        case 1:
-        {
-            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            // De este obtenemos el controlador con Identifier "Pantalla2"
-            JuegoSeleccionarViewController *juegoSeleccionarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoSeleccionarViewControllerID"];
-            juegoSeleccionarViewController.context = self.context;
-            juegoSeleccionarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
-            juegoSeleccionarViewController.nombreJuego = @"casa";
-            juegoSeleccionarViewController.juegoCasa = self.juegoCasa;
-            
-            // Ahora lanzamos el controlador en el navigation de forma animada:
-            [self.navigationController pushViewController:juegoSeleccionarViewController animated:YES];
-            
-        }
-        break;
-        case 2:
-        {
-            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            // De este obtenemos el controlador con Identifier "Pantalla2"
-            JuegoEmparejarViewController *juegoEmparejarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoEmparejarViewControllerID"];
-            juegoEmparejarViewController.context = self.context;
-            juegoEmparejarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
-            juegoEmparejarViewController.nombreJuego = @"casa";
-            juegoEmparejarViewController.juegoCasa = self.juegoCasa;
-            
-            // Ahora lanzamos el controlador en el navigation de forma animada:
-            [self.navigationController pushViewController:juegoEmparejarViewController animated:YES];
-        }
-        break;
-        case 3:
-        {
-            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            // De este obtenemos el controlador con Identifier "Pantalla2"
-            JuegoOrdenarViewController *juegoOrdenarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoOrdenarViewControllerID"];
-            juegoOrdenarViewController.context = self.context;
-            juegoOrdenarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
-            juegoOrdenarViewController.nombreJuego = @"casa";
-            juegoOrdenarViewController.juegoCasa = self.juegoCasa;
-            
-            // Ahora lanzamos el controlador en el navigation de forma animada:
-            [self.navigationController pushViewController:juegoOrdenarViewController animated:YES];
-            
-        }
-        break;
-            
-        default:
-            break;
+    if ([self.nombreNivel isEqualToString:@"Seleccionar"]) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // De este obtenemos el controlador con Identifier "Pantalla2"
+        JuegoSeleccionarViewController *juegoSeleccionarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoSeleccionarViewControllerID"];
+        juegoSeleccionarViewController.context = self.context;
+        juegoSeleccionarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoSeleccionarViewController.nombreJuego = @"casa";
+        juegoSeleccionarViewController.juegoCasa = self.juegoCasa;
+        
+        // Ahora lanzamos el controlador en el navigation de forma animada:
+        [self.navigationController pushViewController:juegoSeleccionarViewController animated:YES];
+    }
+    else if ([self.nombreNivel isEqualToString:@"Emparejar"]) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // De este obtenemos el controlador con Identifier "Pantalla2"
+        JuegoEmparejarViewController *juegoEmparejarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoEmparejarViewControllerID"];
+        juegoEmparejarViewController.context = self.context;
+        juegoEmparejarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoEmparejarViewController.nombreJuego = @"casa";
+        juegoEmparejarViewController.juegoCasa = self.juegoCasa;
+        
+        // Ahora lanzamos el controlador en el navigation de forma animada:
+        [self.navigationController pushViewController:juegoEmparejarViewController animated:YES];
+    }
+    else if ([self.nombreNivel isEqualToString:@"Ordenar"]) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // De este obtenemos el controlador con Identifier "Pantalla2"
+        JuegoOrdenarViewController *juegoOrdenarViewController = [storyBoard instantiateViewControllerWithIdentifier:@"juegoOrdenarViewControllerID"];
+        juegoOrdenarViewController.context = self.context;
+        juegoOrdenarViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoOrdenarViewController.nombreJuego = @"casa";
+        juegoOrdenarViewController.juegoCasa = self.juegoCasa;
+        
+        // Ahora lanzamos el controlador en el navigation de forma animada:
+        [self.navigationController pushViewController:juegoOrdenarViewController animated:YES];
+        
     }
     
-   
+    
+    
+    
 }
 
 

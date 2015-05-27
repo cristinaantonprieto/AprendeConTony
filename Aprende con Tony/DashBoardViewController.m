@@ -72,8 +72,7 @@
 -(void)goToConfigurarUsuariosViewController:(id)sender
 {
         
-    NSLog(@"go to configurar usuarios view controller...");
- 
+  
     /** mostramos el alert que pide la contraseña **/
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Introduce la contraseña:"
                                                       message:nil
@@ -101,7 +100,6 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *inputText = [[alertView textFieldAtIndex:0] text];
     
-    NSLog(@"password introducida: %@", inputText);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     // obtenemos el nombre desde la base de datos
@@ -141,6 +139,7 @@
     
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
     intermediaViewController.numJuego = 1;
+    intermediaViewController.nombreNivel = @"Seleccionar";
     
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:intermediaViewController animated:YES];
@@ -156,7 +155,9 @@
     intermediaViewController.context = self.context;
     
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
-     intermediaViewController.numJuego = 2;
+    intermediaViewController.numJuego = 2;
+    intermediaViewController.nombreNivel = @"Seleccionar";
+    
     
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:intermediaViewController animated:YES];
@@ -172,6 +173,7 @@
     
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
      intermediaViewController.numJuego = 3;
+    intermediaViewController.nombreNivel = @"Seleccionar";
     
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:intermediaViewController animated:YES];
@@ -188,6 +190,7 @@
     
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
     intermediaViewController.numJuego = 4;
+    intermediaViewController.nombreNivel = @"Seleccionar";
     
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:intermediaViewController animated:YES];

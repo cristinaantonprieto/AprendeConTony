@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8LB-iM-f4u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8LB-iM-f4u">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -1422,6 +1422,9 @@
                         <outlet property="imagenFondo" destination="5Js-9S-eqy" id="Jv0-Pq-lCw"/>
                         <outlet property="pictograma" destination="e7z-qi-0fa" id="Jdm-Ab-vdK"/>
                         <segue destination="6HN-Wn-71H" kind="show" identifier="juegoCasaviewControllerSegue" id="vbb-St-WqC"/>
+                        <segue destination="spp-AN-JHD" kind="show" identifier="juegoCotidianasviewControllerSegue" id="fnH-zy-Wlh"/>
+                        <segue destination="qfj-uh-Zod" kind="show" identifier="juegoModalesviewControllerSegue" id="bLg-IH-5qD"/>
+                        <segue destination="CCA-DT-2Td" kind="show" identifier="juegoEmocionesviewControllerSegue" id="35T-HE-qLB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg2-eM-7vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1490,8 +1493,8 @@
                     </view>
                     <connections>
                         <segue destination="BCx-Tu-qMT" kind="show" identifier="juegoSeleccionarSegue" id="NfF-pS-az7"/>
-                        <segue destination="J0G-4D-1RW" kind="show" identifier="juegoEmparejarSegue" id="Jhl-gi-nya"/>
-                        <segue destination="3zg-Ua-9be" kind="show" identifier="juegoordenarSegue" id="hou-FV-24m"/>
+                        <segue destination="J0G-4D-1RW" kind="show" identifier="juegoEmparejarSegue" id="mEM-Nk-6Rc"/>
+                        <segue destination="3zg-Ua-9be" kind="show" identifier="juegoOrdenarSegue" id="vSU-XU-592"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQm-X3-9rp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1861,7 +1864,133 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZG-tD-wNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4605.75" y="-1131"/>
+            <point key="canvasLocation" x="4920.75" y="-1125"/>
+        </scene>
+        <!--Juego Cotidianas View Controller-->
+        <scene sceneID="HH6-0B-iQm">
+            <objects>
+                <viewController id="spp-AN-JHD" customClass="JuegoCotidianasViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DbX-ON-qQM"/>
+                        <viewControllerLayoutGuide type="bottom" id="vxs-uJ-22t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZZu-UN-fpp">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intermedia" translatesAutoresizingMaskIntoConstraints="NO" id="JY0-3B-q9L">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JY0-3B-q9L"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="JY0-3B-q9L"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <segue destination="BCx-Tu-qMT" kind="show" identifier="juegoSeleccionarSegue" id="mt1-zL-Psh"/>
+                        <segue destination="J0G-4D-1RW" kind="show" identifier="juegoEmparejarSegue" id="pAP-9v-yEd"/>
+                        <segue destination="3zg-Ua-9be" kind="show" identifier="juegoOrdenarSegue" id="Vpg-4a-EOh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFv-Hd-kv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3780.75" y="-259.5"/>
+        </scene>
+        <!--Juego Modales View Controller-->
+        <scene sceneID="Ucl-qf-Bbv">
+            <objects>
+                <viewController id="qfj-uh-Zod" customClass="JuegoModalesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vP0-Tk-apx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bp5-xk-jqK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="23f-aE-bgu">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intermedia" translatesAutoresizingMaskIntoConstraints="NO" id="YcH-vK-Mrd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="1031" height="704"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="YcH-vK-Mrd"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="YcH-vK-Mrd"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <segue destination="BCx-Tu-qMT" kind="show" identifier="juegoSeleccionarSegue" id="YHE-a7-JN9"/>
+                        <segue destination="J0G-4D-1RW" kind="show" identifier="juegoEmparejarSegue" id="wqa-vW-QR6"/>
+                        <segue destination="3zg-Ua-9be" kind="show" identifier="juegoOrdenarSegue" id="25f-E8-xjX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g06-hf-KDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3774.75" y="394.5"/>
+        </scene>
+        <!--Juego Emociones View Controller-->
+        <scene sceneID="Fqc-lJ-nbs">
+            <objects>
+                <viewController id="CCA-DT-2Td" customClass="JuegoEmocionesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ADV-xh-JBi"/>
+                        <viewControllerLayoutGuide type="bottom" id="SgD-4f-hFI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NH8-ov-zXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intermedia" translatesAutoresizingMaskIntoConstraints="NO" id="JtA-Ye-Ngv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="1033" height="711"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JtA-Ye-Ngv"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="JtA-Ye-Ngv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <segue destination="BCx-Tu-qMT" kind="show" identifier="juegoSeleccionarSegue" id="cew-f5-LL1"/>
+                        <segue destination="J0G-4D-1RW" kind="show" identifier="juegoEmparejarSegue" id="pyM-31-c3H"/>
+                        <segue destination="3zg-Ua-9be" kind="show" identifier="juegoOrdenarSegue" id="Rs7-hi-sjx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3s8-4q-FkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3768.75" y="1072.5"/>
         </scene>
         <!--Juego Emparejar View Controller-->
         <scene sceneID="fTi-L9-NUk">
@@ -1872,14 +2001,215 @@
                         <viewControllerLayoutGuide type="bottom" id="Kba-FI-Zbj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pL0-hl-uJP">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="valley-312709_1280" translatesAutoresizingMaskIntoConstraints="NO" id="La5-oY-WMo">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pictoEmparejar" translatesAutoresizingMaskIntoConstraints="NO" id="Dhv-l9-heq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="458" id="40M-DQ-0ku"/>
+                                    <constraint firstAttribute="height" constant="144" id="DSM-9J-u0G"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="40M-DQ-0ku"/>
+                                        <exclude reference="DSM-9J-u0G"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="40M-DQ-0ku"/>
+                                        <include reference="DSM-9J-u0G"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tonyPregunta" translatesAutoresizingMaskIntoConstraints="NO" id="5SL-c4-XkQ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="CI4-GP-8Oc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CI4-GP-8Oc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="CI4-GP-8Oc"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingcero" translatesAutoresizingMaskIntoConstraints="NO" id="q46-UN-6Oy">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYs-Zu-ZyL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-yA-5qm">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="157" y="35" width="150" height="150"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0br-eG-rWp">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" red="1" green="0.97392219455073203" blue="0.36299262283170475" alpha="1" colorSpace="calibratedRGB"/>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="370" y="35" width="150" height="150"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9kj-W9-huO">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="276" y="247" width="116" height="115"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EiL-Yg-ndB">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="455" y="247" width="116" height="115"/>
+                                        </variation>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="36k-A9-FVU">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="93" y="247" width="116" height="115"/>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="aJE-yA-5qm"/>
+                                        <exclude reference="0br-eG-rWp"/>
+                                        <exclude reference="9kj-W9-huO"/>
+                                        <exclude reference="EiL-Yg-ndB"/>
+                                        <exclude reference="36k-A9-FVU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="subviews">
+                                        <include reference="aJE-yA-5qm"/>
+                                        <include reference="0br-eG-rWp"/>
+                                        <include reference="9kj-W9-huO"/>
+                                        <include reference="EiL-Yg-ndB"/>
+                                        <include reference="36k-A9-FVU"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ywn-v9-4Pq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UYs-Zu-ZyL" firstAttribute="top" secondItem="Dhv-l9-heq" secondAttribute="bottom" constant="64" id="1xL-nw-GpQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="La5-oY-WMo" secondAttribute="bottom" constant="-64" id="4Lu-X9-Aay"/>
+                            <constraint firstItem="5SL-c4-XkQ" firstAttribute="leading" secondItem="pL0-hl-uJP" secondAttribute="leadingMargin" constant="-6" id="5R5-sQ-Fed"/>
+                            <constraint firstItem="Kba-FI-Zbj" firstAttribute="top" secondItem="q46-UN-6Oy" secondAttribute="bottom" constant="27" id="7DZ-c4-T0A"/>
+                            <constraint firstItem="UYs-Zu-ZyL" firstAttribute="top" secondItem="Dhv-l9-heq" secondAttribute="bottom" constant="64" id="87E-dG-RqC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q46-UN-6Oy" secondAttribute="trailing" constant="26" id="9iB-NF-uCG"/>
+                            <constraint firstItem="Dhv-l9-heq" firstAttribute="top" secondItem="HjN-L6-vRM" secondAttribute="bottom" constant="55" id="AfH-Mm-VzP"/>
+                            <constraint firstItem="Dhv-l9-heq" firstAttribute="centerX" secondItem="La5-oY-WMo" secondAttribute="centerX" id="Cz1-cF-iJS"/>
+                            <constraint firstItem="q46-UN-6Oy" firstAttribute="leading" secondItem="UYs-Zu-ZyL" secondAttribute="trailing" constant="34" id="FhK-I9-BQe"/>
+                            <constraint firstItem="5SL-c4-XkQ" firstAttribute="top" secondItem="HjN-L6-vRM" secondAttribute="bottom" constant="360" id="G0E-vN-SXJ"/>
+                            <constraint firstItem="Kba-FI-Zbj" firstAttribute="top" secondItem="UYs-Zu-ZyL" secondAttribute="bottom" constant="36" id="Jcj-MA-aok"/>
+                            <constraint firstItem="La5-oY-WMo" firstAttribute="leading" secondItem="pL0-hl-uJP" secondAttribute="leading" id="Odw-aI-5OA"/>
+                            <constraint firstItem="La5-oY-WMo" firstAttribute="top" secondItem="HjN-L6-vRM" secondAttribute="bottom" id="SMD-x4-aMn"/>
+                            <constraint firstItem="Dhv-l9-heq" firstAttribute="centerX" secondItem="pL0-hl-uJP" secondAttribute="centerX" id="TKx-ZY-S7r"/>
+                            <constraint firstAttribute="trailing" secondItem="UYs-Zu-ZyL" secondAttribute="trailing" constant="162" id="TR6-c6-80T"/>
+                            <constraint firstItem="Kba-FI-Zbj" firstAttribute="top" secondItem="5SL-c4-XkQ" secondAttribute="bottom" constant="11" id="X34-VS-R8I"/>
+                            <constraint firstItem="q46-UN-6Oy" firstAttribute="top" secondItem="HjN-L6-vRM" secondAttribute="bottom" constant="319" id="Yjh-G8-BUA"/>
+                            <constraint firstItem="UYs-Zu-ZyL" firstAttribute="leading" secondItem="pL0-hl-uJP" secondAttribute="leading" constant="208" id="e7l-oT-6FI"/>
+                            <constraint firstItem="UYs-Zu-ZyL" firstAttribute="top" secondItem="pL0-hl-uJP" secondAttribute="top" constant="263" id="h2c-AQ-lb6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="La5-oY-WMo"/>
+                                <exclude reference="Dhv-l9-heq"/>
+                                <exclude reference="5SL-c4-XkQ"/>
+                                <exclude reference="q46-UN-6Oy"/>
+                                <exclude reference="UYs-Zu-ZyL"/>
+                                <exclude reference="ywn-v9-4Pq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4Lu-X9-Aay"/>
+                                <exclude reference="Odw-aI-5OA"/>
+                                <exclude reference="SMD-x4-aMn"/>
+                                <exclude reference="AfH-Mm-VzP"/>
+                                <exclude reference="Cz1-cF-iJS"/>
+                                <exclude reference="TKx-ZY-S7r"/>
+                                <exclude reference="1xL-nw-GpQ"/>
+                                <exclude reference="87E-dG-RqC"/>
+                                <exclude reference="TR6-c6-80T"/>
+                                <exclude reference="e7l-oT-6FI"/>
+                                <exclude reference="h2c-AQ-lb6"/>
+                                <exclude reference="5R5-sQ-Fed"/>
+                                <exclude reference="G0E-vN-SXJ"/>
+                                <exclude reference="7DZ-c4-T0A"/>
+                                <exclude reference="Jcj-MA-aok"/>
+                                <exclude reference="X34-VS-R8I"/>
+                                <exclude reference="9iB-NF-uCG"/>
+                                <exclude reference="FhK-I9-BQe"/>
+                                <exclude reference="Yjh-G8-BUA"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="La5-oY-WMo"/>
+                                <include reference="Dhv-l9-heq"/>
+                                <include reference="5SL-c4-XkQ"/>
+                                <include reference="q46-UN-6Oy"/>
+                                <include reference="UYs-Zu-ZyL"/>
+                                <exclude reference="ywn-v9-4Pq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4Lu-X9-Aay"/>
+                                <include reference="Odw-aI-5OA"/>
+                                <include reference="SMD-x4-aMn"/>
+                                <include reference="AfH-Mm-VzP"/>
+                                <include reference="Cz1-cF-iJS"/>
+                                <include reference="TKx-ZY-S7r"/>
+                                <include reference="1xL-nw-GpQ"/>
+                                <exclude reference="87E-dG-RqC"/>
+                                <include reference="TR6-c6-80T"/>
+                                <include reference="e7l-oT-6FI"/>
+                                <exclude reference="h2c-AQ-lb6"/>
+                                <include reference="5R5-sQ-Fed"/>
+                                <include reference="G0E-vN-SXJ"/>
+                                <include reference="7DZ-c4-T0A"/>
+                                <include reference="Jcj-MA-aok"/>
+                                <include reference="X34-VS-R8I"/>
+                                <include reference="9iB-NF-uCG"/>
+                                <include reference="FhK-I9-BQe"/>
+                                <include reference="Yjh-G8-BUA"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="areaJuego" destination="UYs-Zu-ZyL" id="UNt-L8-epb"/>
+                        <outlet property="guionPictograma" destination="La5-oY-WMo" id="kEF-mp-C1U"/>
+                        <outlet property="imagenCentral" destination="aJE-yA-5qm" id="lxU-eC-8kr"/>
+                        <outlet property="imagenCuatro" destination="0br-eG-rWp" id="zfI-zt-S7y"/>
+                        <outlet property="imagenDos" destination="9kj-W9-huO" id="LKH-54-cZy"/>
+                        <outlet property="imagenRating" destination="q46-UN-6Oy" id="ufw-Q8-qs3"/>
+                        <outlet property="imagenTony" destination="5SL-c4-XkQ" id="Tgg-X1-U6k"/>
+                        <outlet property="imagenTres" destination="EiL-Yg-ndB" id="sHn-Fb-63R"/>
+                        <outlet property="imagenUno" destination="36k-A9-FVU" id="MyM-VN-MKy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9z-H8-Pdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4605.75" y="-415.5"/>
+            <point key="canvasLocation" x="4983.75" y="-415.5"/>
         </scene>
         <!--Juego Ordenar View Controller-->
         <scene sceneID="G4w-cw-T8P">
@@ -1890,6 +2220,7 @@
                         <viewControllerLayoutGuide type="bottom" id="GVO-Cc-H99"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dQ3-7b-Avc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1897,7 +2228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="py3-zq-Dei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4605.75" y="349.5"/>
+            <point key="canvasLocation" x="4989.75" y="340.5"/>
         </scene>
         <!--Nuevo Usuario View Controller-->
         <scene sceneID="ZTP-1F-aGD">
@@ -2290,6 +2621,7 @@
         <image name="fondoFoto" width="1118" height="1160"/>
         <image name="intermedia" width="2048" height="1536"/>
         <image name="modales" width="228" height="227"/>
+        <image name="pictoEmparejar" width="407" height="168"/>
         <image name="ratingcero" width="198" height="711"/>
         <image name="selecciona" width="676" height="170"/>
         <image name="tonyMira" width="112" height="231"/>
@@ -2297,6 +2629,9 @@
         <image name="valley-312709_1280" width="2048" height="1536"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vSU-XU-592"/>
         <segue reference="JTu-EG-Wch"/>
+        <segue reference="NfF-pS-az7"/>
+        <segue reference="mEM-Nk-6Rc"/>
     </inferredMetricsTieBreakers>
 </document>

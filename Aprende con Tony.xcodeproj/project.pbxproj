@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3340611B1481D4006E529D /* EmparejarObject.m */; };
 		6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */; };
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
 		6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85E91B009A77001DF837 /* JuegoCasa.m */; };
@@ -31,6 +32,9 @@
 		6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752341AEE963800CA380B /* SeleccionUsuariosViewController.m */; };
 		6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD752371AEE9BD100CA380B /* InicioAppViewController.m */; };
 		6BD7523A1AEEA58700CA380B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BD752391AEEA58700CA380B /* Images.xcassets */; };
+		6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9501B03479A00AA5035 /* JuegoCotidianasViewController.m */; };
+		6BE6A9541B0347AE00AA5035 /* JuegoModalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9531B0347AE00AA5035 /* JuegoModalesViewController.m */; };
+		6BE6A9571B0347C100AA5035 /* JuegoEmocionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9561B0347C100AA5035 /* JuegoEmocionesViewController.m */; };
 		6BEB7AD61AF7773C003FED49 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */; };
 		6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */; };
 		6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */; };
@@ -47,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B3340601B1481D4006E529D /* EmparejarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmparejarObject.h; sourceTree = "<group>"; };
+		6B3340611B1481D4006E529D /* EmparejarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmparejarObject.m; sourceTree = "<group>"; };
 		6B7FDBB91AF3749E0051CEE5 /* NuevoUsuarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuevoUsuarioViewController.h; sourceTree = "<group>"; };
 		6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoUsuarioViewController.m; sourceTree = "<group>"; };
 		6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
@@ -92,6 +98,12 @@
 		6BD752361AEE9BD100CA380B /* InicioAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InicioAppViewController.h; sourceTree = "<group>"; };
 		6BD752371AEE9BD100CA380B /* InicioAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InicioAppViewController.m; sourceTree = "<group>"; };
 		6BD752391AEEA58700CA380B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6BE6A94F1B03479A00AA5035 /* JuegoCotidianasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoCotidianasViewController.h; sourceTree = "<group>"; };
+		6BE6A9501B03479A00AA5035 /* JuegoCotidianasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoCotidianasViewController.m; sourceTree = "<group>"; };
+		6BE6A9521B0347AE00AA5035 /* JuegoModalesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoModalesViewController.h; sourceTree = "<group>"; };
+		6BE6A9531B0347AE00AA5035 /* JuegoModalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoModalesViewController.m; sourceTree = "<group>"; };
+		6BE6A9551B0347C100AA5035 /* JuegoEmocionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoEmocionesViewController.h; sourceTree = "<group>"; };
+		6BE6A9561B0347C100AA5035 /* JuegoEmocionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoEmocionesViewController.m; sourceTree = "<group>"; };
 		6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		6BF0C5381AEF8C930006E382 /* ConfiguracionUsuariosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionUsuariosViewController.h; sourceTree = "<group>"; };
 		6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionUsuariosViewController.m; sourceTree = "<group>"; };
@@ -180,12 +192,20 @@
 				6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */,
 				6BB58E921AFDFF9200614EC2 /* JuegoCasaViewController.h */,
 				6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */,
+				6BE6A94F1B03479A00AA5035 /* JuegoCotidianasViewController.h */,
+				6BE6A9501B03479A00AA5035 /* JuegoCotidianasViewController.m */,
+				6BE6A9521B0347AE00AA5035 /* JuegoModalesViewController.h */,
+				6BE6A9531B0347AE00AA5035 /* JuegoModalesViewController.m */,
+				6BE6A9551B0347C100AA5035 /* JuegoEmocionesViewController.h */,
+				6BE6A9561B0347C100AA5035 /* JuegoEmocionesViewController.m */,
 				6BB58E951AFDFFAD00614EC2 /* JuegoSeleccionarViewController.h */,
 				6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */,
 				6BB58E981AFE16A300614EC2 /* SeleccionarObject.h */,
 				6BB58E991AFE16A300614EC2 /* SeleccionarObject.m */,
 				6BD3E5181B02011B00B9198B /* JuegoEmparejarViewController.h */,
 				6BD3E5191B02011B00B9198B /* JuegoEmparejarViewController.m */,
+				6B3340601B1481D4006E529D /* EmparejarObject.h */,
+				6B3340611B1481D4006E529D /* EmparejarObject.m */,
 				6BD3E51B1B02013300B9198B /* JuegoOrdenarViewController.h */,
 				6BD3E51C1B02013300B9198B /* JuegoOrdenarViewController.m */,
 				6BD752171AEE948000CA380B /* Main.storyboard */,
@@ -332,14 +352,18 @@
 				6BAE85F61B00A10F001DF837 /* Usuario.m in Sources */,
 				6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
+				6BE6A9541B0347AE00AA5035 /* JuegoModalesViewController.m in Sources */,
 				6BAE85ED1B009A77001DF837 /* JuegoCotidianas.m in Sources */,
 				6BB58C4D1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m in Sources */,
 				6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */,
+				6BE6A9571B0347C100AA5035 /* JuegoEmocionesViewController.m in Sources */,
 				6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */,
 				6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */,
 				6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */,
 				6BD3E51A1B02011B00B9198B /* JuegoEmparejarViewController.m in Sources */,
+				6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */,
 				6BAE85F31B009A77001DF837 /* JuegoEmociones.m in Sources */,
+				6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */,
 				6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */,
 				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,
 				6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */,

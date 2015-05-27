@@ -152,9 +152,7 @@
 
 -(IBAction)goToGuardarUsuarioViewController:(id)sender
 {
-
-    NSLog(@"guardar nuevo usuario....");
-    
+  
    
     if (self.nuevoUsuario) {
         
@@ -173,8 +171,6 @@
         [self.persona setEdad:myNumber];
         [self.persona setTipo_autismo:self.tipoautismoUser];
         [self.persona setImagenUsuario:self.imagenUser];
-        
-        
         
     
             /** Creamos datos por defectos para entidades de juegos **/
@@ -225,15 +221,7 @@
         [self.juegoEmociones setNombreJuego:@"Emociones"];
         
         
-        NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
-        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
-        
-        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
-        
-        NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
-        
-        
-        NSLog(@"..................nuevo usuario modificado");
+    
     
         NSError *error = nil;
         if (![self.persona.managedObjectContext save:&error]) {
@@ -263,11 +251,6 @@
 
 - (void)saveAction {
     
-    NSLog(@"nombre save: %@", self.persona.nombre);
-    NSLog(@"dni save: %@", self.persona.dni);
-    NSLog(@"edad save: %@", self.persona.edad);
-    NSLog(@"tipo save: %@", self.persona.tipo_autismo);
-    NSLog(@"imagen: %@", self.persona.imagenUsuario);
     
     
     NSError *error;
@@ -315,8 +298,6 @@
         [self.persona setImagenUsuario:self.imagenUser];
         
         
-        
-        
         /** Creamos datos por defectos para entidades de juegos **/
         self.juegoCasa =[NSEntityDescription insertNewObjectForEntityForName:@"JuegoCasa" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoCasa setNombreJuego:@"En casa"];
@@ -357,8 +338,7 @@
 -(IBAction)actionButtonFoto:(id)sender
 {
    // Abrir popover seleccionar foto y guardarla como informacion del usuario;
-    NSLog(@"action button foto....");
-    
+
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     	imagePicker.delegate = self;

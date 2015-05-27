@@ -10,7 +10,7 @@
 
 @implementation JuegoSeleccionarViewController
 
-@synthesize usuarioSeleccionado, nombreJuego, context, numDificultad, nombreNivel, juegoCasa;
+@synthesize usuarioSeleccionado, nombreJuego, context, numDificultad, nombreNivel, juegoCasa, juegoCotidianas, juegoEmociones, juegoModales;
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
 @synthesize imagenCentral, imagenCinco, imagenCuatro, imagenDos, imagenTres, imagenUno;
 @synthesize numAciertos,numFallos,numImagenTocada;
@@ -31,8 +31,6 @@
     self.areaJuego.layer.cornerRadius = 15;
     self.areaJuego.layer.masksToBounds = YES;
     
-    
-   
     
     [self cargarVistaDelJuego];
     
@@ -87,13 +85,102 @@
         
     }else if([nombreJuego isEqualToString:@"cotidianas"])
     {
+        if (self.usuarioSeleccionado.usuario_juegoCotidianas.voz.intValue == 0) {
+            // QUITAR SONIDO
+        }
+        if (self.usuarioSeleccionado.usuario_juegoCotidianas.guionPictos.intValue == 0) {
+            // QUITAR GUION PICTOGRAMAS
+            self.guionPictograma.hidden = YES;
+        }
+        
+        
+        //cargar datos para juego de seleccionar cosas de casas segun nivel
+        self.numDificultad = self.juegoCotidianas.num_dificultad.intValue;
+        
+        
+        switch (self.juegoCotidianas.num_nivel.intValue) {
+            case 1:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelMaleta numero_dificultad:self.numDificultad];
+                break;
+            case 2:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelDientes numero_dificultad:self.numDificultad];
+                break;
+            case 3:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelCine numero_dificultad:self.numDificultad];
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        [self cargarImagenesJuego];
         
     }else if([nombreJuego isEqualToString:@"modales"])
     {
+        if (self.usuarioSeleccionado.usuario_juegoModales.voz.intValue == 0) {
+            // QUITAR SONIDO
+        }
+        if (self.usuarioSeleccionado.usuario_juegoModales.guionPictos.intValue == 0) {
+            // QUITAR GUION PICTOGRAMAS
+            self.guionPictograma.hidden = YES;
+        }
+        
+        
+        //cargar datos para juego de seleccionar cosas de casas segun nivel
+        self.numDificultad = self.juegoModales.num_dificultad.intValue;
+        
+        
+        switch (self.juegoModales.num_nivel.intValue) {
+            case 1:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelLavarManos numero_dificultad:self.numDificultad];
+                break;
+            case 2:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelMocos numero_dificultad:self.numDificultad];
+                break;
+            case 3:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelPapel numero_dificultad:self.numDificultad];
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        [self cargarImagenesJuego];
         
     }else if([nombreJuego isEqualToString:@"emociones"])
     {
+        if (self.usuarioSeleccionado.usuario_juegoEmociones.voz.intValue == 0) {
+            // QUITAR SONIDO
+        }
+        if (self.usuarioSeleccionado.usuario_juegoEmociones.guionPictos.intValue == 0) {
+            // QUITAR GUION PICTOGRAMAS
+            self.guionPictograma.hidden = YES;
+        }
         
+        
+        //cargar datos para juego de seleccionar cosas de casas segun nivel
+        self.numDificultad = self.juegoEmociones.num_dificultad.intValue;
+        
+        
+        switch (self.juegoEmociones.num_nivel.intValue) {
+            case 1:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelContento numero_dificultad:self.numDificultad];
+                break;
+            case 2:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelTriste numero_dificultad:self.numDificultad];
+                break;
+            case 3:
+                self.seleccionarObject = [[SeleccionarObject alloc]initWithInstruccion:NombreNivelAsustado numero_dificultad:self.numDificultad];
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+        [self cargarImagenesJuego];
     }
     
     
@@ -246,9 +333,6 @@
         if (self.numAciertos == 3) {
             //ha finalizado el nivel REALIZAR UNA DETERMINADA ACCION: cambio de nivel o juego
             
-            int numnivel = self.juegoCasa.num_nivel.intValue;
-            numnivel++;
-            [self.juegoCasa setNum_nivel:[NSNumber numberWithInt:numnivel]];
             
             //guardamos datos
             NSError *error;
@@ -265,7 +349,7 @@
                                                                        userInfo:nil
                                                                         repeats:NO];
 
-           // [self cambioDeNivelAccion];
+          
             
            
         }
@@ -333,13 +417,39 @@
             [self.temporizadorEntreToques invalidate];
             self.temporizadorEntreToques=nil;
             
-            int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
-            [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+           
             
-            
-             self.numFallos =0;
-            [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
-            
+            if ([self.nombreJuego isEqualToString:@"casa"]) {
+                 int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
+                self.numFallos =0;
+                [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+               
+            }
+            else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
+                int numfallostotales = self.juegoCotidianas.num_fallos_seleccionar.intValue + self.numFallos;
+                self.numFallos =0;
+                [self.juegoCotidianas setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                [self.juegoCotidianas setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+                
+
+            }
+            else if ([self.nombreJuego isEqualToString:@"emociones"]) {
+                int numfallostotales = self.juegoEmociones.num_fallos_seleccionar.intValue + self.numFallos;
+                self.numFallos =0;
+                [self.juegoEmociones setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                [self.juegoEmociones setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+                
+
+            }
+            else if ([self.nombreJuego isEqualToString:@"modales"]) {
+                int numfallostotales = self.juegoModales.num_fallos_seleccionar.intValue + self.numFallos;
+                self.numFallos =0;
+                [self.juegoModales setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                [self.juegoModales setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+                
+
+            }
             
             
             NSError *error;
@@ -383,7 +493,8 @@
         [self.view addSubview:brickAnim];
         
     
-    
+        [self.tiempoImagenFinNivel invalidate];
+        self.tiempoImagenFinNivel = nil;
        self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
                                                                         target:self
                                                                        selector:@selector(fincambioDeNivelAccion)
@@ -395,9 +506,10 @@
 
 -(void)fincambioDeNivelAccion
 {
-    
+    if (self.tiempoImagenFinNivel) {
     [self.tiempoImagenFinNivel invalidate];
     self.tiempoImagenFinNivel = nil;
+    }
     
     NSError *error;
     if (![self.context save:&error]) {
@@ -405,16 +517,42 @@
         exit(-1);
     }
     
-    //cambio de controlador para pasar al nivel de emparejar (nivel 2), antes se debe mostrar la animacion intermedia
+    
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     // De este obtenemos el controlador con Identifier "Pantalla2"
     IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
-    intermediaViewController.context = self.context;
+    
+    
+    if ([self.nombreJuego isEqualToString:@"casa"]) {
+        intermediaViewController.numJuego =1;
+       
+        
+    }
+    else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
+        intermediaViewController.numJuego =2;
+       
+    }
+    else if ([self.nombreJuego isEqualToString:@"modales"]) {
+        intermediaViewController.numJuego =3;
+      
+    }
+    else if ([self.nombreJuego isEqualToString:@"emociones"]) {
+        intermediaViewController.numJuego =4;
+     
+    }
+    
+    [self.temporizadorEntreToques invalidate];
+    self.temporizadorEntreToques=nil;
     
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
-    
-    intermediaViewController.numJuego = 1;
+    intermediaViewController.context = self.context;
+    intermediaViewController.nombreNivel = @"Emparejar";
+ 
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
     
     // Ahora lanzamos el controlador en el navigation de forma animada:
     [self.navigationController pushViewController:intermediaViewController animated:YES];
@@ -449,7 +587,7 @@
     
     if (self.numFallos<5) {
   
-        NSLog(@"tiempo entre toques excedido...");
+        NSLog(@"tiempo entre toques excedido seleccionar view controller...");
     self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
                                                                     target:self
                                                                   selector:@selector(tiempoExcedidoEntreToques)
@@ -495,11 +633,30 @@
             [self.temporizadorEntreToques invalidate];
             self.temporizadorEntreToques=nil;
            
-            [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
             
             
-              int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
-               [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            if ([self.nombreJuego isEqualToString:@"casa"]) {
+                [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
+                [self.juegoCotidianas setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoCotidianas.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoCotidianas setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"modales"]) {
+                [self.juegoModales setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoModales.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoModales setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"emociones"]) {
+                [self.juegoEmociones setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoEmociones.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoEmociones setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            
+           
             
              self.numFallos =0;
             NSError *error;
@@ -528,6 +685,9 @@
 
 -(void)quitarBorde
 {
+    
+
+    
     switch (self.numImagenTocada) {
         case 1:
             self.imagenUno.layer.borderColor = [UIColor clearColor].CGColor;

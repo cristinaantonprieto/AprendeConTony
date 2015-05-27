@@ -23,8 +23,6 @@
 
 -(void)viewDidLoad
 {
-    NSLog(@"SeleccionUsuariosViewController: viewdidload...");
-   
     
     [super viewDidLoad];
     
@@ -51,7 +49,7 @@
     
     [self.view addSubview:self.collectionView];
     
-#warning revisar esto aquí y la carga del array.
+
     [self.collectionView reloadData];
 }
 
@@ -74,7 +72,6 @@
 {
     [super viewWillAppear:YES];
     
-#warning ojo quitar esto de aquí solo por pruebas.
     
     [self loadUsuarios];
     
@@ -193,25 +190,12 @@
 }
 
 
-#pragma mark SEGUES
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    if([segue.identifier isEqualToString:@"nuevoUsuarioViewControllerSegue"])
-//    {
-//
-//        NuevoUsuarioViewController *nuevoUsuarioViewController = segue.destinationViewController;
-//        NSLog(@"Prepare for segue: configuracion usuarios segue");
-//        
-//    }
-//    
-//}
 
 #pragma mark alertView delegate methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *inputText = [[alertView textFieldAtIndex:0] text];
     
-    NSLog(@"password introducida: %@", inputText);
     
     if (!self.sinUsuarios) {
         
@@ -240,7 +224,6 @@
 
 -(void)goToNuevoUsuarioViewController:(id)sender
 {
-    NSLog(@"gotonuevousuarioviewcontroller....");
     
     
     /** mostramos el alert que pide la contraseña **/

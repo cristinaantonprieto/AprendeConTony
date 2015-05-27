@@ -10,6 +10,9 @@
 
 #import "Usuario.h"
 #import "JuegoCasaViewController.h"
+#import "JuegoCotidianasViewController.h"
+#import "JuegoModalesViewController.h"
+#import "JuegoEmocionesViewController.h"
 
 @interface IntermediaJuegoViewController : UIViewController
 {
@@ -24,6 +27,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView *bolaDos;
 @property (nonatomic, retain) IBOutlet UIImageView *bolaTres;
 @property (nonatomic, retain) IBOutlet UIImageView *pictograma;
+
+@property (nonatomic, retain)NSString *nombreNivel;
 
 
 @property(nonatomic, assign)int tiempoIncremento;

@@ -11,7 +11,7 @@
 @implementation IntermediaJuegoViewController
 
 @synthesize imagenFondo, usuarioSeleccionado, context, numJuego;
-@synthesize bolaUno, bolaDos,bolaTres,pictograma, temporizador, tiempoIncremento;
+@synthesize bolaUno, bolaDos,bolaTres,pictograma, temporizador, tiempoIncremento, nombreNivel;
 
 
 
@@ -108,13 +108,19 @@
             }
                 break;
             case 2: //juego cotidianas
-                
-                break;
+            {
+                [self performSegueWithIdentifier:@"juegoCotidianasviewControllerSegue" sender:sender];
+            }
+            break;
             case 3: //juego modales
-                
+            {
+                [self performSegueWithIdentifier:@"juegoModalesviewControllerSegue" sender:sender];
+            }
                 break;
             case 4://juego emociones
-                
+            {
+                [self performSegueWithIdentifier:@"juegoEmocionesviewControllerSegue" sender:sender];
+            }
                 break;
                 
             default:
@@ -133,15 +139,44 @@
         JuegoCasaViewController *juegoCasaViewController = [segue destinationViewController];
         juegoCasaViewController.context = self.context;
         juegoCasaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoCasaViewController.nombreNivel = self.nombreNivel;
         
 
     }
-}
-
-
-- (void)reiniciarTiempo:(id)sender{
+    else if ([[segue identifier] isEqualToString:@"juegoCotidianasviewControllerSegue"]) {
+        
+        // Get destination view
+        JuegoCotidianasViewController *juegoCotidianasViewController = [segue destinationViewController];
+        juegoCotidianasViewController.context = self.context;
+        juegoCotidianasViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoCotidianasViewController.nombreNivel = self.nombreNivel;
+        
+        
+    }
+    else if ([[segue identifier] isEqualToString:@"juegoModalesviewControllerSegue"]) {
+        
+        // Get destination view
+        JuegoModalesViewController *juegoModalesViewController = [segue destinationViewController];
+        juegoModalesViewController.context = self.context;
+        juegoModalesViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoModalesViewController.nombreNivel = self.nombreNivel;
+        
+        
+    }
+    else if ([[segue identifier] isEqualToString:@"juegoEmocionesviewControllerSegue"]) {
+        
+        // Get destination view
+        JuegoEmocionesViewController *juegoEmocionesViewController = [segue destinationViewController];
+        juegoEmocionesViewController.context = self.context;
+        juegoEmocionesViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+        juegoEmocionesViewController.nombreNivel = self.nombreNivel;
+        
+        
+    }
     
-   
 }
+
+
+
 
 @end

@@ -32,15 +32,6 @@
         self.juegoModales = self.usuarioSeleccionado.usuario_juegoModales;
         
         self.juegoCotidianas = self.usuarioSeleccionado.usuario_juegoCotidianas;
-      
-        NSLog(@"configurar usuarios view controlle........ no nuevo usuario.......");
-         NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
-        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
-        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
-          NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
-        NSLog(@"......................configurar usuarios view controlle........ no nuevo usuario");
-
-        
         
     }
 
@@ -61,14 +52,6 @@
         self.juegoModales = self.usuarioSeleccionado.usuario_juegoModales;
         
         self.juegoCotidianas = self.usuarioSeleccionado.usuario_juegoCotidianas;
-        
-        NSLog(@"configurar usuarios view controlle........ no nuevo usuario.......");
-        NSLog(@"juego casa nombre y nivel = %@   %d", self.juegoCasa.nombreJuego, self.juegoCasa.num_nivel.intValue);
-        NSLog(@"juego emociones nombre y nivel = %@   %d", self.juegoEmociones.nombreJuego, self.juegoEmociones.num_nivel.intValue);
-        NSLog(@"juego modales nombre y nivel = %@   %d", self.juegoModales.nombreJuego, self.juegoModales.num_nivel.intValue);
-        NSLog(@"juego cotidianas nombre y nivel = %@   %d", self.juegoCotidianas.nombreJuego, self.juegoCotidianas.num_nivel.intValue);
-        NSLog(@"......................configurar usuarios view controlle........ no nuevo usuario");
-        
         
         
     }

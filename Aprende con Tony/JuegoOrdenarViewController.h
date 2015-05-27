@@ -11,7 +11,9 @@
 
 #import "Usuario.h"
 #import "JuegoCasa.h"
-
+#import "JuegoCotidianas.h"
+#import "JuegoEmociones.h"
+#import "JuegoModales.h"
 
 #import "SeleccionUsuariosViewController.h"
 #import "NuevoUsuarioViewController.h"
@@ -33,5 +35,8 @@
 
 
 @property(nonatomic, retain) JuegoCasa *juegoCasa;
+@property(nonatomic, retain) JuegoModales *juegoModales;
+@property(nonatomic, retain) JuegoEmociones *juegoEmociones;
+@property(nonatomic, retain) JuegoCotidianas *juegoCotidianas;
 
 @end

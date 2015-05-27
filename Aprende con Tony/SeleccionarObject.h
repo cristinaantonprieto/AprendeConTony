@@ -14,6 +14,15 @@ typedef enum {
     NombreNivelRopa, //casa
     NombreNivelBarrer, //casa
     NombreNivelMesa, //casa
+    NombreNivelMaleta, //cotidianas
+    NombreNivelDientes, //cotidianas
+    NombreNivelCine, //cotidianas
+    NombreNivelLavarManos, //modales
+    NombreNivelMocos, //modales
+    NombreNivelPapel, //modales
+    NombreNivelContento, //emociones
+    NombreNivelTriste, //emociones
+    NombreNivelAsustado, //emociones
 }NombreNivel;
 
 @interface SeleccionarObject : NSObject

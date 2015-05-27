@@ -11,6 +11,10 @@
 
 #import "Usuario.h"
 #import "JuegoCasa.h"
+#import "JuegoEmociones.h"
+#import "JuegoCotidianas.h"
+#import "JuegoModales.h"
+
 #import "SeleccionarObject.h"
 
 #import "SeleccionUsuariosViewController.h"
@@ -55,10 +59,12 @@
 @property(nonatomic, retain)NSTimer *tiempoImagenFinNivel;
 
 @property(nonatomic, retain) JuegoCasa *juegoCasa;
+@property(nonatomic, retain) JuegoEmociones *juegoEmociones;
+@property(nonatomic, retain) JuegoCotidianas *juegoCotidianas;
+@property (nonatomic, retain) JuegoModales *juegoModales;
 
 
-
--(void)goToConfigurarUsuariosViewController:(id)sender;
+//-(void)goToConfigurarUsuariosViewController:(id)sender;
 -(void)goToSeleccionarUsuariosViewController:(id)sender;
 -(void)cargarImagenesJuego;
 -(void)cargarBotonesNavigation;

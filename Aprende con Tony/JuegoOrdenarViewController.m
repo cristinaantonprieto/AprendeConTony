@@ -14,7 +14,7 @@
 
 @implementation JuegoOrdenarViewController
 
-@synthesize juegoCasa, nombreJuego, nombreNivel;
+@synthesize juegoCasa, nombreJuego, nombreNivel, juegoCotidianas, juegoEmociones, juegoModales;
 @synthesize context, usuarioSeleccionado, numDificultad;
 
 - (void)viewDidLoad {
