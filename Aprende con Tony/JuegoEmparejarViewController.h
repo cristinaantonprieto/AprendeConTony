@@ -63,7 +63,7 @@
 
 @property(nonatomic, retain) NSTimer *temporizadorBordeRojo;
 @property(nonatomic, retain) NSTimer *temporizadorTony;
-@property(nonatomic, retain) NSTimer *temporizadorEntreToques;
+@property(nonatomic, retain) NSTimer *temporizadorEntreToquesEmparejar;
 @property(nonatomic, retain)NSTimer *tiempoImagenFinNivel;
 
 

@@ -267,6 +267,9 @@
     {
         
         /** accion correcta **/
+        [self.temporizadorEntreToques invalidate];
+        self.temporizadorEntreToques=nil;
+        
      
         //imagen tony
         UIImage *imagTony = [UIImage imageNamed:@"tonyContento.png"];
@@ -281,6 +284,7 @@
                                                                     userInfo:nil
                                                                      repeats:NO];
         
+                
         
         switch (self.numImagenTocada) {
             case 1:
@@ -727,6 +731,13 @@
 
 -(void)cambiarImagenTony
 {
+    
+    self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                                    target:self
+                                                                  selector:@selector(tiempoExcedidoEntreToques)
+                                                                  userInfo:nil
+                                                                   repeats:NO];
+    
     
     [self.view setUserInteractionEnabled:YES];
     [self.areaJuego setUserInteractionEnabled:YES];

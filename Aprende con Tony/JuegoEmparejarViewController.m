@@ -18,11 +18,13 @@
 @synthesize context, usuarioSeleccionado, numDificultad, numAciertos, numFallos, numImagenTocada;
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
 @synthesize imagenCentral, imagenCuatro, imagenTres, imagenDos, imagenUno, bienArrastrada, accionCorrecta;
-@synthesize temporizadorBordeRojo, temporizadorEntreToques, temporizadorTony, tiempoImagenFinNivel;
+@synthesize temporizadorBordeRojo, temporizadorEntreToquesEmparejar, temporizadorTony, tiempoImagenFinNivel;
 
 - (void)viewDidLoad {
     
-    NSLog(@"numdificultad = %d", self.numDificultad);
+    self.numDificultad = self.juegoCasa.num_dificultad.intValue;
+    NSLog(@" view did load numdificultad = %d", self.numDificultad);
+    
     NSLog(@"user = %@", self.usuarioSeleccionado.nombre);
     
     self.areaJuego.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -48,13 +50,13 @@
 {
     NSLog(@"cargar vista del juego...");
     
-   /*** self.temporizadorEntreToques = [NSTimer scheduledTimerWithTimeInterval:30.0
+    self.temporizadorEntreToquesEmparejar = [NSTimer scheduledTimerWithTimeInterval:30.0
                                                                     target:self
-                                                                  selector:@selector(tiempoExcedidoEntreToques)
+                                                                  selector:@selector(tiempoExcedidoEntreToquesEmparejar)
                                                                   userInfo:nil
                                                                    repeats:NO];
     
-    ***/
+    
     
     /** cargar datos segun el juego **/
     if ([nombreJuego isEqualToString:@"casa"]) {
@@ -248,8 +250,8 @@
         
     }else if(self.numDificultad == 2)
     {
-        if (!self.imagenDos.hidden) {
-            self.imagenDos.hidden = YES;
+        if (!self.imagenUno.hidden) {
+            self.imagenUno.hidden = YES;
         }
         
         
@@ -353,17 +355,17 @@
     
     if(CGRectContainsPoint(self.imagenUno.frame, location)|| CGRectContainsPoint(self.imagenUno.frame, locationAreaJuego))
     {
-        NSLog(@"imagen uno tocada.....");
+        
         self.numImagenTocada = 1;
         
         
     }else if(CGRectContainsPoint(self.imagenDos.frame, location)|| CGRectContainsPoint(self.imagenDos.frame, locationAreaJuego))
     {
-        NSLog(@"imagen dos tocada.....");
+        
         self.numImagenTocada = 2;
     }else if(CGRectContainsPoint(self.imagenTres.frame, location)|| CGRectContainsPoint(self.imagenTres.frame, locationAreaJuego))
     {
-        NSLog(@"imagen tres tocada.....");
+        
         self.numImagenTocada = 3;
     }
 }
@@ -415,33 +417,60 @@
     
     NSString *imagenTocadaNombre = @"";
     
-    if(CGRectContainsPoint(self.imagenUno.frame, location) || CGRectContainsPoint(self.imagenUno.frame, locationAreaJuego))
-    {
-        NSLog(@"imagen uno tocada ended.....");
-        imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:0];
-        
-    }else if(CGRectContainsPoint(self.imagenDos.frame, location) || CGRectContainsPoint(self.imagenDos.frame, locationAreaJuego))
-    {
-        NSLog(@"imagen dos tocada ended.....");
-        imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:1];
-    }else if(CGRectContainsPoint(self.imagenTres.frame, location) || CGRectContainsPoint(self.imagenTres.frame, locationAreaJuego))
-    {
-        NSLog(@"imagen tres tocada ended.....");
-        imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:2];
+    switch (self.numDificultad) {
+        case 3:
+        {
+            if(CGRectContainsPoint(self.imagenUno.frame, location) || CGRectContainsPoint(self.imagenUno.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen uno tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:0];
+                
+            }else if(CGRectContainsPoint(self.imagenDos.frame, location) || CGRectContainsPoint(self.imagenDos.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen dos tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:1];
+            }else if(CGRectContainsPoint(self.imagenTres.frame, location) || CGRectContainsPoint(self.imagenTres.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen tres tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:2];
+            }
+        }
+            break;
+        case 2:
+        {
+            if(CGRectContainsPoint(self.imagenTres.frame, location) || CGRectContainsPoint(self.imagenTres.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen uno tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:1];
+                
+            }else if(CGRectContainsPoint(self.imagenDos.frame, location) || CGRectContainsPoint(self.imagenDos.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen dos tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:0];
+            }
+        }
+            break;
+        case 1:
+        {
+            if(CGRectContainsPoint(self.imagenDos.frame, location) || CGRectContainsPoint(self.imagenDos.frame, locationAreaJuego))
+            {
+                NSLog(@"imagen uno tocada ended.....");
+                imagenTocadaNombre = [self.emparejarObject.arrayPosibilidades objectAtIndex:0];
+                
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
+    
     
     NSLog(@"imagen tocada = %@", imagenTocadaNombre);
     [self comprobarAccion:imagenTocadaNombre];
     
     
-//    bienArrastrada = NO;
-//    
-//    CGPoint posicionToqueEnded = [[touches anyObject] locationInView:self.superview];
-//    
-//    bienArrastrada = [delegate comprobarFinalMovimiento:self puntoToque:posicionToqueEnded];
-//    
-//    [self comprobarBooleanos:self posicion:posicionToqueEnded evento:event];
-//    
+  
     
 }
 
@@ -471,12 +500,19 @@
         self.bienArrastrada = YES;
     }
     
-    //**COMPROBAR IMAGEN TOCADA**//
+    
     if ([self.emparejarObject.stringCorrecta isEqualToString: imagenTocada])
     {
-        
         /** accion correcta **/
         self.accionCorrecta = YES;
+        
+    }
+    //**COMPROBAR IMAGEN TOCADA**//
+    if ([self.emparejarObject.stringCorrecta isEqualToString: imagenTocada] && self.bienArrastrada)
+    {
+        
+        [self.temporizadorEntreToquesEmparejar invalidate];
+        self.temporizadorEntreToquesEmparejar=nil;
         
         //imagen tony
         UIImage *imagTony = [UIImage imageNamed:@"tonyContento.png"];
@@ -487,44 +523,87 @@
         [self.areaJuego setUserInteractionEnabled:NO];
         self.temporizadorTony = [NSTimer scheduledTimerWithTimeInterval:2.0
                                                                  target:self
-                                                               selector:@selector(cambiarImagenTony)
+                                                               selector:@selector(cambiarImagenTonyEmparejar)
                                                                userInfo:nil
                                                                 repeats:NO];
       
         
+        //**poner borde verde**/
+        self.temporizadorBordeRojo = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                                      target:self
+                                                                    selector:@selector(quitarBorde)
+                                                                    userInfo:nil
+                                                                     repeats:NO];
+        
+        
+        switch (self.numImagenTocada) {
+            case 1:
+            {
+                self.imagenUno.layer.borderColor = [UIColor greenColor].CGColor;
+                self.imagenUno.layer.borderWidth = 5.0f;
+                self.imagenUno.layer.cornerRadius = 15;
+                self.imagenUno.layer.masksToBounds = YES;
+                
+            }
+                break;
+            case 2:
+            {
+                
+                self.imagenDos.layer.borderColor = [UIColor greenColor].CGColor;
+                self.imagenDos.layer.borderWidth = 5.0f;
+                self.imagenDos.layer.cornerRadius = 15;
+                self.imagenDos.layer.masksToBounds = YES;
+                
+            }
+                break;
+            case 3:
+            {
+                
+                self.imagenTres.layer.borderColor = [UIColor greenColor].CGColor;
+                self.imagenTres.layer.borderWidth = 5.0f;
+                self.imagenTres.layer.cornerRadius = 15;
+                self.imagenTres.layer.masksToBounds = YES;
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
 
         
-        self.numAciertos++;
-      
-                //imagen rating
-        UIImage *imagRating = [UIImage imageNamed:@"ratingtres.png"];
-        [self.imagenRating setImage:imagRating];
+        //****/
         
-        
-        
-        if (self.numAciertos == 1) {
-            //ha finalizado el nivel REALIZAR UNA DETERMINADA ACCION: cambio de nivel o juego
+            self.numAciertos++;
+            
+            //imagen rating
+            UIImage *imagRating = [UIImage imageNamed:@"ratingtres.png"];
+            [self.imagenRating setImage:imagRating];
             
             
-            //guardamos datos
-            NSError *error;
-            if (![self.context save:&error]) {
-                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
-                exit(-1);
+            
+            if (self.numAciertos == 1) {
+                //ha finalizado el nivel REALIZAR UNA DETERMINADA ACCION: cambio de nivel o juego
+                
+                
+                //guardamos datos
+                NSError *error;
+                if (![self.context save:&error]) {
+                    NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                    exit(-1);
+                }
+                
+                
+                /**  cambio de nivel el usuario lo ha superado correctamente**/
+                self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
+                                                                             target:self
+                                                                           selector:@selector(cambioDeNivelAccionEmparejar)
+                                                                           userInfo:nil
+                                                                            repeats:NO];
             }
-            
-            
-            /**  cambio de nivel el usuario lo ha superado correctamente**/
-       /***     self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
-                                                                         target:self
-                                                                       selector:@selector(cambioDeNivelAccion)
-                                                                       userInfo:nil
-                                                                        repeats:NO];
-            
-          ***/
-            
-            
-        }
+        
+        
+        
     }else
     {
         /** accion incorrecta **/
@@ -533,7 +612,7 @@
         
         [self.view setUserInteractionEnabled:NO];
         [self.areaJuego setUserInteractionEnabled:NO];
-       self.temporizadorBordeRojo = [NSTimer scheduledTimerWithTimeInterval:2.0
+        self.temporizadorBordeRojo = [NSTimer scheduledTimerWithTimeInterval:2.0
                                                                       target:self
                                                                     selector:@selector(quitarBorde)
                                                                     userInfo:nil
@@ -541,24 +620,76 @@
      
         switch (self.numImagenTocada) {
             case 1:
+            {
+                if (!self.accionCorrecta)
+                {
                 self.imagenUno.layer.borderColor = [UIColor redColor].CGColor;
                 self.imagenUno.layer.borderWidth = 5.0f;
                 self.imagenUno.layer.cornerRadius = 15;
                 self.imagenUno.layer.masksToBounds = YES;
+                }
+                
+                /////////// Animacion volver imagen al inicio
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+                [UIView setAnimationBeginsFromCurrentState:YES];
+                [UIView setAnimationDuration:1.0];
+                self.imagenUno.transform = CGAffineTransformIdentity;
+                [UIView setAnimationDelegate:self];
+                /////[UIView setAnimationDidStopSelector:@selector(deshacerDifuminar:finished:context:)];
+                
+                [UIView commitAnimations];
+                //////////////
+                
+            }
                 break;
             case 2:
-                
+            {
+                if (!self.accionCorrecta)
+                {
                 self.imagenDos.layer.borderColor = [UIColor redColor].CGColor;
                 self.imagenDos.layer.borderWidth = 5.0f;
                 self.imagenDos.layer.cornerRadius = 15;
                 self.imagenDos.layer.masksToBounds = YES;
+                }
+                
+                /////////// Animacion volver imagen al inicio
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+                [UIView setAnimationBeginsFromCurrentState:YES];
+                [UIView setAnimationDuration:1.0];
+                self.imagenDos.transform = CGAffineTransformIdentity;
+                [UIView setAnimationDelegate:self];
+                /////[UIView setAnimationDidStopSelector:@selector(deshacerDifuminar:finished:context:)];
+                
+                [UIView commitAnimations];
+                //////////////
+                
+
+            }
                 break;
             case 3:
-                
+            {
+                if (!self.accionCorrecta)
+                {
                 self.imagenTres.layer.borderColor = [UIColor redColor].CGColor;
                 self.imagenTres.layer.borderWidth = 5.0f;
                 self.imagenTres.layer.cornerRadius = 15;
                 self.imagenTres.layer.masksToBounds = YES;
+                }
+                
+                /////////// Animacion volver imagen al inicio
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+                [UIView setAnimationBeginsFromCurrentState:YES];
+                [UIView setAnimationDuration:1.0];
+                self.imagenTres.transform = CGAffineTransformIdentity;
+                [UIView setAnimationDelegate:self];
+                /////[UIView setAnimationDidStopSelector:@selector(deshacerDifuminar:finished:context:)];
+                
+                [UIView commitAnimations];
+                //////////////
+            }
                 break;
             
             default:
@@ -574,9 +705,9 @@
             
             
             
-     /***       [self.temporizadorEntreToques invalidate];
-            self.temporizadorEntreToques=nil;
-         ***/
+            [self.temporizadorEntreToquesEmparejar invalidate];
+            self.temporizadorEntreToquesEmparejar=nil;
+         
             
             
             if ([self.nombreJuego isEqualToString:@"casa"]) {
@@ -641,10 +772,159 @@
 
 
 #pragma mark temporizadores
+
+-(void)tiempoExcedidoEntreToquesEmparejar{
+    
+    [self.temporizadorBordeRojo invalidate];
+    self.temporizadorBordeRojo =nil;
+    
+    
+    self.numFallos++;
+    
+    
+    
+    if (self.numFallos<5) {
+        
+        NSLog(@"tiempo entre toques excedido seleccionar view controller...");
+        self.temporizadorEntreToquesEmparejar = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                                        target:self
+                                                                      selector:@selector(tiempoExcedidoEntreToquesEmparejar)
+                                                                      userInfo:nil
+                                                                       repeats:NO];
+        
+        //movemos imagenes a tocar correctas
+        NSString *correcta = self.emparejarObject.stringIndiceCorrecto;
+        
+        switch (self.numDificultad) {
+            case 1:
+            {
+                
+              [self shakeView:self.imagenDos];
+            }
+                break;
+            case 2:
+            {
+                
+                if ([correcta isEqualToString:@"1"]) {
+                    [self shakeView:self.imagenDos];
+                    
+                }
+                if ([correcta isEqualToString:@"2"]) {
+                    [self shakeView:self.imagenTres];
+                }
+               
+            }
+                break;
+            case 3:
+            {
+                
+                if ([correcta isEqualToString:@"1"]) {
+                    [self shakeView:self.imagenUno];
+                    
+                }
+                if ([correcta isEqualToString:@"2"]) {
+                    [self shakeView:self.imagenDos];
+                }
+                if ([correcta isEqualToString:@"3"]) {
+                    [self shakeView:self.imagenTres];
+                }
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+            
+            
+        
+        
+        
+    }else if(self.numFallos==5)
+    {
+        [self.temporizadorBordeRojo invalidate];
+        self.temporizadorBordeRojo =nil;
+        NSLog(@"tiempo entre toques excedido y maximo numero de fallos cumplido");
+        
+        if (numFallos == 5) { //Se permiten 5 fallos antes de cambiar de dificultad automaticamente
+            
+            if (self.numDificultad>1) {
+                self.numDificultad--;
+                
+            }
+            
+            [self.temporizadorEntreToquesEmparejar invalidate];
+            self.temporizadorEntreToquesEmparejar=nil;
+            
+            
+            
+            if ([self.nombreJuego isEqualToString:@"casa"]) {
+                [self.juegoCasa setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoCasa.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoCasa setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
+                [self.juegoCotidianas setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoCotidianas.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoCotidianas setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"modales"]) {
+                [self.juegoModales setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoModales.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoModales setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            else if ([self.nombreJuego isEqualToString:@"emociones"]) {
+                [self.juegoEmociones setNum_dificultad:[NSNumber numberWithInt:self.numDificultad]];
+                int numfallostotales = self.juegoEmociones.num_fallos_seleccionar.intValue + self.numFallos;
+                [self.juegoEmociones setNum_fallos_seleccionar:[NSNumber numberWithInt:numfallostotales]];
+            }
+            
+            
+            
+            self.numFallos =0;
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            if (self.numDificultad>1) {
+                [self cargarVistaDelJuego];
+            }
+            
+            
+        }
+        
+        //REALIZAR ACCION CORRESPONDIENTE
+        NSError *error;
+        if (![self.context save:&error]) {
+            NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+            exit(-1);
+        }
+        
+    }
+    
+}
+
+#pragma mark metodos shake imagenes
+-(void)shakeView:(UIImageView *)imagen {
+    
+    CABasicAnimation *shake = [CABasicAnimation animationWithKeyPath:@"position"];
+    [shake setDuration:0.2];
+    [shake setRepeatCount:7];
+    [shake setAutoreverses:YES];
+    [shake setFromValue:[NSValue valueWithCGPoint:
+                         CGPointMake(imagen.center.x - 5,imagen.center.y)]];
+    [shake setToValue:[NSValue valueWithCGPoint:
+                       CGPointMake(imagen.center.x + 5, imagen.center.y)]];
+    [imagen.layer addAnimation:shake forKey:@"position"];
+}
+
+
 -(void)quitarBorde
 {
     
- #warning volver al inicio la imagen........
+
     
     switch (self.numImagenTocada) {
         case 1:
@@ -679,11 +959,99 @@
     
 }
 
--(void)cambiarImagenTony
+#pragma mark cambio de nivel metodos
+
+-(void)cambioDeNivelAccionEmparejar
+{
+    
+    [self.tiempoImagenFinNivel invalidate];
+    self.tiempoImagenFinNivel=nil;
+    
+    UIImageView *brickAnim = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finNivelBien.png"]];
+    brickAnim.frame = self.view.frame;
+    [self.view addSubview:brickAnim];
+    
+    
+    [self.tiempoImagenFinNivel invalidate];
+    self.tiempoImagenFinNivel = nil;
+    self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
+                                                                 target:self
+                                                               selector:@selector(fincambioDeNivelAccionEmparejar)
+                                                               userInfo:nil
+                                                                repeats:NO];
+    
+    
+}
+
+-(void)fincambioDeNivelAccionEmparejar
+{
+    if (self.tiempoImagenFinNivel) {
+        [self.tiempoImagenFinNivel invalidate];
+        self.tiempoImagenFinNivel = nil;
+    }
+    
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    IntermediaJuegoViewController *intermediaViewController = [storyBoard instantiateViewControllerWithIdentifier:@"intermediaViewControllerID"];
+    
+    
+    if ([self.nombreJuego isEqualToString:@"casa"]) {
+        intermediaViewController.numJuego =1;
+        
+        
+    }
+    else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
+        intermediaViewController.numJuego =2;
+        
+    }
+    else if ([self.nombreJuego isEqualToString:@"modales"]) {
+        intermediaViewController.numJuego =3;
+        
+    }
+    else if ([self.nombreJuego isEqualToString:@"emociones"]) {
+        intermediaViewController.numJuego =4;
+        
+    }
+    
+    [self.temporizadorEntreToquesEmparejar invalidate];
+    self.temporizadorEntreToquesEmparejar=nil;
+    
+    intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+    intermediaViewController.context = self.context;
+    intermediaViewController.nombreNivel = @"Ordenar";
+    
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:intermediaViewController animated:YES];
+    
+}
+
+
+-(void)cambiarImagenTonyEmparejar
 {
     
     [self.view setUserInteractionEnabled:YES];
     [self.areaJuego setUserInteractionEnabled:YES];
+    
+    self.temporizadorEntreToquesEmparejar = [NSTimer scheduledTimerWithTimeInterval:30.0
+                                                                             target:self
+                                                                           selector:@selector(tiempoExcedidoEntreToquesEmparejar)
+                                                                           userInfo:nil
+                                                                            repeats:NO];
+    
+    
     
     [self.temporizadorTony invalidate];
     self.temporizadorTony =nil;
