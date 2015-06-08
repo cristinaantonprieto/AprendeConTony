@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3340611B1481D4006E529D /* EmparejarObject.m */; };
+		6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B39CC641B25A24800DAF7CF /* OrdenarObject.m */; };
 		6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */; };
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
 		6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85E91B009A77001DF837 /* JuegoCasa.m */; };
@@ -53,6 +54,8 @@
 /* Begin PBXFileReference section */
 		6B3340601B1481D4006E529D /* EmparejarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmparejarObject.h; sourceTree = "<group>"; };
 		6B3340611B1481D4006E529D /* EmparejarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmparejarObject.m; sourceTree = "<group>"; };
+		6B39CC631B25A24800DAF7CF /* OrdenarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdenarObject.h; sourceTree = "<group>"; };
+		6B39CC641B25A24800DAF7CF /* OrdenarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdenarObject.m; sourceTree = "<group>"; };
 		6B7FDBB91AF3749E0051CEE5 /* NuevoUsuarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuevoUsuarioViewController.h; sourceTree = "<group>"; };
 		6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoUsuarioViewController.m; sourceTree = "<group>"; };
 		6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				6B3340611B1481D4006E529D /* EmparejarObject.m */,
 				6BD3E51B1B02013300B9198B /* JuegoOrdenarViewController.h */,
 				6BD3E51C1B02013300B9198B /* JuegoOrdenarViewController.m */,
+				6B39CC631B25A24800DAF7CF /* OrdenarObject.h */,
+				6B39CC641B25A24800DAF7CF /* OrdenarObject.m */,
 				6BD752171AEE948000CA380B /* Main.storyboard */,
 				6BD752391AEEA58700CA380B /* Images.xcassets */,
 				6BD7521C1AEE948000CA380B /* LaunchScreen.xib */,
@@ -362,6 +367,7 @@
 				6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */,
 				6BD3E51A1B02011B00B9198B /* JuegoEmparejarViewController.m in Sources */,
 				6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */,
+				6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */,
 				6BAE85F31B009A77001DF837 /* JuegoEmociones.m in Sources */,
 				6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */,
 				6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */,
