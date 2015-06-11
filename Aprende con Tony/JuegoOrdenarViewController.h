@@ -15,13 +15,15 @@
 #import "JuegoEmociones.h"
 #import "JuegoModales.h"
 
+#import "OrdenarObject.h"
+
 #import "SeleccionUsuariosViewController.h"
 #import "NuevoUsuarioViewController.h"
 #import "DashBoardViewController.h"
 #import "IntermediaJuegoViewController.h"
 
 
-@interface JuegoOrdenarViewController : UIViewController
+@interface JuegoOrdenarViewController : UIViewController<UIAlertViewDelegate>
 {
     
 }
@@ -38,5 +40,42 @@
 @property(nonatomic, retain) JuegoModales *juegoModales;
 @property(nonatomic, retain) JuegoEmociones *juegoEmociones;
 @property(nonatomic, retain) JuegoCotidianas *juegoCotidianas;
+
+@property(nonatomic, retain)IBOutlet UIImageView *imagenTony;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenRating;
+@property(nonatomic, retain)IBOutlet UIImageView *guionPictograma;
+@property(nonatomic, retain)IBOutlet UIView *areaJuego;
+
+@property(nonatomic, assign)int numFallos;
+@property(nonatomic, assign)int numAciertos;
+@property(nonatomic, assign)int numImagenTocada;
+
+@property (nonatomic, assign)BOOL bienArrastrada;
+@property (nonatomic, assign)BOOL accionCorrecta;
+
+
+@property(nonatomic, retain)OrdenarObject *ordenarObject;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCorrectaUno;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCorrectaDos;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenCorrectaTres;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenPosUno;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenPosDos;
+@property(nonatomic, retain)IBOutlet UIImageView *imagenPosTres;
+
+
+
+@property(nonatomic, retain) NSTimer *temporizadorBordeRojoOrdenar;
+@property(nonatomic, retain) NSTimer *temporizadorTonyOrdenar;
+@property(nonatomic, retain) NSTimer *temporizadorEntreToquesOrdenar;
+@property(nonatomic, retain)NSTimer *tiempoImagenFinNivelOrdenar;
+
+
+
+-(void)cargarVistaDelJuegoOrdenar;
+-(void)cargarBotonesNavigationOrdenar;
+-(void)cargarImagenesJuegoOrdenar;
+-(void)goToDashViewControllerOrdenar:(id)sender;
+-(void)goToSeleccionarUsuariosViewControllerOrdenar:(id)sender;
+
 
 @end

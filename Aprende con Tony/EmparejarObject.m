@@ -82,7 +82,7 @@
             //nombre de la imagen del guion
             self.nombreImagenGuion = @""; //COMPLETAR!!!!!!
             //string opcion correcta
-            self.stringCorrecta = @"";
+            self.stringCorrecta = @"cubiertos.png";
             //array de las posibilidades
             switch (num_dificultad) {
                 case 3: //dificultad mayor

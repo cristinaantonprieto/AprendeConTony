@@ -38,7 +38,6 @@
 
 
 -(void)comienzaTiempo:(NSTimer *) elContador;
-- (void)reiniciarTiempo:(id)sender;
 - (void)terminarTiempo:(id)sender;
 
 
