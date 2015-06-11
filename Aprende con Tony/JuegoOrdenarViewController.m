@@ -858,6 +858,9 @@
             self.juegoCasa.num_nivel = [NSNumber numberWithInt:[self.juegoCasa.num_nivel intValue] +1];
             
             NSLog(@"self.numnivel = %d", self.juegoCasa.num_nivel.intValue);
+        }else if([self.juegoCasa.num_nivel intValue] ==3)
+        {
+            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
     }
     else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
@@ -867,6 +870,9 @@
             self.juegoCotidianas.num_nivel = [NSNumber numberWithInt:[self.juegoCotidianas.num_nivel intValue] +1];
           
             NSLog(@"self.numnivel = %d", self.juegoCotidianas.num_nivel.intValue);
+        }else if([self.juegoCasa.num_nivel intValue] ==3)
+        {
+            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
         
     }
@@ -877,6 +883,9 @@
             self.juegoModales.num_nivel = [NSNumber numberWithInt:[self.juegoModales.num_nivel intValue] +1];
             
             NSLog(@"self.numnivel = %d", self.juegoModales.num_nivel.intValue);
+        }else if([self.juegoCasa.num_nivel intValue] ==3)
+        {
+            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
         
     }
@@ -886,6 +895,9 @@
             self.juegoEmociones.num_nivel = [NSNumber numberWithInt:[self.juegoEmociones.num_nivel intValue] +1];
             
             NSLog(@"self.numnivel = %d", self.juegoEmociones.num_nivel.intValue);
+        }else if([self.juegoCasa.num_nivel intValue] ==3)
+        {
+            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
         
     }
@@ -898,46 +910,111 @@
     
     if ([self.nombreJuego isEqualToString:@"casa"]) {
         
-        if ([self.juegoCasa.num_nivel intValue] <= 3) {
+        if ([self.juegoCasa.num_nivel intValue] < 3) {
           
             NSLog(@"self.numnivel = %d", self.juegoCasa.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
+            
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
-#pragma mark ir al dash.........
+            //fin del juego volvemos al dash
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            // De este obtenemos el controlador con Identifier "Pantalla2"
+            DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+            dashboardViewController.context = self.context;
+            dashboardViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:dashboardViewController animated:YES];
         }
         
     }
     else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
-        if ([self.juegoCotidianas.num_nivel intValue] <= 3) {
+        if ([self.juegoCotidianas.num_nivel intValue] < 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoCotidianas.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
+            
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
-#pragma mark ir al dash.........
+            //fin del juego volvemos al dash
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            // De este obtenemos el controlador con Identifier "Pantalla2"
+            DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+            dashboardViewController.context = self.context;
+            dashboardViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:dashboardViewController animated:YES];
         }
         
     }
     else if ([self.nombreJuego isEqualToString:@"modales"]) {
-        if ([self.juegoModales.num_nivel intValue] <= 3) {
+        if ([self.juegoModales.num_nivel intValue] < 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoModales.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
+            
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
-#pragma mark ir al dash.........
+            //fin del juego volvemos al dash
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            // De este obtenemos el controlador con Identifier "Pantalla2"
+            DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+            dashboardViewController.context = self.context;
+            dashboardViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:dashboardViewController animated:YES];
         }
         
     }
     else if ([self.nombreJuego isEqualToString:@"emociones"]) {
-        if ([self.juegoEmociones.num_nivel intValue] <= 3) {
+        if ([self.juegoEmociones.num_nivel intValue] < 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoEmociones.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
+            
+            
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+            
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
-#pragma mark ir al dash.........
+            //fin del juego volvemos al dash
+            UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            // De este obtenemos el controlador con Identifier "Pantalla2"
+            DashBoardViewController *dashboardViewController = [storyBoard instantiateViewControllerWithIdentifier:@"dashBoardViewControllerID"];
+            dashboardViewController.context = self.context;
+            dashboardViewController.usuarioSeleccionado = self.usuarioSeleccionado;
+            // Ahora lanzamos el controlador en el navigation de forma animada:
+            [self.navigationController pushViewController:dashboardViewController animated:YES];
         }
         
     }
@@ -951,8 +1028,8 @@
         exit(-1);
     }
     
-    // Ahora lanzamos el controlador en el navigation de forma animada:
-    [self.navigationController pushViewController:intermediaViewController animated:YES];
+    
+   
     
 }
 
