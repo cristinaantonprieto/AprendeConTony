@@ -69,6 +69,9 @@
 @property(nonatomic, retain) NSTimer *temporizadorEntreToquesOrdenar;
 @property(nonatomic, retain)NSTimer *tiempoImagenFinNivelOrdenar;
 
+@property(nonatomic, retain)NSTimer *tiempoTotalOrdenar;
+@property(nonatomic, assign)int contadorTiempoTotalOrdenar;
+
 
 
 -(void)cargarVistaDelJuegoOrdenar;

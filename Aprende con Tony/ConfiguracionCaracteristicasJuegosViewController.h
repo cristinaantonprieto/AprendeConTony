@@ -35,5 +35,6 @@
 @property (nonatomic, retain)IBOutlet UITextField *numfallos_ordenar;
 @property (nonatomic, retain)IBOutlet UITextField *numfallos_emparejar;
 @property (nonatomic, retain)IBOutlet UITextField *numfallos_seleccionar;
+@property (nonatomic, retain)IBOutlet UITextField *superadoJuego;
 
 @end

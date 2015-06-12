@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C1514" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C1514" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="JuegoCasa" representedClassName="JuegoCasa" syncable="YES">
         <attribute name="guionPictos" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <attribute name="nombreJuego" optional="YES" attributeType="String" defaultValueString="Casa" syncable="YES"/>
@@ -8,6 +8,7 @@
         <attribute name="num_fallos_ordenar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_fallos_seleccionar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_nivel" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <attribute name="superado" optional="YES" attributeType="String" defaultValueString="NO" syncable="YES"/>
         <attribute name="tiempoTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="voz" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="usuario_juegoCasa" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuario_juegoCasa" inverseEntity="Usuario" syncable="YES"/>
@@ -20,6 +21,7 @@
         <attribute name="num_fallos_ordenar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_fallos_seleccionar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_nivel" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <attribute name="superado" optional="YES" attributeType="String" defaultValueString="NO" syncable="YES"/>
         <attribute name="tiempoTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="voz" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="usuario_juegoCotidianas" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuario_juegoCotidianas" inverseEntity="Usuario" syncable="YES"/>
@@ -32,6 +34,7 @@
         <attribute name="num_fallos_ordenar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_fallos_seleccionar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_nivel" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <attribute name="superado" optional="YES" attributeType="String" defaultValueString="NO" syncable="YES"/>
         <attribute name="tiempoTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="voz" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="usuario_juegoEmociones" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuario_juegoEmociones" inverseEntity="Usuario" syncable="YES"/>
@@ -44,12 +47,13 @@
         <attribute name="num_fallos_ordenar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_fallos_seleccionar" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="num_nivel" optional="YES" attributeType="Integer 16" defaultValueString="1" syncable="YES"/>
+        <attribute name="superado" optional="YES" attributeType="String" defaultValueString="NO" syncable="YES"/>
         <attribute name="tiempoTotal" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="voz" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="usuario_juegoModales" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Usuario" inverseName="usuario_juegoModales" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
-        <attribute name="dni" optional="YES" attributeType="String" defaultValueString="1234567" indexed="YES" syncable="YES"/>
+        <attribute name="dni" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="edad" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
         <attribute name="imagenUsuario" optional="YES" attributeType="Transformable" valueTransformerName="ImageToDataTransformer" syncable="YES"/>
         <attribute name="nombre" attributeType="String" defaultValueString="nombre" syncable="YES"/>
@@ -60,10 +64,10 @@
         <relationship name="usuario_juegoModales" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="JuegoModales" inverseName="usuario_juegoModales" inverseEntity="JuegoModales" syncable="YES"/>
     </entity>
     <elements>
+        <element name="JuegoCasa" positionX="-4034" positionY="-1480" width="128" height="208"/>
+        <element name="JuegoCotidianas" positionX="-4034" positionY="-1260" width="128" height="208"/>
+        <element name="JuegoEmociones" positionX="-4403" positionY="-1125" width="128" height="208"/>
+        <element name="JuegoModales" positionX="-4266" positionY="-1116" width="128" height="208"/>
         <element name="Usuario" positionX="-4349" positionY="-1377" width="128" height="178"/>
-        <element name="JuegoCasa" positionX="-4034" positionY="-1480" width="128" height="193"/>
-        <element name="JuegoCotidianas" positionX="-4034" positionY="-1260" width="128" height="193"/>
-        <element name="JuegoModales" positionX="-4266" positionY="-1116" width="128" height="193"/>
-        <element name="JuegoEmociones" positionX="-4403" positionY="-1125" width="128" height="193"/>
     </elements>
 </model>

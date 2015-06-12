@@ -2,7 +2,7 @@
 //  Usuario.m
 //  Aprende con Tony
 //
-//  Created by Cristina Anton prieto on 11/5/15.
+//  Created by Cristina Anton prieto on 12/6/15.
 //  Copyright (c) 2015 Cristina Anton prieto. All rights reserved.
 //
 
@@ -22,7 +22,7 @@
 @dynamic tipo_autismo;
 @dynamic usuario_juegoCasa;
 @dynamic usuario_juegoCotidianas;
-@dynamic usuario_juegoModales;
 @dynamic usuario_juegoEmociones;
+@dynamic usuario_juegoModales;
 
 @end

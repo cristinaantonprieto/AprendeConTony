@@ -66,6 +66,9 @@
 @property(nonatomic, retain) NSTimer *temporizadorEntreToquesEmparejar;
 @property(nonatomic, retain)NSTimer *tiempoImagenFinNivel;
 
+@property(nonatomic, retain)NSTimer *tiempoTotalEmparejar;
+@property(nonatomic, assign)int contadorTiempoTotalEmparejar;
+
 
 
 -(void)cargarVistaDelJuego;

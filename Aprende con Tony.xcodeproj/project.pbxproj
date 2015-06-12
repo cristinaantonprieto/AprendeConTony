@@ -11,11 +11,11 @@
 		6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B39CC641B25A24800DAF7CF /* OrdenarObject.m */; };
 		6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */; };
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
-		6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85E91B009A77001DF837 /* JuegoCasa.m */; };
-		6BAE85ED1B009A77001DF837 /* JuegoCotidianas.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85EC1B009A77001DF837 /* JuegoCotidianas.m */; };
-		6BAE85F01B009A77001DF837 /* JuegoModales.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85EF1B009A77001DF837 /* JuegoModales.m */; };
-		6BAE85F31B009A77001DF837 /* JuegoEmociones.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85F21B009A77001DF837 /* JuegoEmociones.m */; };
-		6BAE85F61B00A10F001DF837 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85F51B00A10F001DF837 /* Usuario.m */; };
+		6B861BA11B2AEEE400C5F0A5 /* JuegoCasa.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BA01B2AEEE400C5F0A5 /* JuegoCasa.m */; };
+		6B861BA41B2AEEE400C5F0A5 /* JuegoCotidianas.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BA31B2AEEE400C5F0A5 /* JuegoCotidianas.m */; };
+		6B861BA71B2AEEE500C5F0A5 /* JuegoEmociones.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BA61B2AEEE500C5F0A5 /* JuegoEmociones.m */; };
+		6B861BAA1B2AEEE500C5F0A5 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BA91B2AEEE500C5F0A5 /* Usuario.m */; };
+		6B861BAD1B2AEEE500C5F0A5 /* JuegoModales.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BAC1B2AEEE500C5F0A5 /* JuegoModales.m */; };
 		6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85F81B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m */; };
 		6BB58C4D1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */; };
 		6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */; };
@@ -60,16 +60,16 @@
 		6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoUsuarioViewController.m; sourceTree = "<group>"; };
 		6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
 		6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardViewController.m; sourceTree = "<group>"; };
-		6BAE85E81B009A77001DF837 /* JuegoCasa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoCasa.h; path = ../JuegoCasa.h; sourceTree = "<group>"; };
-		6BAE85E91B009A77001DF837 /* JuegoCasa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoCasa.m; path = ../JuegoCasa.m; sourceTree = "<group>"; };
-		6BAE85EB1B009A77001DF837 /* JuegoCotidianas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoCotidianas.h; path = ../JuegoCotidianas.h; sourceTree = "<group>"; };
-		6BAE85EC1B009A77001DF837 /* JuegoCotidianas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoCotidianas.m; path = ../JuegoCotidianas.m; sourceTree = "<group>"; };
-		6BAE85EE1B009A77001DF837 /* JuegoModales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoModales.h; path = ../JuegoModales.h; sourceTree = "<group>"; };
-		6BAE85EF1B009A77001DF837 /* JuegoModales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoModales.m; path = ../JuegoModales.m; sourceTree = "<group>"; };
-		6BAE85F11B009A77001DF837 /* JuegoEmociones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoEmociones.h; path = ../JuegoEmociones.h; sourceTree = "<group>"; };
-		6BAE85F21B009A77001DF837 /* JuegoEmociones.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoEmociones.m; path = ../JuegoEmociones.m; sourceTree = "<group>"; };
-		6BAE85F41B00A10F001DF837 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Usuario.h; path = ../Usuario.h; sourceTree = "<group>"; };
-		6BAE85F51B00A10F001DF837 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Usuario.m; path = ../Usuario.m; sourceTree = "<group>"; };
+		6B861B9F1B2AEEE400C5F0A5 /* JuegoCasa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoCasa.h; path = ../JuegoCasa.h; sourceTree = "<group>"; };
+		6B861BA01B2AEEE400C5F0A5 /* JuegoCasa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoCasa.m; path = ../JuegoCasa.m; sourceTree = "<group>"; };
+		6B861BA21B2AEEE400C5F0A5 /* JuegoCotidianas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoCotidianas.h; path = ../JuegoCotidianas.h; sourceTree = "<group>"; };
+		6B861BA31B2AEEE400C5F0A5 /* JuegoCotidianas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoCotidianas.m; path = ../JuegoCotidianas.m; sourceTree = "<group>"; };
+		6B861BA51B2AEEE500C5F0A5 /* JuegoEmociones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoEmociones.h; path = ../JuegoEmociones.h; sourceTree = "<group>"; };
+		6B861BA61B2AEEE500C5F0A5 /* JuegoEmociones.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoEmociones.m; path = ../JuegoEmociones.m; sourceTree = "<group>"; };
+		6B861BA81B2AEEE500C5F0A5 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Usuario.h; path = ../Usuario.h; sourceTree = "<group>"; };
+		6B861BA91B2AEEE500C5F0A5 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Usuario.m; path = ../Usuario.m; sourceTree = "<group>"; };
+		6B861BAB1B2AEEE500C5F0A5 /* JuegoModales.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JuegoModales.h; path = ../JuegoModales.h; sourceTree = "<group>"; };
+		6B861BAC1B2AEEE500C5F0A5 /* JuegoModales.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JuegoModales.m; path = ../JuegoModales.m; sourceTree = "<group>"; };
 		6BAE85F71B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionCaracteristicasJuegosViewController.h; sourceTree = "<group>"; };
 		6BAE85F81B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionCaracteristicasJuegosViewController.m; sourceTree = "<group>"; };
 		6BB58C4B1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Usuario+UsuarioCategoria.h"; sourceTree = "<group>"; };
@@ -137,16 +137,16 @@
 		6BB58C3B1AF4C7C20060C1EF /* Modelo */ = {
 			isa = PBXGroup;
 			children = (
-				6BAE85F11B009A77001DF837 /* JuegoEmociones.h */,
-				6BAE85F21B009A77001DF837 /* JuegoEmociones.m */,
-				6BAE85EE1B009A77001DF837 /* JuegoModales.h */,
-				6BAE85EF1B009A77001DF837 /* JuegoModales.m */,
-				6BAE85EB1B009A77001DF837 /* JuegoCotidianas.h */,
-				6BAE85EC1B009A77001DF837 /* JuegoCotidianas.m */,
-				6BAE85E81B009A77001DF837 /* JuegoCasa.h */,
-				6BAE85E91B009A77001DF837 /* JuegoCasa.m */,
-				6BAE85F41B00A10F001DF837 /* Usuario.h */,
-				6BAE85F51B00A10F001DF837 /* Usuario.m */,
+				6B861BAB1B2AEEE500C5F0A5 /* JuegoModales.h */,
+				6B861BAC1B2AEEE500C5F0A5 /* JuegoModales.m */,
+				6B861BA81B2AEEE500C5F0A5 /* Usuario.h */,
+				6B861BA91B2AEEE500C5F0A5 /* Usuario.m */,
+				6B861BA51B2AEEE500C5F0A5 /* JuegoEmociones.h */,
+				6B861BA61B2AEEE500C5F0A5 /* JuegoEmociones.m */,
+				6B861BA21B2AEEE400C5F0A5 /* JuegoCotidianas.h */,
+				6B861BA31B2AEEE400C5F0A5 /* JuegoCotidianas.m */,
+				6B861B9F1B2AEEE400C5F0A5 /* JuegoCasa.h */,
+				6B861BA01B2AEEE400C5F0A5 /* JuegoCasa.m */,
 				6BB58C4B1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.h */,
 				6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */,
 				6BD752111AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld */,
@@ -349,29 +349,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BAE85F01B009A77001DF837 /* JuegoModales.m in Sources */,
 				6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */,
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
 				6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */,
 				6BD3E51D1B02013300B9198B /* JuegoOrdenarViewController.m in Sources */,
-				6BAE85F61B00A10F001DF837 /* Usuario.m in Sources */,
+				6B861BAD1B2AEEE500C5F0A5 /* JuegoModales.m in Sources */,
 				6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */,
 				6BD752381AEE9BD100CA380B /* InicioAppViewController.m in Sources */,
 				6BE6A9541B0347AE00AA5035 /* JuegoModalesViewController.m in Sources */,
-				6BAE85ED1B009A77001DF837 /* JuegoCotidianas.m in Sources */,
+				6B861BAA1B2AEEE500C5F0A5 /* Usuario.m in Sources */,
 				6BB58C4D1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m in Sources */,
 				6BD752351AEE963800CA380B /* SeleccionUsuariosViewController.m in Sources */,
 				6BE6A9571B0347C100AA5035 /* JuegoEmocionesViewController.m in Sources */,
-				6BAE85EA1B009A77001DF837 /* JuegoCasa.m in Sources */,
+				6B861BA41B2AEEE400C5F0A5 /* JuegoCotidianas.m in Sources */,
 				6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */,
 				6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */,
 				6BD3E51A1B02011B00B9198B /* JuegoEmparejarViewController.m in Sources */,
 				6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */,
 				6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */,
-				6BAE85F31B009A77001DF837 /* JuegoEmociones.m in Sources */,
+				6B861BA11B2AEEE400C5F0A5 /* JuegoCasa.m in Sources */,
 				6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */,
 				6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */,
 				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,
+				6B861BA71B2AEEE500C5F0A5 /* JuegoEmociones.m in Sources */,
 				6BD752131AEE948000CA380B /* Aprende_con_Tony.xcdatamodeld in Sources */,
 				6BB58E9A1AFE16A300614EC2 /* SeleccionarObject.m in Sources */,
 				6BD7520D1AEE948000CA380B /* main.m in Sources */,

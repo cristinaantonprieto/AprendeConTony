@@ -19,7 +19,7 @@
 @synthesize imagenTony, imagenRating, areaJuego, guionPictograma, ordenarObject, numImagenTocada, numAciertos,numFallos,bienArrastrada, accionCorrecta;
 @synthesize imagenCorrectaDos, imagenCorrectaTres, imagenCorrectaUno, imagenPosDos, imagenPosTres, imagenPosUno;
 
-@synthesize tiempoImagenFinNivelOrdenar, temporizadorEntreToquesOrdenar, temporizadorTonyOrdenar, temporizadorBordeRojoOrdenar;
+@synthesize tiempoImagenFinNivelOrdenar, temporizadorEntreToquesOrdenar, temporizadorTonyOrdenar, temporizadorBordeRojoOrdenar, tiempoTotalOrdenar, contadorTiempoTotalOrdenar;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +41,12 @@
    
     NSLog(@"numDificultad = %d", self.juegoCasa.num_dificultad.intValue);
     NSLog(@"nombre user= %@", self.usuarioSeleccionado.nombre);
+    
+    self.contadorTiempoTotalOrdenar = 0;
+    
+    self.tiempoTotalOrdenar = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countupOrdenar) userInfo:nil repeats:YES];
+    
+    
     if([nombreJuego isEqualToString:@"cotidianas"])
     {
         
@@ -129,6 +135,13 @@
     
     [self cargarVistaDelJuegoOrdenar];
 }
+
+-(void)countupOrdenar
+{
+    //metodo para contabilizar el tiempo de juego
+    self.contadorTiempoTotalOrdenar = self.contadorTiempoTotalOrdenar+1;
+}
+
 
 -(void)cargarVistaDelJuegoOrdenar
 {
@@ -838,6 +851,10 @@
         self.tiempoImagenFinNivelOrdenar = nil;
     }
     
+    [self.tiempoTotalOrdenar invalidate];
+    self.tiempoTotalOrdenar =nil;
+    
+    
     NSError *error;
     if (![self.context save:&error]) {
         NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
@@ -854,50 +871,42 @@
     if ([self.nombreJuego isEqualToString:@"casa"]) {
         intermediaViewController.numJuego =1;
         
-        if ([self.juegoCasa.num_nivel intValue] < 3) {
+        if ([self.juegoCasa.num_nivel intValue] <= 3) {
             self.juegoCasa.num_nivel = [NSNumber numberWithInt:[self.juegoCasa.num_nivel intValue] +1];
+             self.juegoCasa.tiempoTotal =[NSNumber numberWithInt:([self.juegoCasa.tiempoTotal intValue]+ self.contadorTiempoTotalOrdenar)];
             
             NSLog(@"self.numnivel = %d", self.juegoCasa.num_nivel.intValue);
-        }else if([self.juegoCasa.num_nivel intValue] ==3)
-        {
-            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
+
     }
     else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
         intermediaViewController.numJuego =2;
         
-        if ([self.juegoCotidianas.num_nivel intValue] < 3) {
+        if ([self.juegoCotidianas.num_nivel intValue] <= 3) {
             self.juegoCotidianas.num_nivel = [NSNumber numberWithInt:[self.juegoCotidianas.num_nivel intValue] +1];
+             self.juegoCotidianas.tiempoTotal =[NSNumber numberWithInt:([self.juegoCotidianas.tiempoTotal intValue]+ self.contadorTiempoTotalOrdenar)];
           
             NSLog(@"self.numnivel = %d", self.juegoCotidianas.num_nivel.intValue);
-        }else if([self.juegoCasa.num_nivel intValue] ==3)
-        {
-            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
         
     }
     else if ([self.nombreJuego isEqualToString:@"modales"]) {
         intermediaViewController.numJuego =3;
         
-        if ([self.juegoModales.num_nivel intValue] < 3) {
+        if ([self.juegoModales.num_nivel intValue] <= 3) {
             self.juegoModales.num_nivel = [NSNumber numberWithInt:[self.juegoModales.num_nivel intValue] +1];
+             self.juegoModales.tiempoTotal =[NSNumber numberWithInt:([self.juegoModales.tiempoTotal intValue]+ self.contadorTiempoTotalOrdenar)];
             
             NSLog(@"self.numnivel = %d", self.juegoModales.num_nivel.intValue);
-        }else if([self.juegoCasa.num_nivel intValue] ==3)
-        {
-            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
-        
     }
     else if ([self.nombreJuego isEqualToString:@"emociones"]) {
         intermediaViewController.numJuego =4;
-        if ([self.juegoEmociones.num_nivel intValue] < 3) {
+        if ([self.juegoEmociones.num_nivel intValue] <= 3) {
             self.juegoEmociones.num_nivel = [NSNumber numberWithInt:[self.juegoEmociones.num_nivel intValue] +1];
+             self.juegoEmociones.tiempoTotal =[NSNumber numberWithInt:([self.juegoEmociones.tiempoTotal intValue]+ self.contadorTiempoTotalOrdenar)];
             
             NSLog(@"self.numnivel = %d", self.juegoEmociones.num_nivel.intValue);
-        }else if([self.juegoCasa.num_nivel intValue] ==3)
-        {
-            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
         }
         
     }
@@ -908,9 +917,18 @@
     intermediaViewController.usuarioSeleccionado = self.usuarioSeleccionado;
     intermediaViewController.context = self.context;
     
+    
+    
+    NSError *error2;
+    if (![self.context save:&error2]) {
+        NSLog(@"Error de Core Data %@, %@", error2, [error2 userInfo]);
+        exit(-1);
+    }
+    
+    
     if ([self.nombreJuego isEqualToString:@"casa"]) {
         
-        if ([self.juegoCasa.num_nivel intValue] < 3) {
+        if ([self.juegoCasa.num_nivel intValue] <= 3) {
           
             NSLog(@"self.numnivel = %d", self.juegoCasa.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
@@ -925,6 +943,21 @@
             [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
+            
+            self.juegoCasa.tiempoTotal =[NSNumber numberWithInt:0];
+            self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
+            
+            self.juegoCasa.superado = @"SI";
+            [self.juegoCasa setSuperado:@"SI"];
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
+
+            
             //fin del juego volvemos al dash
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"
@@ -937,7 +970,7 @@
         
     }
     else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
-        if ([self.juegoCotidianas.num_nivel intValue] < 3) {
+        if ([self.juegoCotidianas.num_nivel intValue] <= 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoCotidianas.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
@@ -952,6 +985,19 @@
             [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
+            
+            self.juegoCotidianas.tiempoTotal =[NSNumber numberWithInt:0];
+            self.juegoCotidianas.num_nivel = [NSNumber numberWithInt:1];
+            
+            self.juegoCotidianas.superado = @"SI";
+            [self.juegoCotidianas setSuperado:@"SI"];
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
             //fin del juego volvemos al dash
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"
@@ -964,7 +1010,7 @@
         
     }
     else if ([self.nombreJuego isEqualToString:@"modales"]) {
-        if ([self.juegoModales.num_nivel intValue] < 3) {
+        if ([self.juegoModales.num_nivel intValue] <= 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoModales.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
@@ -979,6 +1025,18 @@
             [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
+            self.juegoModales.tiempoTotal =[NSNumber numberWithInt:0];
+            self.juegoModales.num_nivel = [NSNumber numberWithInt:1];
+            
+            self.juegoModales.superado = @"SI";
+            [self.juegoModales setSuperado:@"SI"];
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
             //fin del juego volvemos al dash
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"
@@ -991,7 +1049,7 @@
         
     }
     else if ([self.nombreJuego isEqualToString:@"emociones"]) {
-        if ([self.juegoEmociones.num_nivel intValue] < 3) {
+        if ([self.juegoEmociones.num_nivel intValue] <= 3) {
             
             NSLog(@"self.numnivel = %d", self.juegoEmociones.num_nivel.intValue);
             intermediaViewController.nombreNivel = @"Seleccionar";
@@ -1007,6 +1065,19 @@
             [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
+            
+            self.juegoEmociones.tiempoTotal =[NSNumber numberWithInt:0];
+            self.juegoEmociones.num_nivel = [NSNumber numberWithInt:1];
+            
+            self.juegoEmociones.superado = @"SI";
+            [self.juegoEmociones setSuperado:@"SI"];
+            
+            NSError *error;
+            if (![self.context save:&error]) {
+                NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+                exit(-1);
+            }
+            
             //fin del juego volvemos al dash
             UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             // De este obtenemos el controlador con Identifier "Pantalla2"

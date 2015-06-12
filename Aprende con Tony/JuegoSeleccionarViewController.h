@@ -58,6 +58,9 @@
 @property(nonatomic, retain) NSTimer *temporizadorEntreToques;
 @property(nonatomic, retain)NSTimer *tiempoImagenFinNivel;
 
+@property(nonatomic, retain)NSTimer *tiempoTotal;
+@property(nonatomic, assign)int contadorTiempoTotal;
+
 @property(nonatomic, retain) JuegoCasa *juegoCasa;
 @property(nonatomic, retain) JuegoEmociones *juegoEmociones;
 @property(nonatomic, retain) JuegoCotidianas *juegoCotidianas;

@@ -165,6 +165,8 @@
         //Cumplimentamos los atributos del mismo
         [self.persona setNombre:self.nombreUser];
         [self.persona setDni:self.dniUser];
+        
+        
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         f.numberStyle = NSNumberFormatterDecimalStyle;
         NSNumber *myNumber = [f numberFromString:self.edadUser];
@@ -177,6 +179,7 @@
         self.juegoCasa =[NSEntityDescription insertNewObjectForEntityForName:@"JuegoCasa" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoCasa setNombreJuego:@"En casa"];
         [self.persona setUsuario_juegoCasa:self.juegoCasa];
+        
         
         self.juegoCotidianas = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoCotidianas" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoCotidianas setNombreJuego:@"Situaciones cotidianas"];
@@ -301,18 +304,22 @@
         /** Creamos datos por defectos para entidades de juegos **/
         self.juegoCasa =[NSEntityDescription insertNewObjectForEntityForName:@"JuegoCasa" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoCasa setNombreJuego:@"En casa"];
+        [self.juegoCasa setSuperado:@"NO"];
         [self.persona setUsuario_juegoCasa:self.juegoCasa];
         
         self.juegoCotidianas = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoCotidianas" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoCotidianas setNombreJuego:@"Situaciones cotidianas"];
+        [self.juegoCotidianas setSuperado:@"NO"];
         [self.persona setUsuario_juegoCotidianas:self.juegoCotidianas];
         
         self.juegoModales = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoModales" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoModales setNombreJuego:@"Buenos modales"];
+          [self.juegoModales setSuperado:@"NO"];
         [self.persona setUsuario_juegoModales:self.juegoModales];
         
         self.juegoEmociones = [NSEntityDescription insertNewObjectForEntityForName:@"JuegoEmociones" inManagedObjectContext:[self.persona managedObjectContext]];
         [self.juegoEmociones setNombreJuego:@"Emociones"];
+          [self.juegoEmociones setSuperado:@"NO"];
         [self.persona setUsuario_juegoEmociones:self.juegoEmociones];
         
         

@@ -15,7 +15,7 @@
 @implementation ConfiguracionCaracteristicasJuegosViewController
 
 @synthesize nuevoUsuario, nombreJuego, context, usuarioSeleccionado, labelnombrejuego;
-@synthesize voztextfield, pictostextfield, num_dificultadtextfield, num_niveltextfield, numfallos_emparejar, numfallos_ordenar, numfallos_seleccionar, tiempototaltextfield;
+@synthesize voztextfield, pictostextfield, num_dificultadtextfield, num_niveltextfield, numfallos_emparejar, numfallos_ordenar, numfallos_seleccionar, tiempototaltextfield, superadoJuego;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +54,9 @@
             self.pictostextfield.text=@"SI";
         }
         
+        self.superadoJuego.text = juegocasa.superado;
+       
+        
     
         self.num_niveltextfield.text = [juegocasa.num_nivel stringValue];
         self.numfallos_ordenar.text = [juegocasa.num_fallos_ordenar stringValue];
@@ -87,6 +90,8 @@
         {
             self.pictostextfield.text=@"SI";
         }
+        self.superadoJuego.text = juegocotidianas.superado;
+
 
         
         self.num_niveltextfield.text = [juegocotidianas.num_nivel stringValue];
@@ -121,6 +126,8 @@
         {
             self.pictostextfield.text=@"SI";
         }
+        self.superadoJuego.text = juegomodales.superado;
+
 
        
         self.num_niveltextfield.text = [juegomodales.num_nivel stringValue];
@@ -155,6 +162,9 @@
         {
             self.pictostextfield.text=@"SI";
         }
+        self.superadoJuego.text = juegoemociones.superado;
+
+
 
         self.num_niveltextfield.text = [juegoemociones.num_nivel stringValue];
         self.numfallos_ordenar.text = [juegoemociones.num_fallos_ordenar stringValue];

@@ -19,6 +19,7 @@
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
 @synthesize imagenCentral, imagenCuatro, imagenTres, imagenDos, imagenUno, bienArrastrada, accionCorrecta;
 @synthesize temporizadorBordeRojo, temporizadorEntreToquesEmparejar, temporizadorTony, tiempoImagenFinNivel;
+@synthesize tiempoTotalEmparejar, contadorTiempoTotalEmparejar;
 
 - (void)viewDidLoad {
     
@@ -26,6 +27,12 @@
     NSLog(@" view did load numdificultad = %d", self.numDificultad);
     
     NSLog(@"user = %@", self.usuarioSeleccionado.nombre);
+    
+    
+    self.contadorTiempoTotalEmparejar = 0;
+    
+    self.tiempoTotalEmparejar = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countupEmparejar) userInfo:nil repeats:YES];
+    
     
     self.areaJuego.layer.borderColor = [UIColor yellowColor].CGColor;
     self.areaJuego.layer.borderWidth = 5.0f;
@@ -44,6 +51,12 @@
     [super viewDidLoad];
     
 
+}
+
+-(void)countupEmparejar
+{
+    //metodo para contabilizar el tiempo de juego
+    self.contadorTiempoTotalEmparejar = self.contadorTiempoTotalEmparejar+1;
 }
 
 -(void)cargarVistaDelJuego
@@ -990,6 +1003,10 @@
         self.tiempoImagenFinNivel = nil;
     }
     
+    [self.tiempoTotalEmparejar invalidate];
+    self.tiempoTotalEmparejar =nil;
+    
+    
     NSError *error;
     if (![self.context save:&error]) {
         NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
@@ -1005,19 +1022,22 @@
     
     if ([self.nombreJuego isEqualToString:@"casa"]) {
         intermediaViewController.numJuego =1;
-        
+         self.juegoCasa.tiempoTotal =[NSNumber numberWithInt:([self.juegoCasa.tiempoTotal intValue]+ self.contadorTiempoTotalEmparejar)];
         
     }
     else if ([self.nombreJuego isEqualToString:@"cotidianas"]) {
         intermediaViewController.numJuego =2;
+         self.juegoCotidianas.tiempoTotal =[NSNumber numberWithInt:([self.juegoCotidianas.tiempoTotal intValue]+ self.contadorTiempoTotalEmparejar)];
         
     }
     else if ([self.nombreJuego isEqualToString:@"modales"]) {
         intermediaViewController.numJuego =3;
+         self.juegoModales.tiempoTotal =[NSNumber numberWithInt:([self.juegoModales.tiempoTotal intValue]+ self.contadorTiempoTotalEmparejar)];
         
     }
     else if ([self.nombreJuego isEqualToString:@"emociones"]) {
         intermediaViewController.numJuego =4;
+         self.juegoEmociones.tiempoTotal =[NSNumber numberWithInt:([self.juegoEmociones.tiempoTotal intValue]+ self.contadorTiempoTotalEmparejar)];
         
     }
     
