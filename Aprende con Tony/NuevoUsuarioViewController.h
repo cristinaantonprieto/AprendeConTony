@@ -10,6 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 #import "ConfiguracionUsuariosViewController.h"
+#import "EstadisticasViewController.h"
 #import "DashBoardViewController.h"
 
 #import "Usuario.h"
@@ -28,6 +29,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *buttonConfigurarJuegos;
 @property (nonatomic, retain) IBOutlet UIButton *buttonFoto;
 @property (nonatomic, retain) IBOutlet UIButton *buttonDelete;
+@property (nonatomic, retain) IBOutlet UIButton *buttonEstadisticas;
 
 @property (nonatomic, retain) Usuario* persona;
 @property (nonatomic, retain) JuegoCasa *juegoCasa;
@@ -65,6 +67,8 @@
 -(IBAction)goToGuardarUsuarioViewController:(id)sender;
 -(IBAction)deleteUsuario:(id)sender;
 -(IBAction)actionButtonFoto:(id)sender;
+-(IBAction)actionButtonEstadisticas:(id)sender;
+
 
 @end
 

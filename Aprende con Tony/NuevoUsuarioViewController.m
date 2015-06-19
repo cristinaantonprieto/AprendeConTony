@@ -17,7 +17,7 @@
 
 @implementation NuevoUsuarioViewController
 
-@synthesize persona,buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText, imagenPerfil, buttonDelete;
+@synthesize persona,buttonConfigurarJuegos, nombreLabel, nombreText, dniLabel, dniText, edadLabel, edadText, tipoautismoLabel, tipoautismoText, imagenPerfil, buttonDelete, buttonEstadisticas;
 @synthesize nombreUser, dniUser, tipoautismoUser, edadUser, context, buttonFoto, imagenUser, popoverController;
 @synthesize juegoCasa, juegoCotidianas, juegoEmociones, juegoModales;
 
@@ -45,6 +45,8 @@
     //no se puede borrar un usuario que no esta creado
     [self.buttonDelete setEnabled:NO];
     self.buttonDelete.hidden = YES;
+    [self.buttonEstadisticas setEnabled:NO];
+    self.buttonEstadisticas.hidden = YES;
     
     self.nombreUser = @" ";
     self.dniUser = @" ";
@@ -56,6 +58,8 @@
         //el usuario no es nuevo. entramos para modificacion
         [self.buttonDelete setEnabled:YES];
         self.buttonDelete.hidden = NO;
+        [self.buttonEstadisticas setEnabled:YES];
+        self.buttonEstadisticas.hidden=NO;
         
         self.nombreText.text = self.persona.nombre;
         self.dniText.text = self.persona.dni;
@@ -504,6 +508,26 @@
                                             otherButtonTitles:@"Borrar",nil];
     
     [message show];
+}
+
+
+-(IBAction)actionButtonEstadisticas:(id)sender
+{
+    NSLog(@"Ver estadisticas....");
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    // De este obtenemos el controlador con Identifier "Pantalla2"
+    EstadisticasViewController *estadisticasViewController = [storyBoard instantiateViewControllerWithIdentifier:@"estadisticasViewControllerID"];
+    estadisticasViewController.context = self.context;
+    estadisticasViewController.persona = self.persona;
+    estadisticasViewController.juegoEmociones = self.juegoEmociones;
+    estadisticasViewController.juegoCasa = self.juegoCasa;
+    estadisticasViewController.juegoCotidianas = self.juegoCotidianas;
+    estadisticasViewController.juegoModales= self.juegoModales;
+    
+    // Ahora lanzamos el controlador en el navigation de forma animada:
+    [self.navigationController pushViewController:estadisticasViewController animated:YES];
+    
 }
 
 

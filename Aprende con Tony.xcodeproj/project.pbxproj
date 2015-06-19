@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3340611B1481D4006E529D /* EmparejarObject.m */; };
 		6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B39CC641B25A24800DAF7CF /* OrdenarObject.m */; };
+		6B5213FB1B32CAA60025F4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5213FA1B32CAA60025F4F5 /* UIKit.framework */; };
+		6B5213FD1B32CAAD0025F4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5213FC1B32CAAD0025F4F5 /* Foundation.framework */; };
+		6B5213FF1B32CAB40025F4F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5213FE1B32CAB40025F4F5 /* CoreGraphics.framework */; };
+		6B5214011B32CCF90025F4F5 /* Jawbone in Resources */ = {isa = PBXBuildFile; fileRef = 6B5214001B32CCF90025F4F5 /* Jawbone */; };
+		6B5214081B32CD4C0025F4F5 /* JBBarChartView.h in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214021B32CD4C0025F4F5 /* JBBarChartView.h */; };
+		6B5214091B32CD4C0025F4F5 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214031B32CD4C0025F4F5 /* JBBarChartView.m */; };
+		6B52140A1B32CD4C0025F4F5 /* JBChartView.h in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214041B32CD4C0025F4F5 /* JBChartView.h */; };
+		6B52140B1B32CD4C0025F4F5 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214051B32CD4C0025F4F5 /* JBChartView.m */; };
+		6B52140C1B32CD4C0025F4F5 /* JBLineChartView.h in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214061B32CD4C0025F4F5 /* JBLineChartView.h */; };
+		6B52140D1B32CD4C0025F4F5 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5214071B32CD4C0025F4F5 /* JBLineChartView.m */; };
 		6B7FDBBB1AF3749E0051CEE5 /* NuevoUsuarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */; };
 		6B7FDBBE1AF374B30051CEE5 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */; };
 		6B861BA11B2AEEE400C5F0A5 /* JuegoCasa.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BA01B2AEEE400C5F0A5 /* JuegoCasa.m */; };
@@ -36,6 +46,7 @@
 		6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9501B03479A00AA5035 /* JuegoCotidianasViewController.m */; };
 		6BE6A9541B0347AE00AA5035 /* JuegoModalesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9531B0347AE00AA5035 /* JuegoModalesViewController.m */; };
 		6BE6A9571B0347C100AA5035 /* JuegoEmocionesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6A9561B0347C100AA5035 /* JuegoEmocionesViewController.m */; };
+		6BE8B7371B330D3B00A7A3DD /* EstadisticasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8B7361B330D3B00A7A3DD /* EstadisticasViewController.m */; };
 		6BEB7AD61AF7773C003FED49 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */; };
 		6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */; };
 		6BFD7B661AFB5AEE0037A5AD /* IntermediaJuegoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD7B651AFB5AEE0037A5AD /* IntermediaJuegoViewController.m */; };
@@ -56,6 +67,16 @@
 		6B3340611B1481D4006E529D /* EmparejarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmparejarObject.m; sourceTree = "<group>"; };
 		6B39CC631B25A24800DAF7CF /* OrdenarObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdenarObject.h; sourceTree = "<group>"; };
 		6B39CC641B25A24800DAF7CF /* OrdenarObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdenarObject.m; sourceTree = "<group>"; };
+		6B5213FA1B32CAA60025F4F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6B5213FC1B32CAAD0025F4F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6B5213FE1B32CAB40025F4F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6B5214001B32CCF90025F4F5 /* Jawbone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Jawbone; path = ../Jawbone; sourceTree = "<group>"; };
+		6B5214021B32CD4C0025F4F5 /* JBBarChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBBarChartView.h; path = Jawbone/JBBarChartView.h; sourceTree = "<group>"; };
+		6B5214031B32CD4C0025F4F5 /* JBBarChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JBBarChartView.m; path = Jawbone/JBBarChartView.m; sourceTree = "<group>"; };
+		6B5214041B32CD4C0025F4F5 /* JBChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBChartView.h; path = Jawbone/JBChartView.h; sourceTree = "<group>"; };
+		6B5214051B32CD4C0025F4F5 /* JBChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JBChartView.m; path = Jawbone/JBChartView.m; sourceTree = "<group>"; };
+		6B5214061B32CD4C0025F4F5 /* JBLineChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JBLineChartView.h; path = Jawbone/JBLineChartView.h; sourceTree = "<group>"; };
+		6B5214071B32CD4C0025F4F5 /* JBLineChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JBLineChartView.m; path = Jawbone/JBLineChartView.m; sourceTree = "<group>"; };
 		6B7FDBB91AF3749E0051CEE5 /* NuevoUsuarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NuevoUsuarioViewController.h; sourceTree = "<group>"; };
 		6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NuevoUsuarioViewController.m; sourceTree = "<group>"; };
 		6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
@@ -107,6 +128,8 @@
 		6BE6A9531B0347AE00AA5035 /* JuegoModalesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoModalesViewController.m; sourceTree = "<group>"; };
 		6BE6A9551B0347C100AA5035 /* JuegoEmocionesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoEmocionesViewController.h; sourceTree = "<group>"; };
 		6BE6A9561B0347C100AA5035 /* JuegoEmocionesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuegoEmocionesViewController.m; sourceTree = "<group>"; };
+		6BE8B7351B330D3B00A7A3DD /* EstadisticasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstadisticasViewController.h; sourceTree = "<group>"; };
+		6BE8B7361B330D3B00A7A3DD /* EstadisticasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstadisticasViewController.m; sourceTree = "<group>"; };
 		6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		6BF0C5381AEF8C930006E382 /* ConfiguracionUsuariosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionUsuariosViewController.h; sourceTree = "<group>"; };
 		6BF0C5391AEF8C930006E382 /* ConfiguracionUsuariosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionUsuariosViewController.m; sourceTree = "<group>"; };
@@ -119,6 +142,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5213FF1B32CAB40025F4F5 /* CoreGraphics.framework in Frameworks */,
+				6B5213FD1B32CAAD0025F4F5 /* Foundation.framework in Frameworks */,
+				6B5213FB1B32CAA60025F4F5 /* UIKit.framework in Frameworks */,
 				6BB58E9C1AFE483A00614EC2 /* QuartzCore.framework in Frameworks */,
 				6BEB7AD61AF7773C003FED49 /* AssetsLibrary.framework in Frameworks */,
 			);
@@ -157,6 +183,15 @@
 		6BD751FE1AEE948000CA380B = {
 			isa = PBXGroup;
 			children = (
+				6B5214021B32CD4C0025F4F5 /* JBBarChartView.h */,
+				6B5214031B32CD4C0025F4F5 /* JBBarChartView.m */,
+				6B5214041B32CD4C0025F4F5 /* JBChartView.h */,
+				6B5214051B32CD4C0025F4F5 /* JBChartView.m */,
+				6B5214061B32CD4C0025F4F5 /* JBLineChartView.h */,
+				6B5214071B32CD4C0025F4F5 /* JBLineChartView.m */,
+				6B5213FE1B32CAB40025F4F5 /* CoreGraphics.framework */,
+				6B5213FC1B32CAAD0025F4F5 /* Foundation.framework */,
+				6B5213FA1B32CAA60025F4F5 /* UIKit.framework */,
 				6BB58E9B1AFE483A00614EC2 /* QuartzCore.framework */,
 				6BEB7AD51AF7773C003FED49 /* AssetsLibrary.framework */,
 				6BD752091AEE948000CA380B /* Aprende con Tony */,
@@ -177,6 +212,7 @@
 		6BD752091AEE948000CA380B /* Aprende con Tony */ = {
 			isa = PBXGroup;
 			children = (
+				6B5214001B32CCF90025F4F5 /* Jawbone */,
 				6BD7520E1AEE948000CA380B /* AppDelegate.h */,
 				6BD7520F1AEE948000CA380B /* AppDelegate.m */,
 				6BD752361AEE9BD100CA380B /* InicioAppViewController.h */,
@@ -189,6 +225,8 @@
 				6BAE85F81B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m */,
 				6B7FDBB91AF3749E0051CEE5 /* NuevoUsuarioViewController.h */,
 				6B7FDBBA1AF3749E0051CEE5 /* NuevoUsuarioViewController.m */,
+				6BE8B7351B330D3B00A7A3DD /* EstadisticasViewController.h */,
+				6BE8B7361B330D3B00A7A3DD /* EstadisticasViewController.m */,
 				6B7FDBBC1AF374B30051CEE5 /* DashBoardViewController.h */,
 				6B7FDBBD1AF374B30051CEE5 /* DashBoardViewController.m */,
 				6BFD7B641AFB5AEE0037A5AD /* IntermediaJuegoViewController.h */,
@@ -330,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BD7523A1AEEA58700CA380B /* Images.xcassets in Resources */,
+				6B5214011B32CCF90025F4F5 /* Jawbone in Resources */,
 				6BD752191AEE948000CA380B /* Main.storyboard in Resources */,
 				6BD7521E1AEE948000CA380B /* LaunchScreen.xib in Resources */,
 			);
@@ -349,6 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5214081B32CD4C0025F4F5 /* JBBarChartView.h in Sources */,
+				6B5214091B32CD4C0025F4F5 /* JBBarChartView.m in Sources */,
+				6B52140A1B32CD4C0025F4F5 /* JBChartView.h in Sources */,
+				6B52140B1B32CD4C0025F4F5 /* JBChartView.m in Sources */,
+				6B52140C1B32CD4C0025F4F5 /* JBLineChartView.h in Sources */,
+				6B52140D1B32CD4C0025F4F5 /* JBLineChartView.m in Sources */,
 				6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */,
 				6BD752101AEE948000CA380B /* AppDelegate.m in Sources */,
 				6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */,
@@ -368,6 +413,7 @@
 				6B3340621B1481D4006E529D /* EmparejarObject.m in Sources */,
 				6B39CC651B25A24800DAF7CF /* OrdenarObject.m in Sources */,
 				6B861BA11B2AEEE400C5F0A5 /* JuegoCasa.m in Sources */,
+				6BE8B7371B330D3B00A7A3DD /* EstadisticasViewController.m in Sources */,
 				6BE6A9511B03479A00AA5035 /* JuegoCotidianasViewController.m in Sources */,
 				6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */,
 				6BF0C53A1AEF8C930006E382 /* ConfiguracionUsuariosViewController.m in Sources */,
