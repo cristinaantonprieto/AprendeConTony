@@ -48,6 +48,9 @@
     self.barChartViewGeneral.backgroundColor = [UIColor redColor];
     
     
+    self.scrollView.scrollEnabled = YES;
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
+    
     [self.viewSkillGeneral addSubview:self.barChartViewGeneral];
     
 }
@@ -60,6 +63,7 @@
     
     [self.barChartViewGeneral setState:JBChartViewStateExpanded];
     
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
    
   //  [self.barChartViewGeneral setState:JBChartViewStateCollapsed];
 }
@@ -67,14 +71,21 @@
 -(void)viewDidLayoutSubviews
 {
     self.scrollView.scrollEnabled = YES;
-    
-    
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 1500)];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
     [self.scrollView setContentOffset:CGPointZero];
     [super viewDidLayoutSubviews];
     
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    self.scrollView.scrollEnabled = YES;
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
+    
+
+    [super viewDidAppear:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -116,6 +127,9 @@
     self.barChartViewModales.tag = 4;
     self.barChartViewEmociones.tag = 5;
     
+    
+    self.scrollView.scrollEnabled = YES;
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 2764)];
     
     [self.barChartViewGeneral reloadData];
     
