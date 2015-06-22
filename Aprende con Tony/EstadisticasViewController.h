@@ -19,6 +19,7 @@
 #import "JBBarChartView.h"
 #import "JBChartView.h"
 
+
 @interface EstadisticasViewController : UIViewController<UINavigationControllerDelegate, UIScrollViewDelegate, JBBarChartViewDataSource, JBBarChartViewDelegate, JBChartViewDataSource, JBChartViewDelegate>
 {}
 
@@ -49,11 +50,41 @@
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-@property(nonatomic, strong) JBBarChartView *barChartViewGeneral;
-@property(nonatomic, strong) JBBarChartView *barChartViewCasa;
-@property(nonatomic, strong) JBBarChartView *barChartViewCotidianas;
-@property(nonatomic, strong) JBBarChartView *barChartViewModales;
-@property(nonatomic, strong) JBBarChartView *barChartViewEmociones;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewGeneral;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewCasa;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewCotidianas;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewModales;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewEmociones;
+
+@property(nonatomic, assign) long tiempoCasa;
+@property(nonatomic, assign) long tiempoCotidianas;
+@property(nonatomic, assign) long tiempoModales;
+@property(nonatomic, assign) long tiempoEmociones;
+
+@property(nonatomic, assign) int numFallosCasa;
+@property(nonatomic, assign) int numFallosSeleccionarCasa;
+@property(nonatomic, assign) int numFallosEmparejarCasa;
+@property(nonatomic, assign) int numFallosOrdenarCasa;
+
+@property(nonatomic, assign) int numFallosCotidianas;
+@property(nonatomic, assign) int numFallosSeleccionarCotidianas;
+@property(nonatomic, assign) int numFallosEmparejarCotidianas;
+@property(nonatomic, assign) int numFallosOrdenarCotidianas;
+
+@property(nonatomic, assign) int numFallosModales;
+@property(nonatomic, assign) int numFallosSeleccionarModales;
+@property(nonatomic, assign) int numFallosEmparejarModales;
+@property(nonatomic, assign) int numFallosOrdenarModales;
+
+@property(nonatomic, assign) int numFallosEmociones;
+@property(nonatomic, assign) int numFallosSeleccionarEmociones;
+@property(nonatomic, assign) int numFallosEmparejarEmociones;
+@property(nonatomic, assign) int numFallosOrdenarEmociones;
+
+@property(nonatomic, assign) float notaCasa;
+@property (nonatomic, assign) float notaCotidianas;
+@property (nonatomic, assign) float notaModales;
+@property (nonatomic, assign) float notaEmociones;
 
 
 @end

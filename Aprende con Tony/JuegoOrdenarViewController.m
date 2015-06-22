@@ -136,6 +136,18 @@
     [self cargarVistaDelJuegoOrdenar];
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    
+}
+
 -(void)countupOrdenar
 {
     //metodo para contabilizar el tiempo de juego
@@ -944,7 +956,7 @@
         }else
         {
             
-            self.juegoCasa.tiempoTotal =[NSNumber numberWithInt:0];
+           // self.juegoCasa.tiempoTotal =[NSNumber numberWithInt:0];
             self.juegoCasa.num_nivel = [NSNumber numberWithInt:1];
             
             self.juegoCasa.superado = @"SI";
@@ -986,7 +998,7 @@
         }else
         {
             
-            self.juegoCotidianas.tiempoTotal =[NSNumber numberWithInt:0];
+            //self.juegoCotidianas.tiempoTotal =[NSNumber numberWithInt:0];
             self.juegoCotidianas.num_nivel = [NSNumber numberWithInt:1];
             
             self.juegoCotidianas.superado = @"SI";
@@ -1025,7 +1037,7 @@
             [self.navigationController pushViewController:intermediaViewController animated:YES];
         }else
         {
-            self.juegoModales.tiempoTotal =[NSNumber numberWithInt:0];
+            //self.juegoModales.tiempoTotal =[NSNumber numberWithInt:0];
             self.juegoModales.num_nivel = [NSNumber numberWithInt:1];
             
             self.juegoModales.superado = @"SI";
@@ -1066,7 +1078,7 @@
         }else
         {
             
-            self.juegoEmociones.tiempoTotal =[NSNumber numberWithInt:0];
+            //self.juegoEmociones.tiempoTotal =[NSNumber numberWithInt:0];
             self.juegoEmociones.num_nivel = [NSNumber numberWithInt:1];
             
             self.juegoEmociones.superado = @"SI";

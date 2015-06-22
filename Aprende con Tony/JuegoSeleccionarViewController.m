@@ -42,6 +42,17 @@
         [super viewDidLoad];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    
+}
+
 -(void)countup
 {
     //metodo para contabilizar el tiempo de juego

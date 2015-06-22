@@ -53,6 +53,17 @@
 
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSError *error;
+    if (![self.context save:&error]) {
+        NSLog(@"Error de Core Data %@, %@", error, [error userInfo]);
+        exit(-1);
+    }
+    
+    
+}
+
 -(void)countupEmparejar
 {
     //metodo para contabilizar el tiempo de juego

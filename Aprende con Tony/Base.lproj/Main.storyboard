@@ -3010,7 +3010,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fkA-3t-wrk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bc4-tG-uZg">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="4000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YX-vH-5we">
@@ -3242,7 +3242,7 @@
                         <outlet property="viewSkillCasa" destination="1mz-m1-p7t" id="kbJ-72-Qzi"/>
                         <outlet property="viewSkillCotidianas" destination="AIn-fn-rdU" id="NOL-Z9-M4y"/>
                         <outlet property="viewSkillEmociones" destination="BFx-CU-zbL" id="rQI-Hg-RMY"/>
-                        <outlet property="viewSkillGeneral" destination="4mR-aV-Wzc" id="v4E-wf-pYJ"/>
+                        <outlet property="viewSkillGeneral" destination="4mR-aV-Wzc" id="XgJ-fe-ct2"/>
                         <outlet property="viewSkillModales" destination="P8q-1t-yor" id="r8r-uY-E1n"/>
                     </connections>
                 </viewController>

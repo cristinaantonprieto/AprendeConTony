@@ -296,16 +296,16 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
 
 - (CGFloat)availableHeight
 {
-    NSLog(@"availableHeight = %f", self.bounds.size.height - self.headerView.frame.size.height - self.footerView.frame.size.height - self.headerPadding - self.footerPadding);
-    
-    
+   
     return self.bounds.size.height - self.headerView.frame.size.height - self.footerView.frame.size.height - self.headerPadding - self.footerPadding;
 }
 
 - (CGFloat)normalizedHeightForRawHeight:(NSNumber*)rawHeight
 {
+  
     CGFloat minHeight = [self minimumValue];
     CGFloat maxHeight = [self maximumValue];
+      NSLog(@"maxheiht = %f", maxHeight);
     CGFloat value = [rawHeight floatValue];
     
     if ((maxHeight - minHeight) <= 0)
@@ -490,7 +490,9 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
         NSArray *chartValues = [[NSMutableArray arrayWithArray:[self.chartDataDictionary allValues]] sortedArrayUsingSelector:@selector(compare:)];
         _cachedMaxHeight =  [[chartValues lastObject] floatValue];
     }
-    return _cachedMaxHeight;
+    
+   
+   return _cachedMaxHeight;
 }
 
 - (CGFloat)minimumValue
