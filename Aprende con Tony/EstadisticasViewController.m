@@ -16,13 +16,14 @@
 
 @synthesize juegoCasa, juegoCotidianas, juegoModales, juegoEmociones, context, persona;
 @synthesize labelCasa, labelCotidianas, labelDni, labelEdad, labelEmociones, labelGeneral, labelModales, labelNombre, labelTipoAutismo;
-@synthesize imagenUsuario;
+@synthesize imagenUsuario, informationView;
 @synthesize viewSkillCasa, viewSkillCotidianas, viewSkillEmociones, viewSkillGeneral, viewSkillModales, scrollView;
 @synthesize barChartViewGeneral, barChartViewCasa,barChartViewCotidianas,barChartViewEmociones,barChartViewModales;
 @synthesize notaCasa, notaCotidianas, notaEmociones, notaModales;
 @synthesize tiempoCasa, tiempoCotidianas, tiempoEmociones, tiempoModales;
 @synthesize numFallosCasa, numFallosCotidianas, numFallosEmociones, numFallosModales;
 @synthesize numFallosEmparejarCasa, numFallosEmparejarCotidianas, numFallosEmparejarEmociones, numFallosEmparejarModales, numFallosOrdenarCasa, numFallosOrdenarCotidianas, numFallosOrdenarEmociones, numFallosOrdenarModales, numFallosSeleccionarCasa, numFallosSeleccionarCotidianas, numFallosSeleccionarEmociones, numFallosSeleccionarModales;
+@synthesize headerViewCasa, headerViewCotidianas, headerViewEmociones, headerViewGeneral, headerViewModales;
 
 
 - (void)dealloc
@@ -56,7 +57,7 @@
     
     self.barChartViewGeneral = [[JBBarChartView alloc] init];
     self.barChartViewGeneral.frame = self.viewSkillGeneral.frame;
-    self.barChartViewGeneral.frame = CGRectMake(self.viewSkillGeneral.frame.origin.x, self.viewSkillGeneral.frame.origin.y, self.barChartViewGeneral.frame.size.width, 392);
+    self.barChartViewGeneral.frame = CGRectMake(self.viewSkillGeneral.frame.origin.x, self.viewSkillGeneral.frame.origin.y, 800, 392);
     
    
  
@@ -69,7 +70,7 @@
     
     self.barChartViewCasa = [[JBBarChartView alloc] init];
     self.barChartViewCasa.frame = self.viewSkillCasa.frame;
-    self.barChartViewCasa.frame = CGRectMake(self.viewSkillCasa.frame.origin.x, self.viewSkillCasa.frame.origin.y, self.barChartViewCasa.frame.size.width, 392);
+    self.barChartViewCasa.frame = CGRectMake(self.viewSkillCasa.frame.origin.x, self.viewSkillCasa.frame.origin.y, 800, 392);
     
     
     self.barChartViewCasa.delegate = self;
@@ -81,7 +82,7 @@
     
     self.barChartViewCotidianas = [[JBBarChartView alloc] init];
     self.barChartViewCotidianas.frame = self.viewSkillCotidianas.frame;
-    self.barChartViewCotidianas.frame = CGRectMake(self.viewSkillCotidianas.frame.origin.x, self.viewSkillCotidianas.frame.origin.y, self.barChartViewCotidianas.frame.size.width, 392);
+    self.barChartViewCotidianas.frame = CGRectMake(self.viewSkillCotidianas.frame.origin.x, self.viewSkillCotidianas.frame.origin.y, 800, 392);
     
     
     self.barChartViewCotidianas.delegate = self;
@@ -93,7 +94,7 @@
     
     self.barChartViewModales = [[JBBarChartView alloc] init];
     self.barChartViewModales.frame = self.viewSkillModales.frame;
-    self.barChartViewModales.frame = CGRectMake(self.viewSkillModales.frame.origin.x, self.viewSkillModales.frame.origin.y, self.barChartViewModales.frame.size.width, 392);
+    self.barChartViewModales.frame = CGRectMake(self.viewSkillModales.frame.origin.x, self.viewSkillModales.frame.origin.y, 800, 392);
     
     
     self.barChartViewModales.delegate = self;
@@ -105,7 +106,7 @@
     
     self.barChartViewEmociones = [[JBBarChartView alloc] init];
     self.barChartViewEmociones.frame = self.viewSkillEmociones.frame;
-    self.barChartViewEmociones.frame = CGRectMake(self.viewSkillEmociones.frame.origin.x, self.viewSkillEmociones.frame.origin.y, self.barChartViewEmociones.frame.size.width, 392);
+    self.barChartViewEmociones.frame = CGRectMake(self.viewSkillEmociones.frame.origin.x, self.viewSkillEmociones.frame.origin.y, 800, 392);
     
     
     self.barChartViewEmociones.delegate = self;
@@ -126,6 +127,47 @@
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
     
    
+    
+    
+    JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 25.0)];
+    footerView.padding = 10.0f;
+    footerView.leftLabel.text = @"     Mayor nº fallos            Menor nº fallos                   media casa              media s.cotidianas          media b.modales          media emociones";
+    footerView.leftLabel.textColor = [UIColor whiteColor];
+    self.barChartViewGeneral.footerView = footerView;
+    
+    JBBarChartFooterView *footerViewCasa = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), 800 - (10.0 * 2), 25.0)];
+    footerViewCasa.padding = 10.0f;
+    footerViewCasa.leftLabel.text = @   "      Fallos seleccionar             Fallos emparejar                   Fallos ordenar                        Nota media";
+    footerViewCasa.leftLabel.backgroundColor = [UIColor clearColor];
+    footerViewCasa.leftLabel.textColor = [UIColor whiteColor];
+    self.barChartViewCasa.footerView = footerViewCasa;
+    
+    
+    
+    JBBarChartFooterView *footerViewCotidianas = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), 800 - (10.0 * 2), 25.0)];
+    footerViewCotidianas.padding = 10.0f;
+    footerViewCotidianas.leftLabel.text = @   "      Fallos seleccionar             Fallos emparejar                   Fallos ordenar                        Nota media";
+    footerViewCotidianas.leftLabel.backgroundColor = [UIColor clearColor];
+    footerViewCotidianas.leftLabel.textColor = [UIColor whiteColor];
+    self.barChartViewCotidianas.footerView = footerViewCotidianas;
+
+    
+    JBBarChartFooterView *footerViewModales= [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), 800 - (10.0 * 2), 25.0)];
+    footerViewModales.padding = 10.0f;
+    footerViewModales.leftLabel.text = @   "      Fallos seleccionar             Fallos emparejar                   Fallos ordenar                        Nota media";
+    footerViewModales.leftLabel.backgroundColor = [UIColor clearColor];
+    footerViewModales.leftLabel.textColor = [UIColor whiteColor];
+    self.barChartViewModales.footerView = footerViewModales;
+    
+    
+    JBBarChartFooterView *footerViewEmociones = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), 800 - (10.0 * 2), 25.0)];
+    footerViewEmociones.padding = 10.0f;
+    footerViewEmociones.leftLabel.text = @   "      Fallos seleccionar             Fallos emparejar                   Fallos ordenar                        Nota media";
+    footerViewEmociones.leftLabel.backgroundColor = [UIColor clearColor];
+    footerViewEmociones.leftLabel.textColor = [UIColor whiteColor];
+    self.barChartViewEmociones.footerView = footerViewEmociones;
+
+
     
     
     [self.viewSkillGeneral addSubview:self.barChartViewGeneral];
@@ -388,6 +430,290 @@
 }
 
 #pragma mark - JBChartViewDataSource
+- (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSUInteger)index touchPoint:(CGPoint)touchPoint
+{
+    
+    switch (barChartView.tag) {
+        case 1: //general
+        {
+            self.headerViewGeneral = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            switch (index) {
+                case 0:
+                {
+                    
+                    NSString *fallosJuego = @"";
+                    int maxFallos=0;
+                    if(self.numFallosCasa > self.numFallosCotidianas)
+                    {
+                        maxFallos = self.numFallosCasa;
+                        fallosJuego = @"Producido en juego Casa";
+                    }else
+                    {
+                        maxFallos = self.numFallosCotidianas;
+                        fallosJuego = @"Producido en juego Cosas Cotidianas";
+                    }
+                    if(maxFallos < self.numFallosModales)
+                    {
+                        maxFallos = self.numFallosModales;
+                        fallosJuego = @"Producido en juego Buenos modales";
+                    }
+                    if(maxFallos < self.numFallosEmociones)
+                    {
+                        maxFallos = self.numFallosEmociones;
+                        fallosJuego = @"Producido en juego Emociones";
+                    }
+                    self.headerViewGeneral.titleLabel.text =[NSString stringWithFormat: @"Mayor número de fallos cometidos en un juego %d", maxFallos];
+                    self.headerViewGeneral.subtitleLabel.text = fallosJuego;
+                }
+                    break;
+                case 1:
+                {
+                    NSString *fallosJuego = @"";
+                    int minFallos=0;
+                    if(self.numFallosCasa < self.numFallosCotidianas)
+                    {
+                        minFallos = self.numFallosCasa;
+                        fallosJuego = @"Producido en juego Casa";
+                    }else
+                    {
+                        minFallos = self.numFallosCotidianas;
+                        fallosJuego = @"Produdico en juego Cosas Cotidianas";
+                    }
+                    if(minFallos > self.numFallosModales)
+                    {
+                        minFallos = self.numFallosModales;
+                        fallosJuego = @"Producido en juego Buenos modales";
+                    }
+                    if(minFallos > self.numFallosEmociones)
+                    {
+                        minFallos = self.numFallosEmociones;
+                        fallosJuego = @"Producido en juego Emociones";
+                    }
+                    self.headerViewGeneral.titleLabel.text =[NSString stringWithFormat: @"Menor número de fallos cometidos en un juego %d", minFallos];
+                    self.headerViewGeneral.subtitleLabel.text = fallosJuego;
+                }
+                    break;
+                case 2:
+                {
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Casa:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%f / 10", self.notaCasa*10];
+                    ;
+                }
+                    break;
+                case 3:
+                {
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Cosas cotidianas:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaCotidianas*10];
+                }
+                    break;
+                case 4:
+                {
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Buenos Modales:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaModales*10];
+                }
+                    break;
+                case 5:
+                {
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Emociones:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaEmociones*10];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            
+            self.headerViewGeneral.separatorColor = [UIColor redColor];
+            self.barChartViewGeneral.headerView = self.headerViewGeneral;
+            self.headerViewGeneral.hidden = NO;
+        }
+            break;
+        case 2://casa
+        {
+            self.headerViewCasa = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            switch (index) {
+                case 0:
+                {
+                    self.headerViewCasa.titleLabel.text = @"Número de fallos para el nivel Seleccionar:";
+                    self.headerViewCasa.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosSeleccionarCasa];
+                }
+                    break;
+                case 1:
+                {
+                    self.headerViewCasa.titleLabel.text = @"Número de fallos para el nivel Emparejar:";
+                    self.headerViewCasa.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosEmparejarCasa];
+                }
+                    break;
+                case 2:
+                {
+                    self.headerViewCasa.titleLabel.text = @"Número de fallos para el nivel Ordenar:";
+                    self.headerViewCasa.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosOrdenarCasa];
+                }
+                    break;
+                case 3:
+                {
+                    self.headerViewCasa.titleLabel.text = @"Nota media para el juego:";
+                    self.headerViewCasa.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaCasa*10];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            self.headerViewCasa.separatorColor = [UIColor redColor];
+            self.barChartViewCasa.headerView = self.headerViewCasa;
+            self.headerViewCasa.hidden = NO;
+            break;
+        case 3://cotidianas
+        {
+            self.headerViewCotidianas = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            switch (index) {
+                case 0:
+                {
+                    self.headerViewCotidianas.titleLabel.text = @"Número de fallos para el nivel Seleccionar:";
+                    self.headerViewCotidianas.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosSeleccionarCotidianas];
+                }
+                    break;
+                case 1:
+                {
+                    self.headerViewCotidianas.titleLabel.text = @"Número de fallos para el nivel Emparejar:";
+                    self.headerViewCotidianas.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosEmparejarCotidianas];
+                    
+                }
+                    break;
+                case 2:
+                {
+                    self.headerViewCotidianas.titleLabel.text = @"Número de fallos para el nivel Ordenar:";
+                    self.headerViewCotidianas.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosOrdenarCotidianas];
+                }
+                    break;
+                case 3:
+                {
+                    self.headerViewCotidianas.titleLabel.text = @"Nota media para el juego:";
+                    self.headerViewCotidianas.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaCotidianas*10];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            self.headerViewCotidianas.separatorColor = [UIColor redColor];
+            self.barChartViewCotidianas.headerView = self.headerViewCotidianas;
+            self.headerViewCotidianas.hidden = NO;
+            break;
+        case 4://modales
+        {
+            self.headerViewModales = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            switch (index) {
+                case 0:
+                {
+                    self.headerViewModales.titleLabel.text = @"Número de fallos para el nivel Seleccionar:";
+                    self.headerViewModales.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosSeleccionarModales];
+                }
+                    break;
+                case 1:
+                {
+                    self.headerViewModales.titleLabel.text = @"Número de fallos para el nivel Emparejar:";
+                    self.headerViewModales.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosEmparejarModales];
+                }
+                    break;
+                case 2:
+                {
+                    self.headerViewModales.titleLabel.text = @"Número de fallos para el nivel Ordenar:";
+                    self.headerViewModales.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosOrdenarModales];
+                }
+                    break;
+                case 3:
+                {
+                    self.headerViewModales.titleLabel.text = @"Nota media para el juego:";
+                    self.headerViewModales.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaModales*10];
+                }
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+            self.headerViewModales.separatorColor = [UIColor redColor];
+            self.barChartViewModales.headerView = self.headerViewModales;
+            self.headerViewModales.hidden = NO;
+            break;
+        case 5://emociones
+        {
+            self.headerViewEmociones = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            switch (index) {
+                case 0:
+                {
+                    self.headerViewEmociones.titleLabel.text = @"Número de fallos para el nivel Seleccionar:";
+                    self.headerViewEmociones.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosSeleccionarEmociones];
+                }
+                    break;
+                case 1:
+                {
+                    self.headerViewEmociones.titleLabel.text = @"Número de fallos para el nivel Emparejar:";
+                    self.headerViewEmociones.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosOrdenarEmociones];
+                }
+                    break;
+                case 2:
+                {
+                    self.headerViewEmociones.titleLabel.text = @"Número de fallos para el nivel Ordenar:";
+                    self.headerViewEmociones.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosOrdenarEmociones];
+                }
+                    break;
+                case 3:
+                {
+                    self.headerViewEmociones.titleLabel.text = @"Nota media para el juego:";
+                    self.headerViewEmociones.subtitleLabel.text = [NSString stringWithFormat: @"%f /10", self.notaEmociones*10];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            self.headerViewEmociones.separatorColor = [UIColor redColor];
+            self.barChartViewEmociones.headerView = self.headerViewEmociones;
+            self.headerViewEmociones.hidden = NO;
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+
+- (void)didDeselectBarChartView:(JBBarChartView *)barChartView
+{
+    switch (barChartView.tag) {
+        case 1: //general
+            self.headerViewGeneral.hidden = YES;
+            break;
+        case 2://casa
+            self.headerViewCasa.hidden = YES;
+            break;
+        case 3://cotidianas
+            self.headerViewCotidianas.hidden = YES;
+            break;
+        case 4://modales
+            self.headerViewModales.hidden = YES;
+            break;
+        case 5://emociones
+            self.headerViewEmociones.hidden = YES;
+            break;
+        default:
+            break;
+    }
+    
+   
+}
+- (UIColor *)barSelectionColorForBarChartView:(JBBarChartView *)barChartView
+{
+    return [UIColor whiteColor];
+}
+
+
+
 
 - (BOOL)shouldExtendSelectionViewIntoHeaderPaddingForChartView:(JBChartView *)chartView
 {
@@ -408,16 +734,16 @@
             return 6;
             break;
         case 2://casa
-            return 3;
+            return 4;
             break;
         case 3://cotidianas
-            return 3;
+            return 4;
             break;
         case 4://modales
-            return 3;
+            return 4;
             break;
         case 5://emociones
-            return 3;
+            return 4;
             break;
         default:
             break;
@@ -425,15 +751,7 @@
     return 3;
 }
 
-- (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSUInteger)index touchPoint:(CGPoint)touchPoint
-{
-    
-}
 
-- (void)didDeselectBarChartView:(JBBarChartView *)barChartView
-{
-    
-}
 
 #pragma mark - JBBarChartViewDelegate
 
@@ -619,10 +937,7 @@
     //return (index % 2 == 0) ? kJBColorBarChartBarBlue : kJBColorBarChartBarGreen;
 }
 
-- (UIColor *)barSelectionColorForBarChartView:(JBBarChartView *)barChartView
-{
-    return [UIColor whiteColor];
-}
+
 //
 //- (CGFloat)barPaddingForBarChartView:(JBBarChartView *)barChartView
 //{

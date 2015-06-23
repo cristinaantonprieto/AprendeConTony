@@ -305,7 +305,7 @@ static UIColor *kJBBarChartViewDefaultBarColor = nil;
   
     CGFloat minHeight = [self minimumValue];
     CGFloat maxHeight = [self maximumValue];
-      NSLog(@"maxheiht = %f", maxHeight);
+   
     CGFloat value = [rawHeight floatValue];
     
     if ((maxHeight - minHeight) <= 0)

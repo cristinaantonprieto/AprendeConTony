@@ -18,6 +18,11 @@
 
 #import "JBBarChartView.h"
 #import "JBChartView.h"
+#import "JBChartHeaderView.h"
+#import "JBBarChartFooterView.h"
+#import "JBChartInformationView.h"
+
+
 
 
 @interface EstadisticasViewController : UIViewController<UINavigationControllerDelegate, UIScrollViewDelegate, JBBarChartViewDataSource, JBBarChartViewDelegate, JBChartViewDataSource, JBChartViewDelegate>
@@ -55,6 +60,17 @@
 @property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewCotidianas;
 @property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewModales;
 @property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewEmociones;
+
+@property (nonatomic, strong) JBChartInformationView *informationView;
+
+@property (nonatomic, strong) JBChartHeaderView *headerViewGeneral;
+@property (nonatomic, strong) JBChartHeaderView *headerViewCasa;
+@property (nonatomic, strong) JBChartHeaderView *headerViewCotidianas;
+@property (nonatomic, strong) JBChartHeaderView *headerViewModales;
+@property (nonatomic, strong) JBChartHeaderView *headerViewEmociones;
+
+
+
 
 @property(nonatomic, assign) long tiempoCasa;
 @property(nonatomic, assign) long tiempoCotidianas;
