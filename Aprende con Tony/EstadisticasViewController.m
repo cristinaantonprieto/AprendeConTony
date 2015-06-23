@@ -194,7 +194,7 @@
 {
     self.scrollView.scrollEnabled = YES;
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 4800)];
-    [self.scrollView setContentOffset:CGPointZero];
+  //  [self.scrollView setContentOffset:CGPointZero];
     [super viewDidLayoutSubviews];
     
 }
@@ -531,7 +531,9 @@
             break;
         case 2://casa
         {
+     
             self.headerViewCasa = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
+            
             switch (index) {
                 case 0:
                 {
