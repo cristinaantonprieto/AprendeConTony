@@ -43,7 +43,8 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
         _padding = kJBBarChartFooterPolygonViewDefaultPadding;
         
         _leftLabel = [[UILabel alloc] init];
-        _leftLabel.adjustsFontSizeToFitWidth = YES;
+        _leftLabel.adjustsFontSizeToFitWidth = NO;
+        [_leftLabel setFont:[UIFont systemFontOfSize: 13]];
      //   _leftLabel.font = kJBFontFooterLabel;
         //_leftLabel.textAlignment = NSTextAlignmentLeft;
         _leftLabel.shadowColor = [UIColor blackColor];

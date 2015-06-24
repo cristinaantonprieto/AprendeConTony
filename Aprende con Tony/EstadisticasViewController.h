@@ -40,36 +40,55 @@
 @property (nonatomic, retain) IBOutlet UILabel *labelEdad;
 @property (nonatomic, retain) IBOutlet UILabel *labelTipoAutismo;
 @property (nonatomic, retain) IBOutlet UILabel *labelGeneral;
-@property (nonatomic, retain) IBOutlet UILabel *labelCasa;
-@property (nonatomic, retain) IBOutlet UILabel *labelCotidianas;
-@property (nonatomic, retain) IBOutlet UILabel *labelEmociones;
-@property (nonatomic, retain) IBOutlet UILabel *labelModales;
+
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaDificultad;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaFallosSelecc;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaFallosEmp;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaFallosOrd;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaNivel;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaSuperado;
+@property (nonatomic, retain) IBOutlet UILabel *labelCasaTiempo;
+
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasDificultad;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasFallosSelecc;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasFallosEmp;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasFallosOrd;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasNivel;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasSuperado;
+@property (nonatomic, retain) IBOutlet UILabel *labelCotidianasTiempo;
+
+
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesDificultad;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesFallosSelecc;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesFallosEmp;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesFallosOrd;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesNivel;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesSuperado;
+@property (nonatomic, retain) IBOutlet UILabel *labelModalesTiempo;
+
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesDificultad;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesFallosSelecc;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesFallosEmp;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesFallosOrd;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesNivel;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesSuperado;
+@property (nonatomic, retain) IBOutlet UILabel *labelEmocionesTiempo;
+
 
 @property (nonatomic, retain) IBOutlet UIImageView *imagenUsuario;
 
 @property (nonatomic, retain) IBOutlet UIView *viewSkillGeneral;
-@property (nonatomic, retain) IBOutlet UIView *viewSkillCasa;
-@property (nonatomic, retain) IBOutlet UIView *viewSkillCotidianas;
-@property (nonatomic, retain) IBOutlet UIView *viewSkillEmociones;
-@property (nonatomic, retain) IBOutlet UIView *viewSkillModales;
+@property (nonatomic, retain) IBOutlet UIView *viewSkillErrores;
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewGeneral;
-@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewCasa;
-@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewCotidianas;
-@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewModales;
-@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewEmociones;
+@property(nonatomic, strong) IBOutlet JBBarChartView *barChartViewErrores;
 
 @property (nonatomic, strong) JBChartInformationView *informationView;
 
 @property (nonatomic, strong) JBChartHeaderView *headerViewGeneral;
-@property (nonatomic, strong) JBChartHeaderView *headerViewCasa;
-@property (nonatomic, strong) JBChartHeaderView *headerViewCotidianas;
-@property (nonatomic, strong) JBChartHeaderView *headerViewModales;
-@property (nonatomic, strong) JBChartHeaderView *headerViewEmociones;
-
-
+@property (nonatomic, strong) JBChartHeaderView *headerViewErrores;
 
 
 @property(nonatomic, assign) long tiempoCasa;
@@ -101,6 +120,7 @@
 @property (nonatomic, assign) float notaCotidianas;
 @property (nonatomic, assign) float notaModales;
 @property (nonatomic, assign) float notaEmociones;
+@property (nonatomic, assign) float notaMediaJuegos;
 
 
 @end
