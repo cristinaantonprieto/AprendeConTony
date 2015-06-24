@@ -18,6 +18,8 @@
 #import "JuegoEmociones.h"
 #import "JuegoCotidianas.h"
 #import "JuegoCasa.h"
+#import <AudioToolbox/AudioServices.h>
+#import  <AVFoundation/AVFoundation.h>
 
 @interface DashBoardViewController : UIViewController<UIAlertViewDelegate>
 {
@@ -39,6 +41,10 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *imagentony;
 @property (nonatomic, retain) IBOutlet UIImageView *guionPictogramas;
+
+
+@property(nonatomic, assign) SystemSoundID soundSelecciona;
+
 
 
 -(void)goToConfigurarUsuariosViewController:(id)sender;

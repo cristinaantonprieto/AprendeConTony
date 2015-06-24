@@ -22,6 +22,7 @@
 #import "DashBoardViewController.h"
 #import "IntermediaJuegoViewController.h"
 
+#import <AudioToolbox/AudioServices.h>
 
 @interface JuegoOrdenarViewController : UIViewController<UIAlertViewDelegate>
 {
@@ -71,6 +72,10 @@
 
 @property(nonatomic, retain)NSTimer *tiempoTotalOrdenar;
 @property(nonatomic, assign)int contadorTiempoTotalOrdenar;
+
+@property(nonatomic, assign) SystemSoundID soundBien;
+@property(nonatomic, assign) SystemSoundID soundOrdena;
+@property(nonatomic, assign) SystemSoundID soundAplausos;
 
 
 

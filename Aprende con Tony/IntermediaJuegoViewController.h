@@ -13,6 +13,7 @@
 #import "JuegoCotidianasViewController.h"
 #import "JuegoModalesViewController.h"
 #import "JuegoEmocionesViewController.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface IntermediaJuegoViewController : UIViewController
 {
@@ -35,6 +36,7 @@
 @property(nonatomic, retain) NSTimer *temporizador;
 @property(nonatomic, assign) int numJuego;
 
+@property(nonatomic, assign) SystemSoundID soundAhoraTu;
 
 
 -(void)comienzaTiempo:(NSTimer *) elContador;

@@ -10,7 +10,7 @@
 
 @implementation IntermediaJuegoViewController
 
-@synthesize imagenFondo, usuarioSeleccionado, context, numJuego;
+@synthesize imagenFondo, usuarioSeleccionado, context, numJuego, soundAhoraTu;
 @synthesize bolaUno, bolaDos,bolaTres,pictograma, temporizador, tiempoIncremento, nombreNivel;
 
 
@@ -59,13 +59,33 @@
             self.bolaDos.hidden = YES;
             break;
         case 2:
+        {
               NSLog(@"incremento 2");
             self.tiempoIncremento++;
             self.bolaUno.hidden = YES;
             self.pictograma.hidden = NO;
             
+            /*Cargar sonidos*/
+            NSString *soundAhoraTuPath = [[NSBundle mainBundle] pathForResource:@"ahoraJuegaTu"
+                                                                            ofType:@"aiff"];
+            
+            // If this file is actually in the bundle...
+            if(soundAhoraTuPath) {
+                // Create a file URL with this path
+                NSURL *soundAhoraTuURL = [NSURL fileURLWithPath:soundAhoraTuPath];
+                
+                // Register sound file located at that URL as a system sound
+                OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundAhoraTuURL, &soundAhoraTu);
+                if(err != kAudioServicesNoError)
+                    NSLog(@"Could not load %@, error code: %d", soundAhoraTuURL, (int)err);
+            }
+            
+            
+            AudioServicesPlaySystemSound(soundAhoraTu);
+            
+            
            // [self.view setNeedsDisplay];
-        
+        }
             break;
         case 3:
               NSLog(@"incremento 3");

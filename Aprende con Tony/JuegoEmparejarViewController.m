@@ -19,7 +19,7 @@
 @synthesize imagenRating, imagenTony, areaJuego, guionPictograma;
 @synthesize imagenCentral, imagenCuatro, imagenTres, imagenDos, imagenUno, bienArrastrada, accionCorrecta;
 @synthesize temporizadorBordeRojo, temporizadorEntreToquesEmparejar, temporizadorTony, tiempoImagenFinNivel;
-@synthesize tiempoTotalEmparejar, contadorTiempoTotalEmparejar;
+@synthesize tiempoTotalEmparejar, contadorTiempoTotalEmparejar, soundBien, soundArrastra, soundAplausos;
 
 - (void)viewDidLoad {
     
@@ -44,6 +44,56 @@
     self.numAciertos=0;
     self.bienArrastrada = NO;
     self.accionCorrecta = NO;
+    
+    
+    /*Cargar sonidos*/
+    NSString *soundArrastraPath = [[NSBundle mainBundle] pathForResource:@"arrastra"
+                                                                ofType:@"aiff"];
+    
+    // If this file is actually in the bundle...
+    if(soundArrastraPath) {
+        // Create a file URL with this path
+        NSURL *soundArrastraURL = [NSURL fileURLWithPath:soundArrastraPath];
+        
+        // Register sound file located at that URL as a system sound
+        OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundArrastraURL, &soundArrastra);
+        if(err != kAudioServicesNoError)
+            NSLog(@"Could not load %@, error code: %d", soundArrastraURL, (int)err);
+    }
+    
+    NSString *soundBienPath = [[NSBundle mainBundle] pathForResource:@"acierto"
+                                                              ofType:@"aiff"];
+    
+    // If this file is actually in the bundle...
+    if(soundBienPath) {
+        // Create a file URL with this path
+        NSURL *soundBienURL = [NSURL fileURLWithPath:soundBienPath];
+        
+        // Register sound file located at that URL as a system sound
+        OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundBienURL, &soundBien);
+        if(err != kAudioServicesNoError)
+            NSLog(@"Could not load %@, error code: %d", soundBienPath, (int)err);
+    }
+    
+    /*Cargar sonidos*/
+    NSString *soundAplausoPath = [[NSBundle mainBundle] pathForResource:@"aplausos"
+                                                                 ofType:@"aiff"];
+    
+    // If this file is actually in the bundle...
+    if(soundAplausoPath) {
+        // Create a file URL with this path
+        NSURL *soundAplausoURL = [NSURL fileURLWithPath:soundAplausoPath];
+        
+        // Register sound file located at that URL as a system sound
+        OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundAplausoURL, &soundAplausos);
+        if(err != kAudioServicesNoError)
+            NSLog(@"Could not load %@, error code: %d", soundAplausoURL, (int)err);
+    }
+    
+    
+
+    
+    
     
     [self cargarVistaDelJuego];
     
@@ -85,8 +135,10 @@
     /** cargar datos segun el juego **/
     if ([nombreJuego isEqualToString:@"casa"]) {
         
-        if (self.usuarioSeleccionado.usuario_juegoCasa.voz.intValue == 0) {
-            // QUITAR SONIDO
+        if (self.usuarioSeleccionado.usuario_juegoCasa.voz.intValue == 1) {
+            // poner SONIDO
+            AudioServicesPlaySystemSound(soundArrastra);
+
         }
         if (self.usuarioSeleccionado.usuario_juegoCasa.guionPictos.intValue == 0) {
             // QUITAR GUION PICTOGRAMAS
@@ -119,8 +171,10 @@
         
     }else if([nombreJuego isEqualToString:@"cotidianas"])
     {
-        if (self.usuarioSeleccionado.usuario_juegoCotidianas.voz.intValue == 0) {
-            // QUITAR SONIDO
+        if (self.usuarioSeleccionado.usuario_juegoCotidianas.voz.intValue == 1) {
+            // poner SONIDO
+            AudioServicesPlaySystemSound(soundArrastra);
+
         }
         if (self.usuarioSeleccionado.usuario_juegoCotidianas.guionPictos.intValue == 0) {
             // QUITAR GUION PICTOGRAMAS
@@ -152,8 +206,10 @@
         
     }else if([nombreJuego isEqualToString:@"modales"])
     {
-        if (self.usuarioSeleccionado.usuario_juegoModales.voz.intValue == 0) {
-            // QUITAR SONIDO
+        if (self.usuarioSeleccionado.usuario_juegoModales.voz.intValue == 1) {
+            // poner SONIDO
+            AudioServicesPlaySystemSound(soundArrastra);
+
         }
         if (self.usuarioSeleccionado.usuario_juegoModales.guionPictos.intValue == 0) {
             // QUITAR GUION PICTOGRAMAS
@@ -185,8 +241,10 @@
         
     }else if([nombreJuego isEqualToString:@"emociones"])
     {
-        if (self.usuarioSeleccionado.usuario_juegoEmociones.voz.intValue == 0) {
-            // QUITAR SONIDO
+        if (self.usuarioSeleccionado.usuario_juegoEmociones.voz.intValue == 1) {
+            // poner SONIDO
+            AudioServicesPlaySystemSound(soundArrastra);
+
         }
         if (self.usuarioSeleccionado.usuario_juegoEmociones.guionPictos.intValue == 0) {
             // QUITAR GUION PICTOGRAMAS
@@ -599,6 +657,7 @@
         //****/
         
             self.numAciertos++;
+            AudioServicesPlaySystemSound(soundBien);
             
             //imagen rating
             UIImage *imagRating = [UIImage imageNamed:@"ratingtres.png"];
@@ -991,14 +1050,17 @@
     [self.tiempoImagenFinNivel invalidate];
     self.tiempoImagenFinNivel=nil;
     
+    
+    
     UIImageView *brickAnim = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"finNivelBien.png"]];
     brickAnim.frame = self.view.frame;
     [self.view addSubview:brickAnim];
     
+    AudioServicesPlaySystemSound(soundAplausos);
     
     [self.tiempoImagenFinNivel invalidate];
     self.tiempoImagenFinNivel = nil;
-    self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:4.0
+    self.tiempoImagenFinNivel = [NSTimer scheduledTimerWithTimeInterval:7.0
                                                                  target:self
                                                                selector:@selector(fincambioDeNivelAccionEmparejar)
                                                                userInfo:nil

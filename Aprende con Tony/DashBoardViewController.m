@@ -14,7 +14,7 @@
 
 @implementation DashBoardViewController
 
-@synthesize context, usuarioSeleccionado, imagentony, guionPictogramas;
+@synthesize context, usuarioSeleccionado, imagentony, guionPictogramas, soundSelecciona;
 @synthesize buttonCasa, buttonCotidianas, buttonEmociones, buttonModales;
 @synthesize juegoEmociones, juegoModales, juegoCotidianas, juegoCasa;
 
@@ -40,6 +40,27 @@
     [buttonHome setFrame:CGRectMake(0, 0, 34, 34)];
     UIBarButtonItem *barButtonH = [[UIBarButtonItem alloc] initWithCustomView:buttonHome];
     self.navigationItem.leftBarButtonItem = barButtonH;
+    
+  
+    /*Cargar sonidos*/
+    NSString *soundSeleccionaPath = [[NSBundle mainBundle] pathForResource:@"seleccionaJuego"
+                                                                 ofType:@"aiff"];
+    
+    // If this file is actually in the bundle...
+    if(soundSeleccionaPath) {
+        // Create a file URL with this path
+        NSURL *soundSeleccionaURL = [NSURL fileURLWithPath:soundSeleccionaPath];
+        
+        // Register sound file located at that URL as a system sound
+        OSStatus err = AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundSeleccionaURL, &soundSelecciona);
+        if(err != kAudioServicesNoError)
+            NSLog(@"Could not load %@, error code: %d", soundSeleccionaURL, (int)err);
+    }
+    
+   
+    AudioServicesPlaySystemSound(soundSelecciona);
+        
+    
 }
 
 -(void) viewWillDisappear:(BOOL)animated {

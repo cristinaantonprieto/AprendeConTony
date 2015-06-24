@@ -22,6 +22,8 @@
 #import "DashBoardViewController.h"
 #import "IntermediaJuegoViewController.h"
 
+#import <AudioToolbox/AudioServices.h>
+
 @interface JuegoEmparejarViewController : UIViewController
 {
     
@@ -69,6 +71,9 @@
 @property(nonatomic, retain)NSTimer *tiempoTotalEmparejar;
 @property(nonatomic, assign)int contadorTiempoTotalEmparejar;
 
+@property(nonatomic, assign) SystemSoundID soundBien;
+@property(nonatomic, assign) SystemSoundID soundArrastra;
+@property(nonatomic, assign) SystemSoundID soundAplausos;
 
 
 -(void)cargarVistaDelJuego;

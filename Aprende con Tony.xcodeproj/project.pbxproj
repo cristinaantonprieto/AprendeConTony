@@ -28,6 +28,15 @@
 		6B861BAD1B2AEEE500C5F0A5 /* JuegoModales.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B861BAC1B2AEEE500C5F0A5 /* JuegoModales.m */; };
 		6B885DE71B3948BA00701BA8 /* JBChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B885DE21B3948BA00701BA8 /* JBChartInformationView.m */; };
 		6BAE85F91B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE85F81B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m */; };
+		6BAEBFC61B3AABC000BDBCBD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAEBFC51B3AABC000BDBCBD /* AudioToolbox.framework */; };
+		6BAEBFC81B3AB0BC00BDBCBD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAEBFC71B3AB0BB00BDBCBD /* AVFoundation.framework */; };
+		6BAEBFD01B3AB2E400BDBCBD /* acierto.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFC91B3AB2E400BDBCBD /* acierto.aiff */; };
+		6BAEBFD11B3AB2E400BDBCBD /* ahoraJuegaTu.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCA1B3AB2E400BDBCBD /* ahoraJuegaTu.aiff */; };
+		6BAEBFD21B3AB2E400BDBCBD /* aplausos.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCB1B3AB2E400BDBCBD /* aplausos.aiff */; };
+		6BAEBFD31B3AB2E400BDBCBD /* arrastra.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCC1B3AB2E400BDBCBD /* arrastra.aiff */; };
+		6BAEBFD41B3AB2E400BDBCBD /* ordena.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCD1B3AB2E400BDBCBD /* ordena.aiff */; };
+		6BAEBFD51B3AB2E400BDBCBD /* selecciona.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCE1B3AB2E400BDBCBD /* selecciona.aiff */; };
+		6BAEBFD61B3AB2E400BDBCBD /* seleccionaJuego.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEBFCF1B3AB2E400BDBCBD /* seleccionaJuego.aiff */; };
 		6BB58C4D1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */; };
 		6BB58E941AFDFF9200614EC2 /* JuegoCasaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E931AFDFF9200614EC2 /* JuegoCasaViewController.m */; };
 		6BB58E971AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB58E961AFDFFAD00614EC2 /* JuegoSeleccionarViewController.m */; };
@@ -98,6 +107,15 @@
 		6B885DE21B3948BA00701BA8 /* JBChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartInformationView.m; sourceTree = "<group>"; };
 		6BAE85F71B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracionCaracteristicasJuegosViewController.h; sourceTree = "<group>"; };
 		6BAE85F81B00AE8D001DF837 /* ConfiguracionCaracteristicasJuegosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfiguracionCaracteristicasJuegosViewController.m; sourceTree = "<group>"; };
+		6BAEBFC51B3AABC000BDBCBD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6BAEBFC71B3AB0BB00BDBCBD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6BAEBFC91B3AB2E400BDBCBD /* acierto.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = acierto.aiff; path = ../../../sonidos/acierto.aiff; sourceTree = "<group>"; };
+		6BAEBFCA1B3AB2E400BDBCBD /* ahoraJuegaTu.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = ahoraJuegaTu.aiff; path = ../../../sonidos/ahoraJuegaTu.aiff; sourceTree = "<group>"; };
+		6BAEBFCB1B3AB2E400BDBCBD /* aplausos.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = aplausos.aiff; path = ../../../sonidos/aplausos.aiff; sourceTree = "<group>"; };
+		6BAEBFCC1B3AB2E400BDBCBD /* arrastra.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = arrastra.aiff; path = ../../../sonidos/arrastra.aiff; sourceTree = "<group>"; };
+		6BAEBFCD1B3AB2E400BDBCBD /* ordena.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = ordena.aiff; path = ../../../sonidos/ordena.aiff; sourceTree = "<group>"; };
+		6BAEBFCE1B3AB2E400BDBCBD /* selecciona.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = selecciona.aiff; path = ../../../sonidos/selecciona.aiff; sourceTree = "<group>"; };
+		6BAEBFCF1B3AB2E400BDBCBD /* seleccionaJuego.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = seleccionaJuego.aiff; path = ../../../sonidos/seleccionaJuego.aiff; sourceTree = "<group>"; };
 		6BB58C4B1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Usuario+UsuarioCategoria.h"; sourceTree = "<group>"; };
 		6BB58C4C1AF4CB3E0060C1EF /* Usuario+UsuarioCategoria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Usuario+UsuarioCategoria.m"; sourceTree = "<group>"; };
 		6BB58E921AFDFF9200614EC2 /* JuegoCasaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuegoCasaViewController.h; sourceTree = "<group>"; };
@@ -151,6 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BAEBFC81B3AB0BC00BDBCBD /* AVFoundation.framework in Frameworks */,
+				6BAEBFC61B3AABC000BDBCBD /* AudioToolbox.framework in Frameworks */,
 				6B5213FF1B32CAB40025F4F5 /* CoreGraphics.framework in Frameworks */,
 				6B5213FD1B32CAAD0025F4F5 /* Foundation.framework in Frameworks */,
 				6B5213FB1B32CAA60025F4F5 /* UIKit.framework in Frameworks */,
@@ -204,6 +224,8 @@
 				6BBE3F371B3865BE00A59326 /* JBBarChartFooterView.m */,
 				6B885DE11B3948BA00701BA8 /* JBChartInformationView.h */,
 				6B885DE21B3948BA00701BA8 /* JBChartInformationView.m */,
+				6BAEBFC71B3AB0BB00BDBCBD /* AVFoundation.framework */,
+				6BAEBFC51B3AABC000BDBCBD /* AudioToolbox.framework */,
 				6B5213FE1B32CAB40025F4F5 /* CoreGraphics.framework */,
 				6B5213FC1B32CAAD0025F4F5 /* Foundation.framework */,
 				6B5213FA1B32CAA60025F4F5 /* UIKit.framework */,
@@ -227,6 +249,13 @@
 		6BD752091AEE948000CA380B /* Aprende con Tony */ = {
 			isa = PBXGroup;
 			children = (
+				6BAEBFC91B3AB2E400BDBCBD /* acierto.aiff */,
+				6BAEBFCA1B3AB2E400BDBCBD /* ahoraJuegaTu.aiff */,
+				6BAEBFCB1B3AB2E400BDBCBD /* aplausos.aiff */,
+				6BAEBFCC1B3AB2E400BDBCBD /* arrastra.aiff */,
+				6BAEBFCD1B3AB2E400BDBCBD /* ordena.aiff */,
+				6BAEBFCE1B3AB2E400BDBCBD /* selecciona.aiff */,
+				6BAEBFCF1B3AB2E400BDBCBD /* seleccionaJuego.aiff */,
 				6B5214001B32CCF90025F4F5 /* Jawbone */,
 				6BD7520E1AEE948000CA380B /* AppDelegate.h */,
 				6BD7520F1AEE948000CA380B /* AppDelegate.m */,
@@ -383,9 +412,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BD7523A1AEEA58700CA380B /* Images.xcassets in Resources */,
+				6BAEBFD31B3AB2E400BDBCBD /* arrastra.aiff in Resources */,
+				6BAEBFD21B3AB2E400BDBCBD /* aplausos.aiff in Resources */,
+				6BAEBFD41B3AB2E400BDBCBD /* ordena.aiff in Resources */,
+				6BAEBFD11B3AB2E400BDBCBD /* ahoraJuegaTu.aiff in Resources */,
 				6B5214011B32CCF90025F4F5 /* Jawbone in Resources */,
 				6BD752191AEE948000CA380B /* Main.storyboard in Resources */,
+				6BAEBFD61B3AB2E400BDBCBD /* seleccionaJuego.aiff in Resources */,
+				6BAEBFD51B3AB2E400BDBCBD /* selecciona.aiff in Resources */,
 				6BD7521E1AEE948000CA380B /* LaunchScreen.xib in Resources */,
+				6BAEBFD01B3AB2E400BDBCBD /* acierto.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

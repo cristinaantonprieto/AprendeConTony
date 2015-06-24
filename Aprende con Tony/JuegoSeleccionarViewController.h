@@ -22,6 +22,8 @@
 #import "DashBoardViewController.h"
 #import "IntermediaJuegoViewController.h"
 
+#import <AudioToolbox/AudioServices.h>
+
 @interface JuegoSeleccionarViewController : UIViewController<UIAlertViewDelegate>
 {
     
@@ -66,6 +68,10 @@
 @property(nonatomic, retain) JuegoCotidianas *juegoCotidianas;
 @property (nonatomic, retain) JuegoModales *juegoModales;
 
+
+@property(nonatomic, assign) SystemSoundID soundBien;
+@property(nonatomic, assign) SystemSoundID soundSelecciona;
+@property(nonatomic, assign) SystemSoundID soundAplausos;
 
 //-(void)goToConfigurarUsuariosViewController:(id)sender;
 -(void)goToSeleccionarUsuariosViewController:(id)sender;
