@@ -167,10 +167,10 @@
             self.nombreImagenGuion = @""; //COMPLETAR!!!!!!
             //array de las correctas
             //string opcion correcta
-            self.stringCorrecta = @"palomitas";
+            self.stringCorrecta = @"palomitas.png";
             switch (num_dificultad) {
                 case 3: //dificultad mayor
-                    self.arrayPosibilidades = [[NSArray alloc]initWithObjects:@"palomitas.png", @"cubiertos.png", @".png",@"jabonManos.png", @"palomitas.png", nil];
+                    self.arrayPosibilidades = [[NSArray alloc]initWithObjects:@"palomitas.png", @"cubiertos.png",@"jabonManos.png", @"palomitas.png", nil];
                     self.stringIndiceCorrecto=@"1";
                     break;
                 case 2: //dificultad media
@@ -185,6 +185,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelEmpLavarManos:
         {
@@ -212,6 +213,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelEmpMocos:
         {
@@ -239,6 +241,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelEmpPapel:
         {

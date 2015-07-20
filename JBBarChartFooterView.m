@@ -29,7 +29,7 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
 {
 	if (self == [JBBarChartFooterView class])
 	{
-		kJBBarChartFooterViewDefaultBackgroundColor = [UIColor orangeColor];
+		kJBBarChartFooterViewDefaultBackgroundColor = [UIColor clearColor];
 	}
 }
 
@@ -47,7 +47,7 @@ static UIColor *kJBBarChartFooterViewDefaultBackgroundColor = nil;
         [_leftLabel setFont:[UIFont systemFontOfSize: 13]];
      //   _leftLabel.font = kJBFontFooterLabel;
         //_leftLabel.textAlignment = NSTextAlignmentLeft;
-        _leftLabel.shadowColor = [UIColor blackColor];
+        _leftLabel.shadowColor = [UIColor clearColor];
         _leftLabel.shadowOffset = CGSizeMake(0, 1);
         _leftLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:_leftLabel];

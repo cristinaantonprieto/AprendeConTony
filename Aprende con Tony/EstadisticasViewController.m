@@ -83,14 +83,14 @@
     
     JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 25.0)];
     footerView.padding = 10.0f;
-    footerView.leftLabel.text = @"  Nota media juegos              Nota media casa           Nota media cotidianas          Nota media modales       Nota media emociones";
+    footerView.leftLabel.text = @"  Nota media casa              Nota media cotidianas           Nota media modales          Nota media emociones       Nota media juegos";
     
     footerView.leftLabel.textColor = [UIColor whiteColor];
     self.barChartViewGeneral.footerView = footerView;
     
     JBBarChartFooterView *footerViewErrores = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(25.0 * 0.5), 800 - (10.0 * 2), 25.0)];
     footerViewErrores.padding = 10.0f;
-    footerViewErrores.leftLabel.text = @"      Media fallos                        Fallos Casa                    Fallos Cotidianas                   Fallos Modales               Fallos Emociones";
+    footerViewErrores.leftLabel.text = @"      Fallos Casa                    Fallos Cotidianas                   Fallos Modales               Fallos Emociones                        Media fallos";
     footerViewErrores.leftLabel.backgroundColor = [UIColor clearColor];
     footerViewErrores.leftLabel.textColor = [UIColor whiteColor];
     self.barChartViewErrores.footerView = footerViewErrores;
@@ -319,23 +319,22 @@
     /*
      PESO TIEMPO UN 30%
      
-     INTERVALOS:
-        [0-150] --> 30% (obtiene el maximo)
-        [151-250] --> 20%
-        [251- ...) --> 10%
+     Se considera que si el usuario supera un maximo de 250 segundos, esta excediendo demasiado el tiempo, por ello se toma este valor
+     como limite superior para calcular las notas. Teniendo que: 
+     
+     tiempo = (1-(tiempo/250))*10
+     
      */
     
     float tiempoNota = 0.0f;
     
-    if (tiempo<= 150) {
-        tiempoNota = 0.3;
-    }else if(tiempo >= 151 && tiempo<= 250)
-    {
-        tiempoNota = 0.2;
-    }else if(tiempo>= 251)
-    {
-        tiempoNota = 0.1;
+    if (tiempo > 250) {
+        tiempo = 250;
     }
+    
+    tiempoNota = (1-(tiempo/250))*10;
+    tiempoNota = tiempoNota * 0.3; //cuenta un 30% del total
+    NSLog(@"========>>>>>>>> Return Nota = %f", tiempoNota);
     
     return tiempoNota;
     
@@ -346,23 +345,17 @@
     /*
      PESO DIFICULTAD UN 40%
      
-     INTERVALOS:
-     DIFICULTAD 3 --> 40%
-     DIFICULTAD 2 --> 30%
-     DIFICULTAD 1 --> 20%
+     la dificultad viene determinada por el numero de dificultades que tengamos en este caso tres, teniendo que:
+     
+     Dificultad = (dificultadJuego / numDificultades) *10
      */
     
     float dificultadNota = 0.0f;
     
-    if (dificultad == 3) {
-        dificultadNota = 0.4;
-    }else if(dificultad ==2)
-    {
-        dificultadNota = 0.3;
-    }else if(dificultad== 1)
-    {
-        dificultadNota = 0.2;
-    }
+    dificultadNota = (dificultad/ 3)*10;
+    dificultadNota = dificultadNota *0.4; //cuenta un 40%
+    
+    NSLog(@"========>>>>>>>> Return dificultad = %f", dificultadNota);
     
     return dificultadNota;
 }
@@ -372,24 +365,21 @@
     /*
      PESO FALLOS UN 30%
      
-     INTERVALOS:
-     [0-10] --> 30%
-     [11-20] --> 20%
-     [21- ...) --> 10%
+     Se considera que si el usuario supera un maximo de 20 fallos, esta excediendo demasiado el maximo permitido, por ello se toma este valor
+     como limite superior para calcular las notas. Teniendo que:
+     
+     fallos = (1-(fallos/20))*10
      */
     
     float fallosNota = 0.0f;
     
-    if (fallos<= 10) {
-        fallosNota = 0.3;
-    }else if(fallos >= 151 && fallos<= 250)
-    {
-        fallosNota = 0.2;
-    }else if(fallos>= 251)
-    {
-        fallosNota = 0.1;
+    if (fallos > 20) {
+        fallos = 20;
     }
     
+    fallosNota = (1-(fallos/20))*10;
+    fallosNota = fallosNota * 0.3; //cuenta un 30% del total
+    NSLog(@"========>>>>>>>> Return Fallos = %f", fallosNota);
     return fallosNota;
 }
 
@@ -403,36 +393,36 @@
             self.headerViewGeneral = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
             switch (index) {
                 
-                case 0:
+                case 4:
                 {
                     self.headerViewGeneral.titleLabel.text = @"Nota media de los juegos:";
-                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f / 10", self.notaMediaJuegos*10];
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f / 10", self.notaMediaJuegos];
+                    ;
+                }
+                    break;
+                case 0:
+                {
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Casa:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f / 10", self.notaCasa];
                     ;
                 }
                     break;
                 case 1:
                 {
-                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Casa:";
-                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f / 10", self.notaCasa*10];
-                    ;
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Cosas cotidianas:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaCotidianas];
                 }
                     break;
                 case 2:
                 {
-                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Cosas cotidianas:";
-                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaCotidianas*10];
+                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Buenos Modales:";
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaModales];
                 }
                     break;
                 case 3:
                 {
-                    self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Buenos Modales:";
-                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaModales*10];
-                }
-                    break;
-                case 4:
-                {
                     self.headerViewGeneral.titleLabel.text = @"Nota media para el juego Emociones:";
-                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaEmociones*10];
+                    self.headerViewGeneral.subtitleLabel.text = [NSString stringWithFormat: @"%.02f /10", self.notaEmociones];
                 }
                     break;
                     
@@ -452,7 +442,7 @@
             self.headerViewErrores = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(10.0, ceil(self.view.bounds.size.height * 0.5) - ceil(80.0 * 0.5), self.view.bounds.size.width - (10.0 * 2), 80.0)];
             
             switch (index) {
-                case 0:
+                case 4:
                 {
                     self.headerViewErrores.titleLabel.text = @"Número medio de fallos:";
                     long mediafallos= 0;
@@ -460,25 +450,25 @@
                     self.headerViewErrores.subtitleLabel.text = [NSString stringWithFormat: @"%ld", mediafallos];
                 }
                     break;
-                case 1:
+                case 0:
                 {
                     self.headerViewErrores.titleLabel.text = @"Número de fallos para el juego Casa:";
                     self.headerViewErrores.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosCasa];
                 }
                     break;
-                case 2:
+                case 1:
                 {
                     self.headerViewErrores.titleLabel.text = @"Número de fallos para el juego Cosas Cotidianas:";
                     self.headerViewErrores.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosCotidianas];
                 }
                     break;
-                case 3:
+                case 2:
                 {
                     self.headerViewErrores.titleLabel.text = @"Número de fallos para el juego Buenos Modales:";
                     self.headerViewErrores.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosModales];
                 }
                     break;
-                case 4:
+                case 3:
                 {
                     self.headerViewErrores.titleLabel.text = @"Número de fallos para el juego Emociones:";
                     self.headerViewErrores.subtitleLabel.text = [NSString stringWithFormat: @"%d", self.numFallosEmociones];
@@ -561,35 +551,35 @@
     switch (barChartView.tag) {
         case 1://general
             switch (index) {
-                case 0: //nota media
+                case 4: //nota media
                 {
-                    NSLog(@"nota media sk = %f", self.notaMediaJuegos*100);
-                    return self.notaMediaJuegos*100;
+                    NSLog(@"nota media sk = %f", self.notaMediaJuegos);
+                    return self.notaMediaJuegos;
                 }
                     break;
                 
-                case 1: //nota casa
+                case 0: //nota casa
                 {
-                    NSLog(@"nota casa sk = %f", self.notaCasa*100);
-                    return self.notaCasa*100;
+                    NSLog(@"nota casa sk = %f", self.notaCasa);
+                    return self.notaCasa;
                 }
                     break;
-                case 2: //nota cotidianas
+                case 1: //nota cotidianas
                 {
-                    NSLog(@"nota cotidianas sk = %f", self.notaCotidianas*100);
-                    return self.notaCotidianas*100;
+                    NSLog(@"nota cotidianas sk = %f", self.notaCotidianas);
+                    return self.notaCotidianas;
                 }
                     break;
-                case 3: //nota modales
+                case 2: //nota modales
                 {
-                    NSLog(@"nota modales sk = %f", self.notaModales*100);
-                    return self.notaModales*100;
+                    NSLog(@"nota modales sk = %f", self.notaModales);
+                    return self.notaModales;
                 }
                     break;
-                case 4: //nota emociones
+                case 3: //nota emociones
                 {
-                    NSLog(@"nota emociones sk = %f", self.notaEmociones*100);
-                    return self.notaEmociones*100;
+                    NSLog(@"nota emociones sk = %f", self.notaEmociones);
+                    return self.notaEmociones;
                 }
                     break;
                 default:
@@ -598,25 +588,25 @@
             break;
         case 2://errores
             switch (index) {
-                case 0://fallos media
+                case 4://fallos media
                 {
                     long fallosmedia = (self.numFallosCasa + self.numFallosCotidianas + self.numFallosEmociones + self.numFallosModales)/4;
                     return fallosmedia;
                 }
                     break;
-                case 1: //fallos casa
+                case 0: //fallos casa
                     return self.numFallosCasa;
                     break;
-                case 2: //fallos cotidianas
+                case 1: //fallos cotidianas
                     return self.numFallosCotidianas;
                     break;
-                case 3: //fallos modales
+                case 2: //fallos modales
                 {
                     
                     return self.numFallosModales;
                 }
                     break;
-                case 4: //fallos emociones
+                case 3: //fallos emociones
                 {
                     
                     return self.numFallosEmociones;
@@ -637,7 +627,7 @@
 - (UIColor *)barChartView:(JBBarChartView *)barChartView colorForBarViewAtIndex:(NSUInteger)index
 {
     
-    return [UIColor yellowColor];
+    return [UIColor orangeColor];
   
 }
 

@@ -167,7 +167,7 @@
                 default:
                     break;
             }
-            
+            break;
         }
         case NombreNivelLavarManosOrdenar:
         {
@@ -192,7 +192,7 @@
                 default:
                     break;
             }
-            
+            break;
         }
         case NombreNivelMocosOrdenar:
         {
@@ -217,7 +217,7 @@
                 default:
                     break;
             }
-            
+            break;
         }
         case NombreNivelComerOrdenar:
         {

@@ -185,6 +185,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelLavarManos:
         {
@@ -212,6 +213,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelMocos:
         {
@@ -239,6 +241,7 @@
                 default:
                     break;
             }
+            break;
         }
         case NombreNivelPapel:
         {

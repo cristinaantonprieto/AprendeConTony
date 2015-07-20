@@ -3850,7 +3850,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.14767941600000001" green="0.64447113600000006" blue="0.30570568910000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15615131805123075" green="0.68144241125252536" blue="0.32324305976413026" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="4YX-vH-5we"/>
